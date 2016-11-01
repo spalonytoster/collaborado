@@ -1,17 +1,15 @@
 {
   "ecmaVersion": 6,
   "libs": [],
+  "loadEagerly": [ "*.js", "*/*.js", "*/*/*.js", "*/*/*/*.js" ],
+  "dontLoad": [ ".meteor" ],
   "plugins": {
-    "node": {
-      "dontLoad": "",
-      "load": "",
-      "modules": ""
-    },
-    "es_modules": {},
-    "angular": {},
     "doc_comment": {
       "fullDocs": true,
       "strong": false
-    }
+    },
+    "es_modules": {},
+    "angular": {},
+    "meteor": {}
   }
 }
