@@ -1,5 +1,5 @@
 // jshint esversion: 6
-import app from './app.module.js';
+import app from './app.module';
 
 function config($mdIconProvider, $mdThemingProvider) {
   'ngInject';
