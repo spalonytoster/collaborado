@@ -18,4 +18,14 @@ const name = 'dashboard';
 Dashboard.component(name, {
   template,
   controller: Collaborado
-});
+})
+  .config(config);
+
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider
+    .state('dashboard', {
+      url: '/dashboard',
+      template: '<dashboard></dashboard>'
+    });
+}
