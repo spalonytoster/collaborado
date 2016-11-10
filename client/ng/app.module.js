@@ -2,13 +2,12 @@
 
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularMaterial from 'angular-material';
-import angularAria from 'angular-aria';
-import angularAnimate from 'angular-animate';
 
-export default angular.module('collaborado', [
+import { name as Components } from './components/components.module';
+
+const name = 'app';
+
+export default angular.module(name, [
   angularMeteor,
-  angularMaterial,
-  angularAria,
-  angularAnimate
+  Components
 ]);

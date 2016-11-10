@@ -1,7 +1,7 @@
 // jshint esversion: 6
 
-import app from '../../app.module.js';
-import template from './collaborado.html';
+import Dashboard from './dashboard.module';
+import template from './dashboard.html';
 
 class Collaborado {
   constructor($scope, $mdSidenav) {
@@ -13,9 +13,9 @@ class Collaborado {
   }
 }
 
-const name = 'collaborado';
+const name = 'dashboard';
 
-app.component(name, {
+Dashboard.component(name, {
   template,
   controller: Collaborado
 });

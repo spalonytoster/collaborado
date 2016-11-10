@@ -1,10 +1,10 @@
 // jshint esversion: 6
 
-import app from '../../app.module.js';
+import Sidebar from './sidebar.module';
 import template from './sidebar.html';
 
 const name = 'sidebar';
 
-app.component(name, {
+Sidebar.component(name, {
   template
 });
