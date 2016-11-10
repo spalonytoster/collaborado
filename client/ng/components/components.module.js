@@ -5,11 +5,13 @@ import angularMeteor from 'angular-meteor';
 
 import { name as Dashboard } from './dashboard/dashboard.module';
 import { name as Sidebar } from './sidebar/sidebar.module';
+import { name as Login } from './login/login.module';
 
 const name = 'components';
 
 export default angular.module(name, [
   angularMeteor,
   Dashboard,
-  Sidebar
+  Sidebar,
+  Login
 ]);
