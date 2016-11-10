@@ -1,14 +1,18 @@
-<md-toolbar layout="row">
-  <md-button ng-click="$ctrl.toggleSidebar()" hide-gt-sm aria-label="Show Actions">
-    <md-icon>menu</md-icon>
-  </md-button>
-  <h2 ng-cloak>Collaborado</h2>
-</md-toolbar>
-
-<div flex layout="row">
+<div layout="row">
   <sidebar></sidebar>
 
-  <md-content flex id="content">
-    <div>content</div>
-  </md-content>
+  <div flex layout="column">
+    <md-toolbar layout="row" class="md-toolbar-tools" md-whiteframe="2">
+      <md-button ng-click="$ctrl.toggleSidebar()" class="md-icon-button md-ink-ripple" hide-gt-sm aria-label="Show Actions">
+        <md-icon>menu</md-icon>
+        <div class="md-ripple-container"></div>
+      </md-button>
+      <div layout="row" flex>
+        <h2>Dashboard</h2>
+      </div>
+    </md-toolbar>
+    <md-content flex id="content">
+      <div>content</div>
+    </md-content>
+  </div>
 </div>
