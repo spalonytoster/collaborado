@@ -6,20 +6,9 @@ import angularMaterial from 'angular-material';
 import angularAria from 'angular-aria';
 import angularAnimate from 'angular-animate';
 
-import template from './collaborado.html';
-
-class Collaborado { }
-
-const name = 'collaborado';
-
-// create a module
-export default angular.module(name, [
+export default angular.module('collaborado', [
   angularMeteor,
   angularMaterial,
   angularAria,
   angularAnimate
-]).component(name, {
-  template,
-  controllerAs: name,
-  controller: Collaborado
-});
+]);
