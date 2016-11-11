@@ -5,9 +5,11 @@ function config($mdIconProvider, $mdThemingProvider,
                 $locationProvider, $urlRouterProvider) {
   'ngInject';
 
-  $mdThemingProvider.theme('default')
-     .primaryPalette('blue')
-     .accentPalette('red');
+  $mdThemingProvider
+    .theme('default')
+    .primaryPalette('blue', {
+      default: '700'
+    });
 
   $locationProvider.html5Mode(true);
 
