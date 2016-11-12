@@ -1,0 +1,42 @@
+<div layout="column" layout-align="center none" class="posts">
+  <div id="new-post-form" md-whiteframe="2" layout="column" flex>
+    <form>
+      <div id="new-post-textarea" class="row" layout-margin>
+        <md-input-container class="md-block">
+          <textarea ng-model="post.body" md-maxlength="150" rows="5" md-select-on-focus placeholder="What's on your mind?"></textarea>
+        </md-input-container>
+      </div>
+      <div id="new-post-controls" class="row" layout="row" layout-margin>
+        <div id="new-post-controls-buttons">
+          <md-button class="md-icon-button">
+            <md-icon>insert_photo</md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+            <md-icon>attach_file</md-icon>
+          </md-button>
+        </div>
+        <div flex>
+          <md-button id="new-post-submit" class="md-raised md-primary">Submit</md-button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="post" layout="column" layout-padding md-whiteframe="2">
+    <div layout="row" flex>
+      <span class="post-author-avatar"><img src="/images/avatar.png" alt="" /></span>
+      <div class="post-author-data" layout="column" flex layout-align="">
+        <div layout="row" flex>
+          <div flex>Maciej Posłuszny</div>
+          <div flex class="post-time"><span> 4h ago</span></div>
+        </div>
+        <div flex>@industry.posluszny</div>
+      </div>
+    </div>
+    <div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+
+
+</div>
