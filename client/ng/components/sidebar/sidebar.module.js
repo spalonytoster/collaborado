@@ -2,15 +2,20 @@
 
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularMaterial from 'angular-material';
-import angularAria from 'angular-aria';
+
 import angularAnimate from 'angular-animate';
+import angularAria from 'angular-aria';
+import angularMaterial from 'angular-material';
+import ngMaterialSidenav from 'angular-material-sidenav';
+import uiRouter from 'angular-ui-router';
 
 const name = 'sidebar';
 
 export default angular.module(name, [
   angularMeteor,
-  angularMaterial,
+  angularAnimate,
   angularAria,
-  angularAnimate
+  angularMaterial,
+  'sasrio.angular-material-sidenav',
+  uiRouter
 ]);
