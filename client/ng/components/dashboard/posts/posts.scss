@@ -1,5 +1,9 @@
+.icon-gray {
+  color: rgba(0,0,0,0.54);
+}
+
 .posts {
-  
+
   margin: 0 15%;
 
   #new-post-form {
@@ -19,11 +23,24 @@
     }
 
     .post-author-data {
-      padding-left: 5px;
+      padding-left: 10px;
+
+      .post-display-name {
+        font-weight: bold;
+      }
     }
 
     .post-time > span {
       float: right;
+    }
+
+    .post-controls {
+      padding-top: 0px;
+    }
+
+    .post-body {
+      padding-top: 0px;
+      padding-bottom: 0px;
     }
   }
 }
