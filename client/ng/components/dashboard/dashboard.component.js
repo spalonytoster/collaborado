@@ -8,7 +8,7 @@ class Collaborado {
     'ngInject';
 
     this.toggleSidebar = () => {
-      $mdSidenav('sidebar').toggle();
+      $mdSidenav('left').toggle();
     };
   }
 }
