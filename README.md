@@ -8,9 +8,9 @@ As simple as that!
 
 ---
 
-# Deadlines
+# Harmonogram pracy
 
-### 1. Prototyp (termin ok. 1-szego kolokwium na zajęciach)
+### 1. Prototyp (termin ok. 1-szego kolokwium na zajęciach - ~5 grudnia???)
 (piszemy fronty i logikę w angularze)
 
 - [ ] Dashboard (Maciej)
