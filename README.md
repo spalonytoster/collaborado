@@ -10,7 +10,12 @@ As simple as that!
 
 # Harmonogram pracy
 
-### 1. Prototyp (termin ok. 1-szego kolokwium na zajęciach - ~5 grudnia???)
+### 0. Wstęp
+- [x] Zaznajomienie się ze stosem technologicznym (materiały i tutoriale: Meteor, Angular 1.5+, Angular Material)
+- [x] Zdefiniowanie struktury projektu - integracja meteora z Angularem oraz przyjęcie konwencji do budowania kolejnych części składowych aplikacji (Maciej)
+
+
+### 1. Prototyp (do 9 grudnia)
 (piszemy fronty i logikę w angularze)
 
 - [ ] Dashboard (Maciej)
@@ -30,7 +35,7 @@ As simple as that!
   - [ ] Opracowanie sposobu autoryzacji w aplikacji (zapewne token)
   - [ ] Logowanie za pomocą serwisów FB, GitHub, Google
 
-### 2. Wersja alpha (termin ok. 2-giego kolokwium)
+### 2. Wersja alpha (do 26 stycznia)
 (zamieniamy zaślepki na działający backend)
 
 - [ ] Dashboard (grupy, kanały, routing)
