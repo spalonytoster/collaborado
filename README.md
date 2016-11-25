@@ -38,6 +38,8 @@ As simple as that!
 ### 2. Wersja alpha (do 26 stycznia)
 (zamieniamy zaślepki na działający backend)
 
+(podzadania zostaną utworzone w momencie rozpoczęcia prac nad tą cześcią aplikacji)
+
 - [ ] Dashboard (grupy, kanały, routing)
 - [ ] Posty
 - [ ] Live-chat
