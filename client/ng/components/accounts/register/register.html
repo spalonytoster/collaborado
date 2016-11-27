@@ -1,0 +1,37 @@
+<!-- Register -->
+
+		<div layout="column" flex class="content">
+				<div class="align-height" layout="row" layout-align="center center" layout-fill>
+					<md-whiteframe class="md-whiteframe-z2" layout="column" flex="25" flex-sm="80" layout-padding>
+						<md-toolbar class="md-raised">
+					    <div class="md-toolbar">
+					    	<h1>Collaborado</h1>
+								<h4>Registration</h4>
+					    </div>
+					  </md-toolbar>
+
+							<md-input-container style="margin-top:40px">
+								<label>Login</label>
+								<input ng-model="user.email" required>
+							</md-input-container>
+							<md-input-container>
+								<label>Password</label>
+								<input ng-model="user.password" type="password" required>
+							</md-input-container>
+							<md-input-container>
+								<label>Retype Password</label>
+								<input ng-model="user.password2" type="password" required>
+							</md-input-container>
+								<md-checkbox class="md-primary" ng-model="data.cb1" aria-label="Checkbox 1" required>I accept terms</md-checkbox>
+
+
+							<md-input-container layout-align="center center">
+								<div layout="column" layout layout-margin>
+									<md-button class="md-raised md-primary" flex="100">Register</md-button>
+									<a class="md-primary md-button md-cyan-theme" aria-label="Go back to login screen" href="{{route='login'}}">Go back to login screen</a>
+								</div>
+							</md-input-container>
+					</md-whiteframe>
+				</div>
+
+		</div>
