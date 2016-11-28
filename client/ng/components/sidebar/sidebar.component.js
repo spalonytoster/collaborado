@@ -2,39 +2,60 @@
 
 import module from './sidebar.module';
 import template from './sidebar.html';
+import data from './data.json';
+
+function refreshGroups(data) {
+
+}
+
+function refreshChannels(group) {
+
+}
+
+function groupsToSections(data) {
+  let groups = [],
+    channels = [];
+
+  data.groups.forEach((group) => {
+    groups.push({
+      id: group.name,
+      name: group.displayName
+    });
+
+    group.channels.forEach((channel) => {
+      channels.push({
+        id: channel.name,
+        name: channel.displayName,
+        stateful: true,
+        state: 'channelState'
+      });
+    });
+  });
+
+  let sections = [{
+    id: 'groups',
+    name: 'Groups',
+    type: 'toggle',
+    pages: groups
+  }, {
+    id: 'channels',
+    name: 'Channels',
+    type: 'toggle',
+    pages: channels
+  }];
+
+  return sections;
+}
 
 class Sidebar {
-  constructor($scope, ssSideNav, $timeout) {
+  constructor($scope, $timeout) {
     'ngInject';
 
-    ssSideNav.sections = [{
-      id: 'toogle_3',
-      name: 'Section Heading 3',
-      type: 'heading',
-      children: [{
-        name: 'Toogle 3',
-        type: 'toggle',
-        pages: [{
-          id: 'toogle_3_link_1',
-          name: 'item 1',
-          state: 'common.toggle3.item1'
-        }, {
-          id: 'toogle_3_link_2',
-          name: 'item 2',
-          state: 'common.toggle3.item2'
-        }]
-      }]
-    }];
+    // ssSideNav.sections = groupsToSections(data);
+    // ssSideNav.toggleSelectSection(ssSideNav.sections[0]);
+    // ssSideNav.toggleSelectSection(ssSideNav.sections[1]);
 
-    $timeout(() => {
-      ssSideNav.forceSelectionWithId('toogle_3_link_1');
-    }, 10);
-
-    $scope.sidebar = ssSideNav;
-
-    $scope.onClickMenu = function() {
-      $mdSidenav('left').toggle();
-    };
+    // this.sidebar = ssSideNav;
   }
 }
 

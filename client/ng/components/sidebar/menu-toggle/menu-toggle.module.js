@@ -6,19 +6,15 @@ import angularMeteor from 'angular-meteor';
 import angularAnimate from 'angular-animate';
 import angularAria from 'angular-aria';
 import angularMaterial from 'angular-material';
-import uiRouter from 'angular-ui-router';
 
-import { name as MenuLink } from './menu-link/menu-link.module';
-import { name as MenuToggle } from './menu-toggle/menu-toggle.module';
+import { name as MenuLink } from './../menu-link/menu-link.module';
 
-const name = 'sidebar';
+const name = 'menuToggle';
 
 export default angular.module(name, [
   angularMeteor,
   angularAnimate,
   angularAria,
   angularMaterial,
-  uiRouter,
-  MenuLink,
-  MenuToggle
+  MenuLink
 ]);
