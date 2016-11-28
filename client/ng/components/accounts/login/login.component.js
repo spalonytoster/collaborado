@@ -2,15 +2,29 @@
 
 import Login from './login.module';
 import template from './login.html';
-import {account} from './accounts.js';
-console.log(account);
+import {
+    account
+} from '../accounts.js';
+
 class LoginForm {
-    constructor() {
+    constructor($state) {
+        'ngInject';
         this.user = {};
+
     }
 
     submit() {
-        console.log(this.user);
+        for (let i = 0; i < account.length; i++) {
+            if ((this.user.email === account[i].email) && (this.user.password === account[i].pass)) {
+                console.log("Logged as " + this.user.email);
+              //  $state.go("dashboard");
+                break;
+            } else if ((i + 1) === account.length) {
+                document.getElementById("message-span").innerHTML = "Wrong Email or Password";
+                document.getElementById("message-span").style.color = "red";
+            }
+        }
+
     }
 }
 

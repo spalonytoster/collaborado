@@ -1,0 +1,36 @@
+.login-content {
+    background: url("http://www.wallpaperscharlie.com/wp-content/uploads/2016/10/Blue-Background-10.jpg") fixed no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+    .align-height {
+        min-height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+        font-style: italic;
+    }
+
+    md-whiteframe {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    md-toolbar {
+        border-radius: 10px 10px 0 0;
+    }
+
+    md-checkbox {
+        color: rgba(0,0,0,0.38);
+    }
+
+    md-checkbox:last-of-type {
+        margin-left: 15px;
+    }
+
+}
