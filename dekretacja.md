@@ -1,6 +1,6 @@
 # Dekretacja czasu pracy
 
-### Maciej (46,25h):
+### Maciej (51,75h):
 - 13 październik 1h - Planowe zajęcia 'Projekt zespołowy'.
 - ??? październik (zbiorczo) +15h - Pomysł na projekt; Szkice i wytyczne; Wybór technologii; Tutorial oraz artykuły blogowe nt. Meteora, Angulara 1.5+; Praca nad strukturą i bazą dla projektu (codebase); Dokumentowanie działań na GitHubie (tworzenie zadań oraz wytycznych do ich realizacji; opis celów).
 - 3 listopad (albo 27 październik) ~30 min - Spotkanie z P. Arłukowiczem. Przedstawienie pomysłu na projekt, celów i założe oraz planu działania.
@@ -13,3 +13,4 @@
 - 19 listopad 11:50-16:20 - Praca nad komponentem `LiveChat` wspólnie z Pawłem poprzez Skype.
 - 20 listopad ok. 25 min - Spisanie harmonogramu pracy.
 - 25 listopad ok. 30 min - Utworzenie dokumentu z dekretacją czasu pracy.
+- 28 listopad ok. 13:30-19:00 - Praca nad sidebarem (rozwijanie kilku toggle na raz, informacje o profilu). Będzie trzeba przepisać komponent 'ss-sidenav'.
