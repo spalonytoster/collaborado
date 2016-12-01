@@ -1,0 +1,14 @@
+<div class="message" layout="row" layout-padding>
+  <span class="message-author-avatar"><img src="/images/avatar.png" alt="" /></span>
+  <div layout="column" flex>
+    <div class="message-author" flex>
+      {{ $ctrl.message.author }}
+    </div>
+    <div class="message-body" flex>
+      {{ $ctrl.message.body }}
+    </div>
+  </div>
+  <div class="message-timestamp" flex>
+    <span>{{ $ctrl.message.created }}</span>
+  </div>
+</div>
