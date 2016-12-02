@@ -14,33 +14,55 @@ As simple as that!
 - [x] Zaznajomienie się ze stosem technologicznym (materiały i tutoriale: Meteor, Angular 1.5+, Angular Material)
 - [x] Zdefiniowanie struktury projektu - integracja meteora z Angularem oraz przyjęcie konwencji do budowania kolejnych części składowych aplikacji (Maciej)
 
-
 ### 1. Prototyp (do 9 grudnia)
-(piszemy fronty i logikę w angularze)
+(cel: skończony front i podstawowa logika w angularze)
 
 - [ ] Dashboard (Maciej)
-  - [ ] Dane użytkownika
-  - [ ] Podział na grupy, kanały
-  - [ ] Routing
-
-- [ ] Posty (Maciej + ???)
-  - [ ] Dodawanie plików
-  - [ ] Zaawansowane wyszukiwanie (m.in. po tagach)
-  - [ ] Podziękowania
-  - [ ] Podłączenie czatu
+  - [x] Baza HTML (8h)
+  - [ ] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
+  - [ ] Połącznie z komponentem Sidebar celem odbierania danych profilu użytkownika + ustawień aplikacji (3h)
+  - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
   
-- [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (Paweł)
+- [ ] Sidebar (Maciej)
+  - [x] Baza HTML (16h)
+  - [ ] Przepisanie modułu https://github.com/sovanna/angular-material-sidenav (4h)
+  - [ ] Ustawienia profilu/aplikacji (popup) (3h)
+  - [ ] Dodawanie grup (popup) (2h)
+  - [ ] Dodawanie channeli (tylko admin grupy) (2h)
+  - [ ] Dynamiczny routing dla grup i channeli (3h)
+  - [ ] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
+
+- [ ] Posty
+  - [ ] Nowy post (Karol + Maciej)
+    - [x] Baza HTML (Karol + Maciej) (8h)
+    - [ ] Obsługa tagów (2h) (Karol)
+    - [ ] Dodawanie plików (2h) (Karol)
+    - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (2h) (Karol)
+    - [ ] Walidacje (2h)
+  - [ ] Post
+    - [x] Baza HTML (Karol + Maciej) (8h)
+    - [ ] Możliwość usuwania oraz edycji (3h)
+    - [ ] Timestampy (integracja z moment.js) (1h)
+    - [ ] Przejście do live-chat (popup) (1h) (Paweł)
+  - [ ] Filtrowanie postów (sidebar z prawej strony) (Maciej)
+    - [ ] Utworzenie sidebaru oraz komunikacja z listą postów (2h)
+    - [ ] Wprowadzenie reguł filtrowania (1h)
+  
+- [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (8h) (Paweł)
+  - [ ] Baza HTML (6h)
+  - [ ] Wysyłanie wiadomości za pomocą enter (1h)
   
 - [ ] Logowanie/rejestracja (Karol)
-  - [ ] Opracowanie sposobu autoryzacji w aplikacji (zapewne token)
-  - [ ] Logowanie za pomocą serwisów FB, GitHub, Google
+  - [x] Utworzenie formatki logowania (3h)
+  - [x] Utworzenie formatki rejestracji (3h)
+  - [x] Routing (/login, /register, przejście do /dashboard) (1h)
+  - [ ] Walidacje (2h)
 
-### 2. Wersja alpha (do 26 stycznia)
-(zamieniamy zaślepki na działający backend)
+### 2. Wersja alpha (do 19 stycznia)
+(cel: zamiana frontendowych zaślepek na działający backend)
 
-(podzadania zostaną utworzone w momencie rozpoczęcia prac nad tą cześcią aplikacji)
-
-- [ ] Dashboard (grupy, kanały, routing)
+- [ ] Dashboard
+- [ ] Sidebar
 - [ ] Posty
 - [ ] Live-chat
 - [ ] Logowanie/rejestracja
