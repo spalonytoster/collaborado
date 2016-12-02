@@ -37,7 +37,7 @@ As simple as that!
     - [x] Baza HTML (Karol + Maciej) (8h)
     - [ ] Obsługa tagów (2h) (Karol)
     - [ ] Dodawanie plików (2h) (Karol)
-    - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (2h) (Karol)
+    - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
     - [ ] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Baza HTML (Karol + Maciej) (8h)
