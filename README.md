@@ -41,7 +41,7 @@ As simple as that!
     - [ ] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Baza HTML (Karol + Maciej) (8h)
-    - [ ] Możliwość usuwania oraz edycji (3h) (Paweł)
+    - [ ] Możliwość usuwania oraz edycji (4h) (Paweł)
     - [ ] Przejście do live-chat (popup) (2h) (Paweł)
   - [ ] Filtrowanie postów (sidebar z prawej strony) (Maciej)
     - [ ] Utworzenie sidebaru oraz komunikacja z listą postów (3h)
