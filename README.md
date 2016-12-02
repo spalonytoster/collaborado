@@ -42,10 +42,10 @@ As simple as that!
   - [ ] Post
     - [x] Baza HTML (Karol + Maciej) (8h)
     - [ ] Możliwość usuwania oraz edycji (3h) (Paweł)
-    - [ ] Przejście do live-chat (popup) (1h) (Paweł)
+    - [ ] Przejście do live-chat (popup) (2h) (Paweł)
   - [ ] Filtrowanie postów (sidebar z prawej strony) (Maciej)
-    - [ ] Utworzenie sidebaru oraz komunikacja z listą postów (2h)
-    - [ ] Wprowadzenie reguł filtrowania (1h)
+    - [ ] Utworzenie sidebaru oraz komunikacja z listą postów (3h)
+    - [ ] Wprowadzenie reguł filtrowania (po tagach, treści postu, zakresie dat) (3h)
   
 - [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (8h) (Paweł)
   - [ ] Baza HTML (6h)
