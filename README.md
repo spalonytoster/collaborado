@@ -33,16 +33,15 @@ As simple as that!
   - [ ] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
 
 - [ ] Posty
-  - [ ] Nowy post (Karol + Maciej)
+  - [ ] Nowy post
     - [x] Baza HTML (Karol + Maciej) (8h)
     - [ ] Obsługa tagów (2h) (Karol)
     - [ ] Dodawanie plików (2h) (Karol)
     - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (2h) (Karol)
-    - [ ] Walidacje (2h)
+    - [ ] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Baza HTML (Karol + Maciej) (8h)
-    - [ ] Możliwość usuwania oraz edycji (3h)
-    - [ ] Timestampy (integracja z moment.js) (1h)
+    - [ ] Możliwość usuwania oraz edycji (3h) (Paweł)
     - [ ] Przejście do live-chat (popup) (1h) (Paweł)
   - [ ] Filtrowanie postów (sidebar z prawej strony) (Maciej)
     - [ ] Utworzenie sidebaru oraz komunikacja z listą postów (2h)
@@ -64,5 +63,9 @@ As simple as that!
 - [ ] Dashboard
 - [ ] Sidebar
 - [ ] Posty
+  - [ ] Timestampy (integracja z Moment.js) (2h)
 - [ ] Live-chat
+  - [ ] Timestampy (integracja z Moment.js) (2h)
 - [ ] Logowanie/rejestracja
+  - [ ] Sposób bezpiecznej autentykacji (przykład na stronie angular meteor)
+  - [ ] Możliwość logowania za pomocą loginu oraz email
