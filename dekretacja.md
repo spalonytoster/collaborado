@@ -14,4 +14,5 @@
 - 20 listopad ok. 25 min - Spisanie harmonogramu pracy.
 - 25 listopad ok. 30 min - Utworzenie dokumentu z dekretacją czasu pracy.
 - 28 listopad ok. 13:30-19:00 - Praca nad sidebarem (rozwijanie kilku toggle na raz, informacje o profilu). Będzie trzeba przepisać komponent 'ss-sidenav'.
-- 1 grudzień 4,5h - spotkanie grupowe: praca nad nowym harmonogramem oraz podziałem zadań; wprowadzenie nowych issues na githubie
+- 1 grudzień 4h - spotkanie grupowe: praca nad nowym harmonogramem oraz podziałem zadań
+- 2 grudzień 4,5h - wprowadzenie nowych issues na githubie + wycena pracy; raport do P. Arłukowicza
