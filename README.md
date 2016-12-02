@@ -18,42 +18,42 @@ As simple as that!
 (cel: skończony front i podstawowa logika w angularze)
 
 - [ ] Dashboard (Maciej)
-  - [x] Baza HTML (8h)
+  - [x] Struktura HTML (8h)
   - [ ] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
   - [ ] Połącznie z komponentem Sidebar celem odbierania danych profilu użytkownika + ustawień aplikacji (3h)
   - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
   
 - [ ] Sidebar (Maciej)
-  - [x] Baza HTML (16h)
+  - [x] Struktura HTML (16h)
   - [ ] Przepisanie modułu https://github.com/sovanna/angular-material-sidenav na komponenty NG 1.5 (4h)
   - [ ] Ustawienia profilu/aplikacji (popup) (3h)
   - [ ] Dodawanie grup (popup) (2h)
   - [ ] Dodawanie channeli (tylko admin grupy) (2h)
-  - [ ] Dynamiczny routing dla grup i channeli (3h)
+  - [ ] Dynamiczny routing dla grup i channeli (4h)
   - [ ] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
 
 - [ ] Posty
   - [ ] Nowy post
-    - [x] Baza HTML (Karol + Maciej) (8h)
+    - [x] Struktura HTML (Karol + Maciej) (8h)
     - [ ] Obsługa tagów (2h) (Karol)
-    - [ ] Dodawanie plików (2h) (Karol)
+    - [ ] Dodawanie plików (4h) (Karol)
     - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
     - [ ] Walidacje (2h) (Karol)
   - [ ] Post
-    - [x] Baza HTML (Karol + Maciej) (8h)
+    - [x] Struktura HTML (Karol + Maciej) (8h)
     - [ ] Możliwość usuwania oraz edycji (4h) (Paweł)
     - [ ] Przejście do live-chat (popup) (2h) (Paweł)
   - [ ] Filtrowanie postów (sidebar z prawej strony) (Maciej)
     - [ ] Utworzenie sidebaru oraz komunikacja z listą postów (3h)
     - [ ] Wprowadzenie reguł filtrowania (po tagach, treści postu, zakresie dat) (3h)
   
-- [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (8h) (Paweł)
-  - [ ] Baza HTML (6h)
+- [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (Paweł)
+  - [ ] Struktura HTML (8h)
   - [ ] Wysyłanie wiadomości za pomocą enter (1h)
   
 - [ ] Logowanie/rejestracja (Karol)
-  - [x] Utworzenie formatki logowania (3h)
-  - [x] Utworzenie formatki rejestracji (3h)
+  - [x] Utworzenie formatki logowania (4h)
+  - [x] Utworzenie formatki rejestracji (4h)
   - [x] Routing (/login, /register, przejście do /dashboard) (1h)
   - [ ] Walidacje (2h)
 
