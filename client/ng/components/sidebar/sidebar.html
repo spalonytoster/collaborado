@@ -3,40 +3,10 @@
             class="md-sidenav-left container sidebar"
             md-whiteframe="2">
 
-  <header class="nav-header">
-    <div class="user-profile" layout="row" layout-padding>
-      <span class="user-avatar"><img src="/images/avatar.png" alt=""/></span>
-      <div layout="column">
-        <span>Maciej Posłuszny</span>
-        <span>@spalonytoster</span>
-      </div>
-      <div style="padding: 0px;">
-        <md-button class="md-icon-button">
-          <md-tooltip>Settings</md-tooltip>
-          <md-icon style="color: white">settings</md-icon>
-        </md-button>
-      </div>
-    </div>
-  </header>
+  <menu-header user="$ctrl.user"></menu-header>
 
-  <md-content flex role="navigation">
-    <ul class="menu">
-      <menu-link></menu-link>
-      <menu-toggle></menu-toggle>
-      <!-- <li ng-repeat="section in $ctrl.sections" ng-if="!section.hidden">
-        <h2 class="menu-heading md-subhead" ng-if="section.type === 'heading'">
-          <span ng-if="section.icon" class="{{section.icon}}">&nbsp;&nbsp;</span>
-          {{section.name}}
-        </h2>
-        <menu-link section="section" ng-if="section.type === 'link'"></menu-link>
-        <menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
-        <ul ng-if="section.children">
-          <li ng-repeat="child in section.children" ng-if="!child.hidden">
-            <menu-link section="child" ng-if="child.type === 'link'"></menu-link>
-            <menu-toggle section="child" ng-if="child.type === 'toggle'"></menu-toggle>
-          </li>
-        </ul>
-      </li> -->
-    </ul>
+  <md-content class="menu" flex role="navigation" style="background-color: rgb(25, 118, 210);">
+    <menu-toggle name="groups" children="$ctrl.groups"></menu-toggle>
+    <menu-toggle name="channels" children="$ctrl.channels"></menu-toggle>
   </md-content>
 </md-sidenav>

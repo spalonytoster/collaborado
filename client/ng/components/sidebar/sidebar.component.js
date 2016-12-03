@@ -3,59 +3,41 @@
 import module from './sidebar.module';
 import template from './sidebar.html';
 import data from './data.json';
+import _ from 'lodash';
 
-function refreshGroups(data) {
-
-}
-
-function refreshChannels(group) {
-
-}
-
-function groupsToSections(data) {
-  let groups = [],
-    channels = [];
-
-  data.groups.forEach((group) => {
-    groups.push({
-      id: group.name,
+function extractElements(groups) {
+  let elements = [];
+  _.forEach(groups, (group, name) => {
+    elements.push({
+      id: name,
       name: group.displayName
     });
-
-    group.channels.forEach((channel) => {
-      channels.push({
-        id: channel.name,
-        name: channel.displayName,
-        stateful: true,
-        state: 'channelState'
-      });
-    });
   });
-
-  let sections = [{
-    id: 'groups',
-    name: 'Groups',
-    type: 'toggle',
-    pages: groups
-  }, {
-    id: 'channels',
-    name: 'Channels',
-    type: 'toggle',
-    pages: channels
-  }];
-
-  return sections;
+  return elements;
 }
 
 class Sidebar {
   constructor($scope, $timeout) {
     'ngInject';
 
-    // ssSideNav.sections = groupsToSections(data);
-    // ssSideNav.toggleSelectSection(ssSideNav.sections[0]);
-    // ssSideNav.toggleSelectSection(ssSideNav.sections[1]);
+    this.$onInit = () => {
+      this.groups = extractElements(data);
+      this.selectedGroup = this.groups[0];
+      this.channels = extractElements(data[this.selectedGroup.id].channels);
 
-    // this.sidebar = ssSideNav;
+      // console.log(this.groups);
+      // console.log(this.selectedGroup);
+      console.log(this.channels);
+
+      this.user = {
+        login: "spalonytoster",
+        name: "Maciej",
+        surname: "Posłuszny",
+        get displayName() {
+          return `${this.name} ${this.surname}`;
+        }
+      };
+    };
   }
 }
 

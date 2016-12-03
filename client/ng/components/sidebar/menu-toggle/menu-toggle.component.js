@@ -13,6 +13,10 @@ class MenuToggle {
 const name = 'menuToggle';
 
 module.component(name, {
+  bindings: {
+    name: '@',
+    children: '<'
+  },
   template,
   controller: MenuToggle
 });

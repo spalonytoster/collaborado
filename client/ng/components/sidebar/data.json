@@ -1,29 +1,30 @@
 {
-  "groups": [{
+  "uniwersytet-gdanski": {
     "displayName": "Uniwersytet Gdański",
-    "name": "uniwersytet-gdanski",
-    "channels": [{
-      "displayName": "Work",
-      "name": "work"
-    }, {
-      "displayName": "Information channel",
-      "name": "information-channel"
-    }, {
-      "displayName": "Offtop",
-      "name": "offtop"
-    }]
-  }, {
+    "channels": {
+      "work": {
+        "displayName": "Work"
+      },
+      "information-channel": {
+        "displayName": "Information channel"
+      },
+      "offtop": {
+        "displayName": "Offtop"
+      }
+    }
+  },
+  "java-user-group": {
     "displayName": "Java User Group",
-    "name": "java-user-group",
-    "channels": [{
-      "displayName": "General",
-      "name": "general"
-    }, {
-      "displayName": "Learning channel",
-      "name": "learning-channel"
-    }, {
-      "displayName": "Jobs",
-      "name": "jobs"
-    }]
-  }]
+    "channels": {
+      "general": {
+        "displayName": "General"
+      },
+      "learning-channel": {
+        "displayName": "Learning channel"
+      },
+      "jobs": {
+        "displayName": "Jobs"
+      }
+    }
+  }
 }

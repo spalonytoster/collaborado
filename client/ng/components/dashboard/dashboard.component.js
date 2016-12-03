@@ -23,9 +23,22 @@ Dashboard.component(name, {
 
 function config($stateProvider) {
   'ngInject';
+
+    $stateProvider
+    .state('groupChannel', {
+      url: '/group/:groupName/:channelName',
+      template: '<dashboard></dashboard>'
+    });
+
   $stateProvider
+    .state('group', {
+      url: '/group/:groupName',
+      template: '<dashboard></dashboard>'
+    });
+
+    $stateProvider
     .state('dashboard', {
-      url: '/dashboard',
+      url: '/',
       template: '<dashboard></dashboard>'
     });
 }

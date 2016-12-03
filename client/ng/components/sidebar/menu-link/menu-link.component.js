@@ -13,6 +13,9 @@ class MenuLink {
 const name = 'menuLink';
 
 module.component(name, {
+  bindings: {
+    link: '<'
+  },
   template,
   controller: MenuLink
 });
