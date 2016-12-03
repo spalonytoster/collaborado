@@ -16,3 +16,4 @@
 - 28 listopad ok. 13:30-19:00 - Praca nad sidebarem (rozwijanie kilku toggle na raz, informacje o profilu). Będzie trzeba przepisać komponent 'ss-sidenav'.
 - 1 grudzień 4h - spotkanie grupowe: praca nad nowym harmonogramem oraz podziałem zadań
 - 2 grudzień 4,5h - wprowadzenie nowych issues na githubie + wycena pracy; raport do P. Arłukowicza
+- 3 grudzień 8h - wykonano #6, #32, #33
