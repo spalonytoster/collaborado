@@ -25,7 +25,7 @@ function config($stateProvider) {
   'ngInject';
 
     $stateProvider
-    .state('groupChannel', {
+    .state('channel', {
       url: '/group/:groupName/:channelName',
       template: '<dashboard></dashboard>'
     });

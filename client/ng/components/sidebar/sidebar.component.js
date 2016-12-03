@@ -17,15 +17,10 @@ function extractElements(groups) {
 }
 
 class Sidebar {
-  constructor($scope, $timeout) {
+  constructor($state, $stateParams) {
     'ngInject';
 
     this.$onInit = () => {
-      this.groups = extractElements(data);
-      this.selectedGroup = this.groups[0];
-      this.channels = extractElements(data[this.selectedGroup.id].channels);
-      this.selectedChannel = undefined;
-
       this.user = {
         login: "spalonytoster",
         name: "Maciej",
@@ -34,16 +29,60 @@ class Sidebar {
           return `${this.name} ${this.surname}`;
         }
       };
+
+      this.groups = extractElements(data);
+
+      // if there is no groups, we don't do anything
+      if (this.groups.length === 0) return;
+
+      this.selectedGroup = _.find(this.groups, (group) => {
+        return group.id === $stateParams.groupName;
+      });
+
+      if (!this.selectedGroup) {
+        console.log('There is no such group: ' + $stateParams.groupName);
+        return;
+      }
+
+      this.channels = extractElements(data[this.selectedGroup.id].channels);
+      this.selectedChannel = _.find(this.channels, (channel) => {
+        return channel.id === $stateParams.channelName;
+      });
+    };
+
+    this.handleRedirect = () => {
+      if (this.selectedChannel) {
+        $state.go('channel', {
+          groupName: this.selectedGroup.id,
+          channelName: this.selectedChannel.id
+        });
+      }
+      else if (this.selectedGroup) {
+        $state.go('group', {
+          groupName: this.selectedGroup.id
+        });
+      }
     };
   }
 
   selectGroup(event) {
     this.selectedGroup = event.selected;
+    this.channels = extractElements(data[this.selectedGroup.id].channels);
     delete this.selectedChannel;
+
+    // setting timeout for animation to finish
+    setTimeout(() => {
+      this.handleRedirect();
+    }, 500);
   }
 
   selectChannel(event) {
     this.selectedChannel = event.selected;
+
+    // setting timeout for animation to finish
+    setTimeout(() => {
+      this.handleRedirect();
+    }, 500);
   }
 }
 
