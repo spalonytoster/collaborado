@@ -26,8 +26,6 @@ class Sidebar {
       this.channels = extractElements(data[this.selectedGroup.id].channels);
       this.selectedChannel = undefined;
 
-      console.log('selectedGroup: ' + this.selectedGroup);
-
       this.user = {
         login: "spalonytoster",
         name: "Maciej",
@@ -37,6 +35,15 @@ class Sidebar {
         }
       };
     };
+  }
+
+  selectGroup(event) {
+    this.selectedGroup = event.selected;
+    delete this.selectedChannel;
+  }
+
+  selectChannel(event) {
+    this.selectedChannel = event.selected;
   }
 }
 

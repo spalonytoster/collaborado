@@ -54,6 +54,14 @@ class MenuToggle {
     // console.log();
     return link.id === this.selected.id;
   }
+
+  select(event) {
+    this.onSelected({
+      $event: {
+        selected: event.selected
+      }
+    });
+  }
 }
 
 const name = 'menuToggle';
