@@ -24,10 +24,9 @@ class Sidebar {
       this.groups = extractElements(data);
       this.selectedGroup = this.groups[0];
       this.channels = extractElements(data[this.selectedGroup.id].channels);
+      this.selectedChannel = undefined;
 
-      // console.log(this.groups);
-      // console.log(this.selectedGroup);
-      console.log(this.channels);
+      console.log('selectedGroup: ' + this.selectedGroup);
 
       this.user = {
         login: "spalonytoster",

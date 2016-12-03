@@ -1,10 +1,6 @@
-<md-button class="md-raised md-primary"
-           ng-click="focusSection(section)">
-   <md-icon ng-if="section.icon">{{ $ctrl.link.icon }}</md-icon>
-   &nbsp;&nbsp;
+<md-button class="md-raised md-primary menu-link"
+           ng-class="{'selected': $ctrl.selected}"
+           ng-click="$ctrl.select()">
+   <md-icon ng-if="section.icon">{{ $ctrl.link.icon }}&nbsp;&nbsp;</md-icon>
    {{ $ctrl.link.name }}
-   <span class="md-visually-hidden"
-       ng-if="isSelected(section.state)">
-       current page
-   </span>
 </md-button>
