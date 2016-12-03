@@ -2,15 +2,17 @@
 
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularMaterial from 'angular-material';
-import angularAria from 'angular-aria';
-import uiRouter from 'angular-ui-router';
 
-const name = 'dashboard';
+import angularAria from 'angular-aria';
+import angularMaterial from 'angular-material';
+
+import { name as MenuLink } from './../menu-link/menu-link.module';
+
+const name = 'menuToggle';
 
 export default angular.module(name, [
   angularMeteor,
-  angularMaterial,
   angularAria,
-  uiRouter
+  angularMaterial,
+  MenuLink
 ]);

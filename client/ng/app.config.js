@@ -13,7 +13,7 @@ function config($mdIconProvider, $mdThemingProvider,
 
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/');
 }
 
 app.config(config);

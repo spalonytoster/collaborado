@@ -2,39 +2,87 @@
 
 import module from './sidebar.module';
 import template from './sidebar.html';
+import data from './data.json';
+import _ from 'lodash';
+
+function extractElements(groups) {
+  let elements = [];
+  _.forEach(groups, (group, name) => {
+    elements.push({
+      id: name,
+      name: group.displayName
+    });
+  });
+  return elements;
+}
 
 class Sidebar {
-  constructor($scope, ssSideNav, $timeout) {
+  constructor($state, $stateParams) {
     'ngInject';
 
-    ssSideNav.sections = [{
-      id: 'toogle_3',
-      name: 'Section Heading 3',
-      type: 'heading',
-      children: [{
-        name: 'Toogle 3',
-        type: 'toggle',
-        pages: [{
-          id: 'toogle_3_link_1',
-          name: 'item 1',
-          state: 'common.toggle3.item1'
-        }, {
-          id: 'toogle_3_link_2',
-          name: 'item 2',
-          state: 'common.toggle3.item2'
-        }]
-      }]
-    }];
+    this.$onInit = () => {
+      this.user = {
+        login: "spalonytoster",
+        name: "Maciej",
+        surname: "Posłuszny",
+        get displayName() {
+          return `${this.name} ${this.surname}`;
+        }
+      };
 
-    $timeout(() => {
-      ssSideNav.forceSelectionWithId('toogle_3_link_1');
-    }, 10);
+      this.groups = extractElements(data);
 
-    $scope.sidebar = ssSideNav;
+      // if there is no groups, we don't do anything
+      if (this.groups.length === 0) return;
 
-    $scope.onClickMenu = function() {
-      $mdSidenav('left').toggle();
+      this.selectedGroup = _.find(this.groups, (group) => {
+        return group.id === $stateParams.groupName;
+      });
+
+      if (!this.selectedGroup) {
+        console.log('There is no such group: ' + $stateParams.groupName);
+        return;
+      }
+
+      this.channels = extractElements(data[this.selectedGroup.id].channels);
+      this.selectedChannel = _.find(this.channels, (channel) => {
+        return channel.id === $stateParams.channelName;
+      });
     };
+
+    this.handleRedirect = () => {
+      if (this.selectedChannel) {
+        $state.go('channel', {
+          groupName: this.selectedGroup.id,
+          channelName: this.selectedChannel.id
+        });
+      }
+      else if (this.selectedGroup) {
+        $state.go('group', {
+          groupName: this.selectedGroup.id
+        });
+      }
+    };
+  }
+
+  selectGroup(event) {
+    this.selectedGroup = event.selected;
+    this.channels = extractElements(data[this.selectedGroup.id].channels);
+    delete this.selectedChannel;
+
+    // setting timeout for animation to finish
+    setTimeout(() => {
+      this.handleRedirect();
+    }, 500);
+  }
+
+  selectChannel(event) {
+    this.selectedChannel = event.selected;
+
+    // setting timeout for animation to finish
+    setTimeout(() => {
+      this.handleRedirect();
+    }, 500);
   }
 }
 

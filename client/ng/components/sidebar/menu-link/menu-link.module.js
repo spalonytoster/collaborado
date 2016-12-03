@@ -2,15 +2,16 @@
 
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularMaterial from 'angular-material';
-import angularAria from 'angular-aria';
-import uiRouter from 'angular-ui-router';
 
-const name = 'dashboard';
+import angularAnimate from 'angular-animate';
+import angularAria from 'angular-aria';
+import angularMaterial from 'angular-material';
+
+const name = 'menuLink';
 
 export default angular.module(name, [
   angularMeteor,
-  angularMaterial,
+  angularAnimate,
   angularAria,
-  uiRouter
+  angularMaterial
 ]);

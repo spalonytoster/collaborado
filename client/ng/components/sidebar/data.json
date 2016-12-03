@@ -1,0 +1,30 @@
+{
+  "uniwersytet-gdanski": {
+    "displayName": "Uniwersytet Gdański",
+    "channels": {
+      "work": {
+        "displayName": "Work"
+      },
+      "information-channel": {
+        "displayName": "Information channel"
+      },
+      "offtop": {
+        "displayName": "Offtop"
+      }
+    }
+  },
+  "java-user-group": {
+    "displayName": "Java User Group",
+    "channels": {
+      "general": {
+        "displayName": "General"
+      },
+      "learning-channel": {
+        "displayName": "Learning channel"
+      },
+      "jobs": {
+        "displayName": "Jobs"
+      }
+    }
+  }
+}

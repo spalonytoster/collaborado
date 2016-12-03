@@ -1,0 +1,6 @@
+<md-button class="md-raised md-primary menu-link"
+           ng-class="{'selected': $ctrl.selected}"
+           ng-click="$ctrl.select()">
+   <md-icon ng-if="section.icon">{{ $ctrl.link.icon }}&nbsp;&nbsp;</md-icon>
+   {{ $ctrl.link.name }}
+</md-button>

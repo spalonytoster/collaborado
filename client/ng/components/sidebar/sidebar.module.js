@@ -3,19 +3,22 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import angularAnimate from 'angular-animate';
 import angularAria from 'angular-aria';
 import angularMaterial from 'angular-material';
-import ngMaterialSidenav from 'angular-material-sidenav';
 import uiRouter from 'angular-ui-router';
+
+import { name as MenuHeader } from './menu-header/menu-header.module';
+import { name as MenuLink } from './menu-link/menu-link.module';
+import { name as MenuToggle } from './menu-toggle/menu-toggle.module';
 
 const name = 'sidebar';
 
 export default angular.module(name, [
   angularMeteor,
-  angularAnimate,
   angularAria,
   angularMaterial,
-  'sasrio.angular-material-sidenav',
-  uiRouter
+  uiRouter,
+  MenuHeader,
+  MenuLink,
+  MenuToggle
 ]);

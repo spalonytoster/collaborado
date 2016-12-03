@@ -1,0 +1,15 @@
+<header class="menu-header" style="background-color: rgb(30,136,229);">
+  <div class="user-profile" layout="row" layout-padding>
+    <span class="user-avatar"><img src="/images/avatar.png" alt=""/></span>
+    <div layout="column">
+      <span>{{ $ctrl.user.displayName}}</span>
+      <span>@{{ $ctrl.user.login }}</span>
+    </div>
+    <div style="padding: 0px;">
+      <md-button class="md-icon-button">
+        <md-tooltip>Settings</md-tooltip>
+        <md-icon style="color: white">settings</md-icon>
+      </md-button>
+    </div>
+  </div>
+</header>

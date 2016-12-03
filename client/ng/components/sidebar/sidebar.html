@@ -3,13 +3,18 @@
             class="md-sidenav-left container sidebar"
             md-whiteframe="2">
 
-  <header class="nav-header" ss-style-color="{'background-color': 'primary.default'}">
-    <a ng-href="/" class="logo">
-      <h1 class="md-heading">Profile</h1>
-    </a>
-  </header>
+  <menu-header user="$ctrl.user"></menu-header>
 
-  <md-content flex role="navigation" ss-style-color="{'background-color': 'primary.default'}">
-    <ss-sidenav flex menu="sidebar"></ss-sidenav>
+  <md-content class="menu" flex role="navigation" style="background-color: rgb(25, 118, 210);">
+    <menu-toggle name="groups"
+                 children="$ctrl.groups"
+                 selected="$ctrl.selectedGroup"
+                 on-selected="$ctrl.selectGroup($event)">
+    </menu-toggle>
+    <menu-toggle name="channels"
+                 children="$ctrl.channels"
+                 selected="$ctrl.selectedChannel"
+                 on-selected="$ctrl.selectChannel($event)">
+    </menu-toggle>
   </md-content>
 </md-sidenav>

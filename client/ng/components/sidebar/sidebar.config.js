@@ -1,7 +1,7 @@
 // jshint esversion: 6
 import module from './sidebar.module';
 
-function config($mdThemingProvider, $mdIconProvider, ssSideNavSectionsProvider) {
+function config($mdThemingProvider, $mdIconProvider) {
   'ngInject';
 
   $mdThemingProvider
@@ -10,8 +10,8 @@ function config($mdThemingProvider, $mdIconProvider, ssSideNavSectionsProvider) 
       default: '700'
     });
 
-  ssSideNavSectionsProvider.initWithTheme($mdThemingProvider);
-  
+  // ssSideNavSectionsProvider.initWithTheme($mdThemingProvider);
+
 }
 
 module.config(config);
