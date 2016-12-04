@@ -19,6 +19,7 @@
     md-whiteframe {
         background-color: white;
         border-radius: 10px;
+        min-width: 35%;
     }
 
     md-toolbar {
@@ -33,4 +34,21 @@
         margin-left: 15px;
     }
 
+    #message-span {
+        margin-left: 15px;
+        margin-top: 10px;
+        color: red;
+    }
+    .has-error input{
+      border-color:red;
+    }
+    .has-success input{
+      border-color:green;
+    }
+    .has-button-error span{
+      color:red;
+    }
+    .has-button-sucess span{
+    color:green;
+    }
 }

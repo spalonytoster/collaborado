@@ -7,25 +7,36 @@ import {
 } from '../accounts.js';
 
 class LoginForm {
-    constructor($state) {
+    constructor($state,$scope) {
         'ngInject';
         this.user = {};
 
+        this.goToDashboard = () => {
+         $state.go("dashboard");
+       };
     }
 
-    submit() {
-        for (let i = 0; i < account.length; i++) {
-            if ((this.user.email === account[i].email) && (this.user.password === account[i].pass)) {
-                console.log("Logged as " + this.user.email);
-              //  $state.go("dashboard");
-                break;
-            } else if ((i + 1) === account.length) {
-                document.getElementById("message-span").innerHTML = "Wrong Email or Password";
-                document.getElementById("message-span").style.color = "red";
+    submit(valid) {
+      var message;
+
+      if (valid){
+        let user=this.user;
+        let route=this;
+
+        account.forEach(function(item,i) {
+            if ((user.email === item.email) && (user.password === item.pass)) {
+                console.log("Logged as " + user.email);
+                route.goToDashboard();
+            } else if ((i+1) === account.length) {
+              message="Wrong user or password!";
             }
-        }
+        });
 
+    }else{
+        message="Please enter valid data!";
     }
+    this.message=message;
+}
 }
 
 const name = 'login';

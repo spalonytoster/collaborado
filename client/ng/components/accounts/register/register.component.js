@@ -7,21 +7,40 @@ import {
 } from '../accounts.js';
 
 class RegisterForm {
-    constructor() {
+    constructor($state) {
+        'ngInject';
         this.user = {};
+
+        this.goToLogin = () => {
+         $state.go("login");
+       };
     }
 
-    submit() {
+    submit(valid) {
+      var message;
+      console.log(this.user.terms);
+
+      if (valid){
         if (this.user.password === this.user.password2) {
             var Object = {
                 email: this.user.email,
-                pass: this.user.password
+                pass: this.user.password,
+                personal: this.user.name +" "+this.user.surname
             };
             account.push(Object);
-            document.getElementById("message-span").innerHTML = "Account Created";
-            document.getElementById("message-span").style.color = "green";
+            console.log(account);
+            this.goToLogin();
+        }else{
+            message= "Password not match";
         }
+      }else{
+        message="Please enter valid data and accept terms!";
+      }
+
+    this.message=message;
+      console.log(this.message);
     }
+
 }
 
 const name = 'register';

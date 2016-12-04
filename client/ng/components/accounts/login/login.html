@@ -1,33 +1,44 @@
 <!-- Login -->
 
-		<div layout="column" flex class="login-content" >
-				<div class="align-height" layout="row" layout-align="center center" layout-fill>
-					<md-whiteframe class="md-whiteframe-z2" layout="column" flex="25" flex-sm="80" layout-padding>
-						<md-toolbar class="md-raised">
-					    <div class="md-toolbar">
-					    	<h1>Collaborado</h1>
-								<h4>We give you tools, you give it structure</h4>
-					    </div>
-					  </md-toolbar>
-
-							<md-input-container style="margin-top:40px">
-								<label>Email</label>
-								<input ng-model="$ctrl.user.email" name="email" required>
-							</md-input-container>
-							<md-input-container>
-								<label>Password</label>
-								<input ng-model="$ctrl.user.password" type="password" required>
-							</md-input-container>
-						  <span id="message-span"></span>
-								<md-checkbox class="md-primary" aria-label="Checkbox 1" >Remember Me</md-checkbox>
-							<md-input-container layout-align="center center">
-								<div layout="column" layout layout-margin>
-									<md-button class="md-raised md-primary" ng-click="$ctrl.submit()" flex="100">Login</md-button>
-									<a class="md-primary md-button md-cyan-theme" aria-label="Don't have an account? Create one now" href="{{route='register'}}">Don't have an account? Register</a>
-								</div>
-							</md-input-container>
-
-					</md-whiteframe>
+<div layout="column" flex class="login-content">
+	<div class="align-height" layout="row" layout-align="center center" layout-fill>
+		<md-whiteframe class="md-whiteframe-z2" layout="column" flex="25" flex-sm="80" layout-padding>
+			<md-toolbar class="md-raised">
+				<div class="md-toolbar">
+					<h1>Collaborado</h1>
+					<h4>We give you tools, you give it structure</h4>
 				</div>
+			</md-toolbar>
+			<form name="formValid" ng-submit="$ctrl.submit(formValid.$valid)" layout="column" novalidate="novalidate">
 
-		</div>
+				<md-input-container  ng-class="{
+				'has-error':!formValid.email.$valid && !formValid.email.$pristine,
+				'has-success':formValid.email.$valid && !formValid.email.$pristine
+		}" style="margin-top:40px">
+					<label>Email</label>
+					<input name="email" type="email" ng-model="$ctrl.user.email" required="required">
+				</md-input-container>
+
+				<md-input-container  ng-class="{
+				'has-error':!formValid.password.$valid && !formValid.password.$pristine,
+				'has-success':formValid.password.$valid && !formValid.password.$pristine
+		}">
+					<label>Password</label>
+					<input name="password" ng-model="$ctrl.user.password" type="password" required="required" ng-minlength="6">
+				</md-input-container>
+
+				<md-checkbox class="md-primary" aria-label="Checkbox 1">Remember Me</md-checkbox>
+				<span id="message-span">{{$ctrl.message}}</span>
+
+				<md-input-container layout-align="center center">
+					<div layout="column" layout layout-margin>
+						<md-button class="md-raised md-primary" type="submit" flex="100">Login</md-button>
+						<a class="md-primary md-button md-cyan-theme" aria-label="Don't have an account? Create one now" href="{{route='register'}}">Don't have an account? Register</a>
+					</div>
+				</md-input-container>
+			</form>
+
+		</md-whiteframe>
+	</div>
+
+</div>
