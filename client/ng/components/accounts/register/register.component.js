@@ -22,12 +22,12 @@ class RegisterForm {
 
       if (valid){
         if (this.user.password === this.user.password2) {
-            var Object = {
+            var obiekt = {
                 email: this.user.email,
                 pass: this.user.password,
                 personal: this.user.name +" "+this.user.surname
             };
-            account.push(Object);
+            account.push(obiekt);
             console.log(account);
             this.goToLogin();
         }else{
