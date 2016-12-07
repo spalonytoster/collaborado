@@ -9,12 +9,14 @@
     <menu-toggle name="groups"
                  children="$ctrl.groups"
                  selected="$ctrl.selectedGroup"
-                 on-selected="$ctrl.selectGroup($event)">
+                 on-selected="$ctrl.selectGroup($event)"
+                 creation-enabled="true">
     </menu-toggle>
     <menu-toggle name="channels"
                  children="$ctrl.channels"
                  selected="$ctrl.selectedChannel"
-                 on-selected="$ctrl.selectChannel($event)">
+                 on-selected="$ctrl.selectChannel($event)"
+                 creation-enabled="$ctrl.checkUserChannelCreationPermission()">
     </menu-toggle>
   </md-content>
 </md-sidenav>

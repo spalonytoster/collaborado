@@ -11,7 +11,10 @@
       "offtop": {
         "displayName": "Offtop"
       }
-    }
+    },
+    "administrators": [
+      "some-guy"
+    ]
   },
   "java-user-group": {
     "displayName": "Java User Group",
@@ -25,6 +28,9 @@
       "jobs": {
         "displayName": "Jobs"
       }
-    }
+    },
+    "administrators": [
+      "spalonytoster"
+    ]
   }
 }

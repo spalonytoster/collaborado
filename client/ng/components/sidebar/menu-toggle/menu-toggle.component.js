@@ -48,10 +48,6 @@ class MenuToggle {
 
   isSelected(link) {
     if (!this.selected) return false;
-    // console.log('selected: ' + JSON.stringify(this.selected));
-    // console.log('link: ' + JSON.stringify(link));
-    // console.log(link.id === this.selected.id);
-    // console.log();
     return link.id === this.selected.id;
   }
 
@@ -62,6 +58,10 @@ class MenuToggle {
       }
     });
   }
+
+  checkCreationPermission() {
+    return this.creationEnabled;
+  }
 }
 
 const name = 'menuToggle';
@@ -71,7 +71,8 @@ module.component(name, {
     name: '@',
     children: '<',
     selected: '<',
-    onSelected: '&'
+    onSelected: '&',
+    creationEnabled: '<'
   },
   template,
   controller: MenuToggle

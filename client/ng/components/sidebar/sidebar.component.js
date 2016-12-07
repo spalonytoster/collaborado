@@ -21,6 +21,8 @@ class Sidebar {
     'ngInject';
 
     this.$onInit = () => {
+
+      // mock data
       this.user = {
         login: "spalonytoster",
         name: "Maciej",
@@ -29,6 +31,8 @@ class Sidebar {
           return `${this.name} ${this.surname}`;
         }
       };
+
+      // end
 
       this.groups = extractElements(data);
 
@@ -83,6 +87,12 @@ class Sidebar {
     setTimeout(() => {
       this.handleRedirect();
     }, 500);
+  }
+
+  checkUserChannelCreationPermission() {
+    // TODO: na sztywno pobierany jest login usera zdefiniowanego dla prototypu
+    // trzeba zamienic na user._id po podpieciu backendu
+    return _.includes(data[this.selectedGroup.id].administrators, this.user.login);
   }
 }
 
