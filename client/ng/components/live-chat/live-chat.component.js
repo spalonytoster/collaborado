@@ -6,31 +6,33 @@ import template from './live-chat.html';
 class LiveChat {
   constructor() {
     'ngInject';
-    this.messages = [
-      {
-        author: 'Paweł Wilamowski',
-        body: 'Lorem ipsum gipsum',
-        created: '4h ago'
-      }, {
-        author: 'Maciej Posłuszny',
-        body: 'Lorem ipsum gipsum',
-        created: '4h ago'
-      }, {
-        author: 'Karol Tymiński',
-        body: 'Lorem ipsum gipsum',
-        created: '4h ago'
-      }, {
-        author: 'Lechu Wałęsa',
-        body: 'Lorem ipsum gipsum',
-        created: '4h ago'
-      }, {
-        author: 'Andrzej Duda',
-        body: 'Lorem ipsum gipsum',
-        created: '4h ago'
-      }
-    ];
+     this.$onInit = function () {
+      this.messages = [
+        {
+          author: 'Paweł Wilamowski',
+          body: 'Lorem ipsum gipsum',
+          created: '4h ago'
+        }, {
+          author: 'Maciej Posłuszny',
+          body: 'Lorem ipsum gipsum',
+          created: '4h ago'
+        }, {
+          author: 'Karol Tymiński',
+          body: 'Lorem ipsum gipsum',
+          created: '4h ago'
+        }, {
+          author: 'Lechu Wałęsa',
+          body: 'Lorem ipsum gipsum',
+          created: '4h ago'
+        }, {
+          author: 'Andrzej Duda',
+          body: 'Lorem ipsum gipsum',
+          created: '4h ago'
+        }
+      ];
+     };
 
-    this.newMessage = {};
+     this.newMessage = {};
   }
 
   sendMessage() {
