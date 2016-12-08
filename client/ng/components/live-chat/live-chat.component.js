@@ -6,7 +6,7 @@ import template from './live-chat.html';
 class LiveChat {
   constructor() {
     'ngInject';
-     this.$onInit = function () {
+     this.$onInit = () => {
       this.messages = [
         {
           author: 'Paweł Wilamowski',
@@ -30,9 +30,9 @@ class LiveChat {
           created: '4h ago'
         }
       ];
-     };
 
-     this.newMessage = {};
+       this.newMessage = {};
+     }
   }
 
   sendMessage() {
