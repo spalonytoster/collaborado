@@ -2,41 +2,39 @@
 
 import Login from './login.module';
 import template from './login.html';
-import {
-    account
-} from '../accounts.js';
+import { account } from '../accounts.js';
 
 class LoginForm {
     constructor($state,$scope) {
-        'ngInject';
-        this.user = {};
+      'ngInject';
+      this.user = {};
 
-        this.goToDashboard = () => {
-         $state.go("dashboard");
+      this.goToDashboard = () => {
+      $state.go("dashboard");
        };
     }
 
     submit(valid) {
-      var message;
+      let message;
 
       if (valid){
-        let user=this.user;
-        let route=this;
+        let user = this.user;
+        let route = this;
 
-        account.forEach(function(item,i) {
+        account.forEach((item, i) => {
             if ((user.email === item.email) && (user.password === item.pass)) {
-                console.log("Logged as " + user.email);
-                route.goToDashboard();
+              console.log("Logged as " + user.email);
+              route.goToDashboard();
             } else if ((i+1) === account.length) {
-              message="Wrong user or password!";
+              message = "Wrong user or password!";
             }
         });
 
-    }else{
-        message="Please enter valid data!";
+    } else{
+      message = "Please enter valid data!";
     }
-    this.message=message;
-}
+    this.message = message;
+  }
 }
 
 const name = 'login';

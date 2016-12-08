@@ -13,16 +13,14 @@
 
 				<md-input-container  ng-class="{
 				'has-error':!formValid.email.$valid && !formValid.email.$pristine,
-				'has-success':formValid.email.$valid && !formValid.email.$pristine
-		}" style="margin-top:40px">
+				'has-success':formValid.email.$valid && !formValid.email.$pristine}" style="margin-top:40px">
 					<label>Email</label>
 					<input name="email" type="email" ng-model="$ctrl.user.email" required="required">
 				</md-input-container>
 
 				<md-input-container  ng-class="{
 				'has-error':!formValid.password.$valid && !formValid.password.$pristine,
-				'has-success':formValid.password.$valid && !formValid.password.$pristine
-		}">
+				'has-success':formValid.password.$valid && !formValid.password.$pristine}">
 					<label>Password</label>
 					<input name="password" ng-model="$ctrl.user.password" type="password" required="required" ng-minlength="6">
 				</md-input-container>
@@ -33,7 +31,7 @@
 				<md-input-container layout-align="center center">
 					<div layout="column" layout layout-margin>
 						<md-button class="md-raised md-primary" type="submit" flex="100">Login</md-button>
-						<a class="md-primary md-button md-cyan-theme" aria-label="Don't have an account? Create one now" href="{{route='register'}}">Don't have an account? Register</a>
+						<a class="md-primary md-button md-cyan-theme" aria-label="Don't have an account? Create one now" ui-sref='register'>Don't have an account? Register</a>
 					</div>
 				</md-input-container>
 			</form>
