@@ -1,16 +1,7 @@
 // jshint esversion: 6
 import module from './menu-toggle.module';
 import template from './menu-toggle.html';
-import panelTemplate from './create-element-panel/create-element-panel.html';
-import CreateElementPanel from './create-element-panel/create-element-panel.ctrl';
 import _ from 'lodash';
-
-// TODO: utworzylem create-element-panel, ale chyba trzeba zrobic
-// 2 osobne konrolery i htmle
-// w zasadzie to mozna przeciez zrobic od tego komponent
-// do mdPanel przekazac template `<create-element-panel></create-element-panel>`
-// w dalszym ciagu trzeba jakos rozwiazac to, ze musi byc osobny template
-// oraz kontroler dla dialogu create group oraz create channel
 
 class MenuToggle {
   constructor($element, $animateCss, $timeout, $mdPanel) {
@@ -79,15 +70,18 @@ class MenuToggle {
 
     let config = {
       attachTo: angular.element(document.body),
-      controller: CreateElementPanel,
-      controllerAs: '$ctrl',
       disableParentScroll: true,
-      template: panelTemplate,
+      controller: function(mdPanelRef) {
+        this.panelRef = mdPanelRef;
+      },
+      controllerAs: '$ctrl',
+      template: `
+        <create-group panel-ref="$ctrl.panelRef"></create-group>
+      `,
       hasBackdrop: true,
-      panelClass: 'create-element-panel',
+      panelClass: 'create-group-panel',
       position: position,
       trapFocus: true,
-      zIndex: 150,
       clickOutsideToClose: false,
       escapeToClose: true,
       focusOnOpen: true

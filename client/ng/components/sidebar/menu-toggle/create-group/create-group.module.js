@@ -5,15 +5,10 @@ import angularMeteor from 'angular-meteor';
 import angularAria from 'angular-aria';
 import angularMaterial from 'angular-material';
 
-import { name as MenuLink } from './../menu-link/menu-link.module';
-import { name as CreateGroup } from './create-group/create-group.module';
-
-const name = 'menuToggle';
+const name = 'createGroup';
 
 export default angular.module(name, [
   angularMeteor,
   angularAria,
-  angularMaterial,
-  MenuLink,
-  CreateGroup
+  angularMaterial
 ]);

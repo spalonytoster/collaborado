@@ -1,0 +1,53 @@
+<md-content class="create-element-panel" role="dialog" layout="column" >
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Create group</h2>
+    </div>
+  </md-toolbar>
+
+  <form name="groupForm" ng-submit="$ctrl.submit(groupForm.$valid)">
+    <div class="panel-content" layout="column" layout-padding>
+        <div layout="column">
+          <md-input-container class="md-block" flex>
+            <label>Id</label>
+            <input ng-model="$ctrl.id" name="id"
+                   placeholder="{{ $ctrl.placeholder.id }}" disabled required/>
+            <div class="hint">This is the unique id for this group</div>
+          </md-input-container>
+
+          <div layout="row" flex="25">
+            <md-input-container class="md-block" flex="30">
+              <label>Type</label>
+              <md-select ng-model="$ctrl.group.type" name="groupType"
+                         placeholder="Select group type" required>
+                <md-option ng-value="type" ng-repeat="type in $ctrl.groupTypes">
+                  <md-icon style="margin-right: 10px;">{{ type.icon }}</md-icon>
+                  <span>{{ type.name }}</span>
+                </md-option>
+              </md-select>
+              <div class="hint">This is the name that will be displayed</div>
+            </md-input-container>
+
+            <div flex="5"></div>
+
+            <md-input-container class="md-block" flex>
+              <label>Name</label>
+              <input md-maxlength="30" ng-model="$ctrl.group.name" name="name"
+                     placeholder="e.g. {{ $ctrl.placeholder.name }}"
+                     md-autofocus required />
+              <div class="hint">This is the name that will be displayed</div>
+            </md-input-container>
+          </div>
+        </div>
+    </div>
+
+    <div class="panel-controls" layout="row" layout-align="center center">
+      <md-button class="md-primary" ng-click="$ctrl.cancel()">
+        Cancel
+      </md-button>
+      <md-button type="submit" class="md-primary md-raised">
+        Submit
+      </md-button>
+    </div>
+  </form>
+</md-content>

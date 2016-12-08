@@ -1,6 +1,12 @@
 {
   "uniwersytet-gdanski": {
     "displayName": "Uniwersytet Gdański",
+    "description": "Ogolnodostepna grupa studentow Uniwersytetu Gdanskiego.",
+    "type": "academic",
+    "administrators": [
+      "some-guy"
+    ],
+    "moderators": [],
     "channels": {
       "work": {
         "displayName": "Work"
@@ -11,13 +17,15 @@
       "offtop": {
         "displayName": "Offtop"
       }
-    },
-    "administrators": [
-      "some-guy"
-    ]
+    }
   },
   "java-user-group": {
     "displayName": "Java User Group",
+    "description": "Official JUG group. Come and join us!",
+    "administrators": [
+      "spalonytoster"
+    ],
+    "moderators": [],
     "channels": {
       "general": {
         "displayName": "General"
@@ -28,9 +36,6 @@
       "jobs": {
         "displayName": "Jobs"
       }
-    },
-    "administrators": [
-      "spalonytoster"
-    ]
+    }
   }
 }

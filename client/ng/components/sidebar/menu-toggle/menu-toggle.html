@@ -11,7 +11,8 @@
    </div>
 </md-button>
 
-<ul id="docs-menu-{{ $ctrl.id }}" class="menu-toggle-list" ng-class="{'expanded': $ctrl.toggled, 'collapsed': !$ctrl.toggled}"
+<ul id="docs-menu-{{ $ctrl.id }}" class="menu-toggle-list"
+    ng-class="{'expanded': $ctrl.toggled, 'collapsed': !$ctrl.toggled}"
     style="border-bottom: solid 1px #1e88e5;">
 
   <md-button class="md-button-action" ng-if="$ctrl.checkCreationPermission()"
@@ -25,8 +26,7 @@
   </md-button>
 
    <li ng-repeat="link in $ctrl.children" ng-if="!page.hidden">
-     <menu-link link="link"
-                selected="$ctrl.isSelected(link)"
+     <menu-link link="link" selected="$ctrl.isSelected(link)"
                 on-selected="$ctrl.select($event)">
      </menu-link>
    </li>
