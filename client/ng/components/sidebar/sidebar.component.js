@@ -33,24 +33,8 @@ class Sidebar {
 
       // end
 
-      this.groups = extractElements(data);
-
-      // if there is no groups, we don't do anything
-      if (this.groups.length === 0) return;
-
-      this.selectedGroup = _.find(this.groups, (group) => {
-        return group.id === $stateParams.groupName;
-      });
-
-      if (!this.selectedGroup) {
-        console.log('There is no such group: ' + $stateParams.groupName);
-        return;
-      }
-
-      this.channels = extractElements(data[this.selectedGroup.id].channels);
-      this.selectedChannel = _.find(this.channels, (channel) => {
-        return channel.id === $stateParams.channelName;
-      });
+      this.initGroups($stateParams);
+      this.initChannels($stateParams);
     };
 
     this.handleRedirect = () => {
@@ -66,6 +50,25 @@ class Sidebar {
         });
       }
     };
+  }
+
+  initGroups($stateParams) {
+    this.groups = extractElements(data);
+    if (this.groups.length === 0) return;
+
+    if ($stateParams.groupName) {
+      this.selectedGroup = _.find(this.groups, { id: $stateParams.groupName });
+    }
+    else {
+      this.selectedGroup = _.first(this.groups);
+    }
+  }
+
+  initChannels($stateParams) {
+    this.channels = extractElements(data[this.selectedGroup.id].channels);
+    this.selectedChannel = _.find(this.channels, (channel) => {
+      return channel.id === $stateParams.channelName;
+    });
   }
 
   selectGroup(event) {
@@ -91,6 +94,7 @@ class Sidebar {
   checkUserChannelCreationPermission() {
     // TODO: na sztywno pobierany jest login usera zdefiniowanego dla prototypu
     // trzeba zamienic na user._id po podpieciu backendu
+    if (!this.selectedGroup) return false;
     return _.includes(data[this.selectedGroup.id].administrators, this.user.login);
   }
 }
