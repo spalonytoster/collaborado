@@ -18,3 +18,4 @@
 - 2 grudzień 4,5h - wprowadzenie nowych issues na githubie + wycena pracy; raport do P. Arłukowicza
 - 3 grudzień 8h - wykonano #6, #32, #33
 - 7 grudzień 3h - praca nad #30, #31 - dodawanie grup i channeli
+- 8 grudzień 8h - praca nad #30, #31 - dodawanie grup i channeli
