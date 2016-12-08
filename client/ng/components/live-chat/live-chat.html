@@ -1,20 +1,21 @@
-<div layout="column" class="content live-chat">
+<div flex layout="column" class="content live-chat">
 
-  <div class="messages-list" ng-repeat="message in $ctrl.messages" flex>
+  <div class="messages-list" ng-repeat="message in $ctrl.messages">
     <message message="message"></message>
   </div>
 
-
-  <div class="new-message" layout="row">
-    <div flex layout-padding>
-      <md-input-container class="md-block" md-no-float flex>
-        <input ng-model="$ctrl.newMessage.body" placeholder="Type message..." ng-required />
-      </md-input-container>
+  <form id="submitmsg" autocomplete="off" ng-submit="$ctrl.sendMessage()">
+    <div class="new-message" layout="row">
+      <div flex layout-padding>
+        <md-input-container class="md-block" md-no-float flex>
+          <input ng-model="$ctrl.newMessage.body" placeholder="Type message..." ng-required />
+        </md-input-container>
+      </div>
+      <div>
+        <md-button class="md-fab" ng-click="$ctrl.sendMessage()" aria-label="Send message">
+          <md-icon>send</md-icon>
+        </md-button>
+      </div>
     </div>
-    <div>
-      <md-button class="md-fab" ng-click="$ctrl.sendMessage()" aria-label="Send message">
-        <md-icon>send</md-icon>
-      </md-button>
-    </div>
-  </div>
+  </form>
 </div>
