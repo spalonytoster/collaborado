@@ -14,7 +14,8 @@
 <ul id="docs-menu-{{ $ctrl.id }}" class="menu-toggle-list" ng-class="{'expanded': $ctrl.toggled, 'collapsed': !$ctrl.toggled}"
     style="border-bottom: solid 1px #1e88e5;">
 
-  <md-button class="md-button-action" ng-if="$ctrl.checkCreationPermission()">
+  <md-button class="md-button-action" ng-if="$ctrl.checkCreationPermission()"
+             ng-click="$ctrl.showPanel()">
     <div flex layout="row">
       Create
       <span class="md-toggle-icon">
