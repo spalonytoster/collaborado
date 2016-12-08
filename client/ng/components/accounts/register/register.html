@@ -17,10 +17,10 @@
 					<input name="email" type="email" ng-model="$ctrl.user.email" required="required">
 				</md-input-container>
 
-			<md-input-container ng-class="{
+				<md-input-container ng-class="{
 			'has-error':!formValid.login.$valid && !formValid.login.$pristine,
 			'has-success':formValid.login.$valid && !formValid.login.$pristine}">
-					<label>Login</label>
+				  <label>Login</label>
 					<input name="login" ng-model="$ctrl.user.login" required="required" type="text" ng-minlength="3" ng-maxlength="13" ng-pattern="/^[a-z,A-Z,0-9]*$/">
 				</md-input-container>
 
@@ -53,13 +53,7 @@
 				</md-input-container>
 
 				<md-checkbox ng-class="{
-				'has-button-error':!$ctrl.user.terms}"
-				class="md-primary"
-				ng-model="$ctrl.user.terms"
-				aria-label="Checkbox 1"
-				name="button"
-				required="required"
-				>I accept terms</md-checkbox>
+				'has-button-error':!$ctrl.user.terms}" class="md-primary" ng-model="$ctrl.user.terms" aria-label="Checkbox 1" name="button" required="required">I accept terms</md-checkbox>
 				<span id="message-span">{{$ctrl.message}}</span>
 				<md-input-container layout-align="center center">
 					<div layout="column" layout layout-margin>

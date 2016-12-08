@@ -5,14 +5,14 @@ import template from './login.html';
 import { account } from '../accounts.js';
 
 class LoginForm {
-    constructor($state,$scope) {
-      'ngInject';
-      this.user = {};
+  constructor($state,$scope) {
+    'ngInject';
+    this.user = {};
 
-      this.goToDashboard = () => {
+    this.goToDashboard = () => {
       $state.go("dashboard");
-       };
-    }
+    };
+  }
 
     submit(valid) {
       let message;
@@ -22,15 +22,15 @@ class LoginForm {
         let route = this;
 
         account.forEach((item, i) => {
-            if ((user.email === item.email) && (user.password === item.pass)) {
-              console.log("Logged as " + user.email);
-              route.goToDashboard();
-            } else if ((i+1) === account.length) {
-              message = "Wrong user or password!";
-            }
+          if ((user.email === item.email) && (user.password === item.pass)) {
+            console.log("Logged as " + user.email);
+            route.goToDashboard();
+          } else if ((i+1) === account.length) {
+            message = "Wrong user or password!";
+          }
         });
 
-    } else{
+    } else {
       message = "Please enter valid data!";
     }
     this.message = message;

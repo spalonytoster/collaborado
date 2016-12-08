@@ -11,14 +11,14 @@
 			</md-toolbar>
 			<form name="formValid" ng-submit="$ctrl.submit(formValid.$valid)" layout="column" novalidate="novalidate">
 
-				<md-input-container  ng-class="{
+				<md-input-container ng-class="{
 				'has-error':!formValid.email.$valid && !formValid.email.$pristine,
 				'has-success':formValid.email.$valid && !formValid.email.$pristine}" style="margin-top:40px">
 					<label>Email</label>
 					<input name="email" type="email" ng-model="$ctrl.user.email" required="required">
 				</md-input-container>
 
-				<md-input-container  ng-class="{
+				<md-input-container ng-class="{
 				'has-error':!formValid.password.$valid && !formValid.password.$pristine,
 				'has-success':formValid.password.$valid && !formValid.password.$pristine}">
 					<label>Password</label>

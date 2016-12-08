@@ -25,12 +25,12 @@ As simple as that!
 
 - [ ] Sidebar (Maciej)
   - [x] Struktura HTML (16h)
-  - [ ] Przepisanie modułu https://github.com/sovanna/angular-material-sidenav na komponenty NG 1.5 (4h)
+  - [x] Przepisanie modułu https://github.com/sovanna/angular-material-sidenav na komponenty NG 1.5 (4h)
   - [ ] Ustawienia profilu/aplikacji (popup) (3h)
   - [ ] Dodawanie grup (popup) (2h)
   - [ ] Dodawanie channeli (tylko admin grupy) (2h)
-  - [ ] Dynamiczny routing dla grup i channeli (4h)
-  - [ ] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
+  - [x] Dynamiczny routing dla grup i channeli (4h)
+  - [x] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
 
 - [ ] Posty
   - [ ] Nowy post
