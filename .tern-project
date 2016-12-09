@@ -1,8 +1,15 @@
 {
   "ecmaVersion": 6,
   "libs": [],
-  "loadEagerly": [ "*.js", "*/*.js", "*/*/*.js", "*/*/*/*.js" ],
-  "dontLoad": [ ".meteor" ],
+  "loadEagerly": [
+    "*.js",
+    "*/*.js",
+    "*/*/*.js",
+    "*/*/*/*.js"
+  ],
+  "dontLoad": [
+    ".meteor"
+  ],
   "plugins": {
     "doc_comment": {
       "fullDocs": true,

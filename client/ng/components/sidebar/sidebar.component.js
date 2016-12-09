@@ -4,15 +4,15 @@ import template from './sidebar.html';
 import data from './data.json';
 import _ from 'lodash';
 
-function extractElements(groups) {
-  let elements = [];
-  _.forEach(groups, (group, name) => {
-    elements.push({
+function extractElements(elements) {
+  let result = [];
+  _.each(elements, (element, name) => {
+    result.push({
       id: name,
-      name: group.displayName
+      name: element.displayName
     });
   });
-  return elements;
+  return result;
 }
 
 class Sidebar {
