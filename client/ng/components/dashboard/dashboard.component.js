@@ -26,13 +26,13 @@ function config($stateProvider) {
 
     $stateProvider
     .state('channel', {
-      url: '/group/:groupName/:channelName',
+      url: '/group/:groupId/:channelId',
       template: '<dashboard></dashboard>'
     });
 
   $stateProvider
     .state('group', {
-      url: '/group/:groupName',
+      url: '/group/:groupId',
       template: '<dashboard></dashboard>'
     });
 

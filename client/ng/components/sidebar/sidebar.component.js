@@ -1,26 +1,22 @@
 // jshint esversion: 6
+import _ from 'lodash';
 import module from './sidebar.module';
 import template from './sidebar.html';
-import data from './data.json';
-import _ from 'lodash';
-
-function extractElements(elements) {
-  let result = [];
-  _.each(elements, (element, name) => {
-    result.push({
-      id: name,
-      name: element.displayName
-    });
-  });
-  return result;
-}
+import { Groups } from '/imports/collections/groups';
 
 class Sidebar {
-  constructor($state, $stateParams) {
+  constructor($scope, $reactive, $state, $stateParams) {
     'ngInject';
 
-    this.$onInit = () => {
+    $reactive(this).attach($scope);
 
+    this.helpers({
+      groups() {
+        return Groups.find({});
+      }
+    });
+
+    this.$onInit = () => {
       // mock data
       this.user = {
         login: "spalonytoster",
@@ -30,7 +26,6 @@ class Sidebar {
           return `${this.name} ${this.surname}`;
         }
       };
-
       // end
 
       this.initGroups($stateParams);
@@ -40,24 +35,23 @@ class Sidebar {
     this.handleRedirect = () => {
       if (this.selectedChannel) {
         $state.go('channel', {
-          groupName: this.selectedGroup.id,
-          channelName: this.selectedChannel.id
+          groupId: this.selectedGroup.id,
+          channelId: this.selectedChannel.id
         });
       }
       else if (this.selectedGroup) {
         $state.go('group', {
-          groupName: this.selectedGroup.id
+          groupId: this.selectedGroup.id
         });
       }
     };
   }
 
   initGroups($stateParams) {
-    this.groups = extractElements(data);
     if (this.groups.length === 0) return;
 
-    if ($stateParams.groupName) {
-      this.selectedGroup = _.find(this.groups, { id: $stateParams.groupName });
+    if ($stateParams.groupId) {
+      this.selectedGroup = _.find(this.groups, { id: $stateParams.groupId });
     }
     else {
       this.selectedGroup = _.first(this.groups);
@@ -65,15 +59,17 @@ class Sidebar {
   }
 
   initChannels($stateParams) {
-    this.channels = extractElements(data[this.selectedGroup.id].channels);
-    this.selectedChannel = _.find(this.channels, (channel) => {
-      return channel.id === $stateParams.channelName;
-    });
+    if (!this.selectedGroup) return;
+    this.channels = _.find(this.groups, { id: this.selectedGroup.id })
+                      .channels;
+
+    let selectedChannel = _.find(this.channels, { id: $stateParams.channelId });
+    this.selectedChannel = selectedChannel;
   }
 
   selectGroup(event) {
     this.selectedGroup = event.selected;
-    this.channels = extractElements(data[this.selectedGroup.id].channels);
+    this.channels = _.find(this.groups, { id: this.selectedGroup.id });
     delete this.selectedChannel;
 
     // setting timeout for animation to finish
@@ -95,7 +91,8 @@ class Sidebar {
     // TODO: na sztywno pobierany jest login usera zdefiniowanego dla prototypu
     // trzeba zamienic na user._id po podpieciu backendu
     if (!this.selectedGroup) return false;
-    return _.includes(data[this.selectedGroup.id].administrators, this.user.login);
+    let selectedGroup = _.find(this.groups, { id: this.selectedGroup.id });
+    return _.includes(selectedGroup.administrators, this.user.login);
   }
 }
 

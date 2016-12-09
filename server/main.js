@@ -2,14 +2,13 @@
 'use strict';
 
 import { Meteor } from 'meteor/meteor';
-import { Groups } from '../imports/api/groups';
+import { Groups } from '../imports/collections/groups';
 import _ from 'lodash';
 import groups from './data.json';
 
 Meteor.startup(() => {
-  Groups.remove();
-  _.each(groups, (group, id) => {
-    group.id = id;
+  Groups.remove({});
+  _.each(groups, (group) => {
     Groups.insert(group);
   });
   Groups.find({}).fetch().forEach((group) => {
