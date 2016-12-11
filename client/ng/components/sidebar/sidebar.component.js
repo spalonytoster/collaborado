@@ -1,20 +1,14 @@
 // jshint esversion: 6
-import _ from 'lodash';
 import module from './sidebar.module';
 import template from './sidebar.html';
-import { Groups } from '/imports/collections/groups';
+import { Groups } from '/imports/api/groups';
+import { Tracker } from 'meteor/tracker';
 
 class Sidebar {
-  constructor($scope, $reactive, $state, $stateParams) {
+  constructor($scope, $reactive, $state, $stateParams, $timeout) {
     'ngInject';
 
-    $reactive(this).attach($scope);
-
-    this.helpers({
-      groups() {
-        return Groups.find({});
-      }
-    });
+    // $reactive(this).attach($scope);
 
     this.$onInit = () => {
       // mock data
@@ -27,10 +21,16 @@ class Sidebar {
         }
       };
       // end
+    };
 
+    Tracker.autorun(() => {
+      this.groups = Groups.find({}).fetch();
       this.initGroups($stateParams);
       this.initChannels($stateParams);
-    };
+
+      // this is the only way I found to activate digest after changes within autorun
+      $timeout();
+    });
 
     this.handleRedirect = () => {
       if (this.selectedChannel) {
@@ -49,9 +49,8 @@ class Sidebar {
 
   initGroups($stateParams) {
     if (this.groups.length === 0) return;
-
     if ($stateParams.groupId) {
-      this.selectedGroup = _.find(this.groups, { id: $stateParams.groupId });
+      this.selectedGroup = _.find(this.groups, (group) => group.id === $stateParams.groupId);
     }
     else {
       this.selectedGroup = _.first(this.groups);
@@ -60,17 +59,17 @@ class Sidebar {
 
   initChannels($stateParams) {
     if (!this.selectedGroup) return;
-    this.channels = _.find(this.groups, { id: this.selectedGroup.id })
+    this.channels = _.find(this.groups, (group) => group.id === this.selectedGroup.id)
                       .channels;
 
-    let selectedChannel = _.find(this.channels, { id: $stateParams.channelId });
+    let selectedChannel = _.find(this.channels, (channel) => channel.id === $stateParams.channelId);
     this.selectedChannel = selectedChannel;
   }
 
   selectGroup(event) {
     this.selectedGroup = event.selected;
-    this.channels = _.find(this.groups, { id: this.selectedGroup.id });
     delete this.selectedChannel;
+    this.channels = _.find(this.groups, (group) => group.id === this.selectedGroup.id);
 
     // setting timeout for animation to finish
     setTimeout(() => {
@@ -91,8 +90,8 @@ class Sidebar {
     // TODO: na sztywno pobierany jest login usera zdefiniowanego dla prototypu
     // trzeba zamienic na user._id po podpieciu backendu
     if (!this.selectedGroup) return false;
-    let selectedGroup = _.find(this.groups, { id: this.selectedGroup.id });
-    return _.includes(selectedGroup.administrators, this.user.login);
+    let selectedGroup = _.find(this.groups, (group) => group.id === this.selectedGroup.id);
+    return _.contains(selectedGroup.administrators, this.user.login);
   }
 }
 

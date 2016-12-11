@@ -10,13 +10,16 @@
                  children="$ctrl.groups"
                  selected="$ctrl.selectedGroup"
                  on-selected="$ctrl.selectGroup($event)"
-                 creation-enabled="true">
+                 creation-enabled="true"
+                 create-component="create-group">
     </menu-toggle>
     <menu-toggle name="channels"
                  children="$ctrl.channels"
                  selected="$ctrl.selectedChannel"
                  on-selected="$ctrl.selectChannel($event)"
-                 creation-enabled="$ctrl.checkUserChannelCreationPermission()">
+                 creation-enabled="$ctrl.checkUserChannelCreationPermission()"
+                 create-component="create-channel"
+                 group-id="$ctrl.selectedGroup._id">
     </menu-toggle>
   </md-content>
 </md-sidenav>

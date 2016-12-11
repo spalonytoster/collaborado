@@ -1,14 +1,14 @@
 // jshint esversion: 6
 import module from './menu-toggle.module';
 import template from './menu-toggle.html';
-import _ from 'lodash';
+import kebabCase from 'lodash/kebabCase';
 
 class MenuToggle {
   constructor($element, $animateCss, $timeout, $mdPanel) {
     'ngInject';
 
     this.$onInit = () => {
-      this.id = _.kebabCase(this.name);
+      this.id = kebabCase(this.name);
       this.toggled = true;
       this._mdPanel = $mdPanel;
     };
@@ -64,6 +64,8 @@ class MenuToggle {
   }
 
   showPanel() {
+    let targetComponent = this.createComponent;
+    let groupId = this.groupId;
     let position = this._mdPanel.newPanelPosition()
       .absolute()
       .center();
@@ -76,10 +78,11 @@ class MenuToggle {
       },
       controllerAs: '$ctrl',
       template: `
-        <create-group panel-ref="$ctrl.panelRef"></create-group>
+        <${targetComponent} panel-ref="$ctrl.panelRef" group-id="${groupId}">
+        </${targetComponent}>
       `,
       hasBackdrop: true,
-      panelClass: 'create-group-panel',
+      panelClass: `${targetComponent}-panel`,
       position: position,
       trapFocus: true,
       clickOutsideToClose: false,
@@ -99,7 +102,9 @@ module.component(name, {
     children: '<',
     selected: '<',
     onSelected: '&',
-    creationEnabled: '<'
+    creationEnabled: '<',
+    createComponent: '@',
+    groupId: '<'
   },
   template,
   controller: MenuToggle

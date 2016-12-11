@@ -4,9 +4,7 @@
     "name": "Uniwersytet Gdański",
     "description": "Ogolnodostepna grupa studentow Uniwersytetu Gdanskiego.",
     "type": "academic",
-    "administrators": [
-      "some-guy"
-    ],
+    "administrators": [],
     "moderators": [],
     "channels": [{
         "id": "work",
