@@ -19,3 +19,5 @@
 - 3 grudzień 8h - wykonano #6, #32, #33
 - 7 grudzień 3h - praca nad #30, #31 - dodawanie grup i channeli
 - 8 grudzień 8h - praca nad #30, #31 - dodawanie grup i channeli
+- 9 grudzień 8h - praca nad #30, #31 - dodawanie grup i channeli
+- 10 grudzień 4h - praca nad #30, #31 - dodawanie grup i channeli (tyle to zajęło ponieważ były problemy z odbiorem danych z mongo a potem z integracją z angularowym digest loop)
