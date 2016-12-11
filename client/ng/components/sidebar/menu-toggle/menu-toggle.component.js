@@ -1,16 +1,16 @@
 // jshint esversion: 6
-
 import module from './menu-toggle.module';
 import template from './menu-toggle.html';
-import _ from 'lodash';
+import kebabCase from 'lodash/kebabCase';
 
 class MenuToggle {
-  constructor($element, $animateCss, $timeout) {
+  constructor($element, $animateCss, $timeout, $mdPanel) {
     'ngInject';
 
     this.$onInit = () => {
-      this.id = _.kebabCase(this.name);
+      this.id = kebabCase(this.name);
       this.toggled = true;
+      this._mdPanel = $mdPanel;
     };
 
     // standard way of implementing animation would create a delay on collapsing the list
@@ -48,10 +48,6 @@ class MenuToggle {
 
   isSelected(link) {
     if (!this.selected) return false;
-    // console.log('selected: ' + JSON.stringify(this.selected));
-    // console.log('link: ' + JSON.stringify(link));
-    // console.log(link.id === this.selected.id);
-    // console.log();
     return link.id === this.selected.id;
   }
 
@@ -62,6 +58,40 @@ class MenuToggle {
       }
     });
   }
+
+  checkCreationPermission() {
+    return this.creationEnabled;
+  }
+
+  showPanel() {
+    let targetComponent = this.createComponent;
+    let groupId = this.groupId;
+    let position = this._mdPanel.newPanelPosition()
+      .absolute()
+      .center();
+
+    let config = {
+      attachTo: angular.element(document.body),
+      disableParentScroll: true,
+      controller: function(mdPanelRef) {
+        this.panelRef = mdPanelRef;
+      },
+      controllerAs: '$ctrl',
+      template: `
+        <${targetComponent} panel-ref="$ctrl.panelRef" group-id="${groupId}">
+        </${targetComponent}>
+      `,
+      hasBackdrop: true,
+      panelClass: `${targetComponent}-panel`,
+      position: position,
+      trapFocus: true,
+      clickOutsideToClose: false,
+      escapeToClose: true,
+      focusOnOpen: true
+    };
+
+    this._mdPanel.open(config);
+  }
 }
 
 const name = 'menuToggle';
@@ -71,7 +101,10 @@ module.component(name, {
     name: '@',
     children: '<',
     selected: '<',
-    onSelected: '&'
+    onSelected: '&',
+    creationEnabled: '<',
+    createComponent: '@',
+    groupId: '<'
   },
   template,
   controller: MenuToggle

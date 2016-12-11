@@ -1,0 +1,44 @@
+<md-content class="create-element-panel" role="dialog" layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Create channel</h2>
+    </div>
+  </md-toolbar>
+
+  <form name="channelForm" ng-submit="$ctrl.submit(channelForm.$valid)">
+    <div class="panel-content" layout="column" layout-padding>
+      <div layout="column">
+        <md-input-container class="md-block" flex>
+          <label>Id</label>
+          <input ng-model="$ctrl.channel.id" name="id"
+                 placeholder="{{ $ctrl.placeholder.id }}" disabled required/>
+          <div class="hint">This is the unique id for this channel</div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex>
+          <label>Name</label>
+          <input md-maxlength="30" ng-model="$ctrl.channel.name" name="name"
+          placeholder="e.g. {{ $ctrl.placeholder.name }}"
+          md-autofocus required />
+          <div class="hint">This is the name that will be displayed</div>
+        </md-input-container>
+
+        <!-- <md-input-container class="md-block" flex>
+          <label>Description</label>
+          <textarea ng-model="$ctrl.group.description" name="description"
+                    placeholder="{{ $ctrl.placeholder.description }}"
+                    md-maxlength="150" rows="2"/>
+        </md-input-container> -->
+      </div>
+    </div>
+
+    <div class="panel-controls" layout="row" layout-align="center center">
+      <md-button class="md-primary" ng-click="$ctrl.close()">
+        Cancel
+      </md-button>
+      <md-button type="submit" class="md-primary md-raised">
+        Submit
+      </md-button>
+    </div>
+  </form>
+</md-content>

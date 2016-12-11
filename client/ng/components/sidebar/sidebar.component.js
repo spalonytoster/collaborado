@@ -1,26 +1,17 @@
 // jshint esversion: 6
-
 import module from './sidebar.module';
 import template from './sidebar.html';
-import data from './data.json';
-import _ from 'lodash';
-
-function extractElements(groups) {
-  let elements = [];
-  _.forEach(groups, (group, name) => {
-    elements.push({
-      id: name,
-      name: group.displayName
-    });
-  });
-  return elements;
-}
+import { Groups } from '/imports/api/groups';
+import { Tracker } from 'meteor/tracker';
 
 class Sidebar {
-  constructor($state, $stateParams) {
+  constructor($scope, $reactive, $state, $stateParams, $timeout) {
     'ngInject';
 
+    // $reactive(this).attach($scope);
+
     this.$onInit = () => {
+      // mock data
       this.user = {
         login: "spalonytoster",
         name: "Maciej",
@@ -29,46 +20,56 @@ class Sidebar {
           return `${this.name} ${this.surname}`;
         }
       };
-
-      this.groups = extractElements(data);
-
-      // if there is no groups, we don't do anything
-      if (this.groups.length === 0) return;
-
-      this.selectedGroup = _.find(this.groups, (group) => {
-        return group.id === $stateParams.groupName;
-      });
-
-      if (!this.selectedGroup) {
-        console.log('There is no such group: ' + $stateParams.groupName);
-        return;
-      }
-
-      this.channels = extractElements(data[this.selectedGroup.id].channels);
-      this.selectedChannel = _.find(this.channels, (channel) => {
-        return channel.id === $stateParams.channelName;
-      });
+      // end
     };
+
+    Tracker.autorun(() => {
+      this.groups = Groups.find({}).fetch();
+      this.initGroups($stateParams);
+      this.initChannels($stateParams);
+
+      // this is the only way I found to activate digest after changes within autorun
+      $timeout();
+    });
 
     this.handleRedirect = () => {
       if (this.selectedChannel) {
         $state.go('channel', {
-          groupName: this.selectedGroup.id,
-          channelName: this.selectedChannel.id
+          groupId: this.selectedGroup.id,
+          channelId: this.selectedChannel.id
         });
       }
       else if (this.selectedGroup) {
         $state.go('group', {
-          groupName: this.selectedGroup.id
+          groupId: this.selectedGroup.id
         });
       }
     };
   }
 
+  initGroups($stateParams) {
+    if (this.groups.length === 0) return;
+    if ($stateParams.groupId) {
+      this.selectedGroup = _.find(this.groups, (group) => group.id === $stateParams.groupId);
+    }
+    else {
+      this.selectedGroup = _.first(this.groups);
+    }
+  }
+
+  initChannels($stateParams) {
+    if (!this.selectedGroup) return;
+    this.channels = _.find(this.groups, (group) => group.id === this.selectedGroup.id)
+                      .channels;
+
+    let selectedChannel = _.find(this.channels, (channel) => channel.id === $stateParams.channelId);
+    this.selectedChannel = selectedChannel;
+  }
+
   selectGroup(event) {
     this.selectedGroup = event.selected;
-    this.channels = extractElements(data[this.selectedGroup.id].channels);
     delete this.selectedChannel;
+    this.channels = _.find(this.groups, (group) => group.id === this.selectedGroup.id);
 
     // setting timeout for animation to finish
     setTimeout(() => {
@@ -83,6 +84,14 @@ class Sidebar {
     setTimeout(() => {
       this.handleRedirect();
     }, 500);
+  }
+
+  checkUserChannelCreationPermission() {
+    // TODO: na sztywno pobierany jest login usera zdefiniowanego dla prototypu
+    // trzeba zamienic na user._id po podpieciu backendu
+    if (!this.selectedGroup) return false;
+    let selectedGroup = _.find(this.groups, (group) => group.id === this.selectedGroup.id);
+    return _.contains(selectedGroup.administrators, this.user.login);
   }
 }
 
