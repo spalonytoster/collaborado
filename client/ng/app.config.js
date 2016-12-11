@@ -14,6 +14,7 @@ function config($mdIconProvider, $mdThemingProvider,
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
+
 }
 
 app.config(config);
