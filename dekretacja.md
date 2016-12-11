@@ -1,6 +1,6 @@
 # Dekretacja czasu pracy
 
-### Maciej (60,25h):
+### Maciej (91,25h):
 - 13 październik 1h - Planowe zajęcia 'Projekt zespołowy'.
 - ??? październik (zbiorczo) +15h - Pomysł na projekt; Szkice i wytyczne; Wybór technologii; Tutorial oraz artykuły blogowe nt. Meteora, Angulara 1.5+; Praca nad strukturą i bazą dla projektu (codebase); Dokumentowanie działań na GitHubie (tworzenie zadań oraz wytycznych do ich realizacji; opis celów).
 - 3 listopad (albo 27 październik) ~30 min - Spotkanie z P. Arłukowiczem. Przedstawienie pomysłu na projekt, celów i założe oraz planu działania.
@@ -17,3 +17,7 @@
 - 1 grudzień 4h - spotkanie grupowe: praca nad nowym harmonogramem oraz podziałem zadań
 - 2 grudzień 4,5h - wprowadzenie nowych issues na githubie + wycena pracy; raport do P. Arłukowicza
 - 3 grudzień 8h - wykonano #6, #32, #33
+- 7 grudzień 3h - praca nad #30, #31 - dodawanie grup i channeli
+- 8 grudzień 8h - praca nad #30, #31 - dodawanie grup i channeli
+- 9 grudzień 8h - praca nad #30, #31 - dodawanie grup i channeli
+- 10 grudzień 4h - praca nad #30, #31 - dodawanie grup i channeli (tyle to zajęło ponieważ były problemy z odbiorem danych z mongo a potem z integracją z angularowym digest loop)

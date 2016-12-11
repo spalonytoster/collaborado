@@ -126,9 +126,15 @@
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
   }
+}
 
+.md-button-action .md-toggle-icon {
+  display: block;
+  margin-left: auto;
+  speak: none;
+  vertical-align: middle;
 }
 
 .md-toggle-icon md-icon {
-  height: 40px;
+  height: 24px;
 }

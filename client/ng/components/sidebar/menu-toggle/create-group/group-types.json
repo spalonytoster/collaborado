@@ -1,0 +1,26 @@
+{
+  "academic": {
+    "name": "Academic",
+    "icon": "school"
+  },
+  "work": {
+    "name": "Work",
+    "icon": "work"
+  },
+  "social": {
+    "name": "Social",
+    "icon": "group"
+  },
+  "local": {
+    "name": "Local",
+    "icon": "location_city"
+  },
+  "hobby": {
+    "name": "Hobby",
+    "icon": "gamepad"
+  },
+  "temporary": {
+    "name": "Temporary",
+    "icon": "timer"
+  }
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "uniwersytet-gdanski",
+    "name": "Uniwersytet Gdański",
+    "description": "Ogolnodostepna grupa studentow Uniwersytetu Gdanskiego.",
+    "type": "academic",
+    "administrators": [],
+    "moderators": [],
+    "channels": [{
+        "id": "work",
+        "name": "Work"
+      }, {
+        "id": "information-channel",
+        "name": "Information channel"
+      }, {
+        "id": "offtop",
+        "name": "Offtop"
+      }
+    ]
+  }, {
+    "id": "java-user-group",
+    "name": "Java User Group",
+    "description": "Official JUG group. Come and join us!",
+    "administrators": [
+      "spalonytoster"
+    ],
+    "moderators": [],
+    "channels": [{
+        "id": "general",
+        "name": "General"
+      }, {
+        "id": "learning-channel",
+        "name": "Learning channel"
+      }, {
+        "id": "jobs",
+        "name": "Jobs"
+      }
+    ]
+  }
+]
