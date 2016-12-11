@@ -19,6 +19,14 @@
 
   }
 
+  input[type="file"] {
+  display: none;
+  }
+
+  .custom-file-upload{
+     cursor: pointer;
+  }
+
   .post {
     margin-top: 25px;
     margin-bottom: 25px;

@@ -36,15 +36,15 @@ class Posts {
         tags:tags,
         text:this.body,
         files:"",
-        time:"Just now"
+        time:"Just now",
+        pinned:false,
       };
 
       postBase.push(newPost);
   }
 
   pinup(post){
-
-      for(i=0;i<postBase.length;i++) {
+    for(i=0;i<postBase.length;i++) {
       if (postBase[i].$$hashKey === post.$$hashKey &&  post.pinned===false){
         post.pinned=true;
         if (i!==0){
@@ -55,15 +55,22 @@ class Posts {
       } else if(postBase[i].$$hashKey === post.$$hashKey &&  post.pinned===true){
           post.pinned=false;
           if ((i+1) !== postBase.length){
-              postBase.splice (i, 1);
-              postBase.push(post);
+            postBase.splice (i, 1);
+            postBase.push(post);
           }
         break;
       }
     }
 
   }
-  
+
+  love(post){
+    post.love++;
+  }
+
+  talk(post){
+    post.talk++;
+  }
 }
 
 const name = 'posts';
