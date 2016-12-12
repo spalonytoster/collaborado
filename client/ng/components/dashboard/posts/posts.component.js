@@ -12,7 +12,7 @@ class Posts {
     this.post = postBase;
 
     this.chibs = () => {
-      let placeholderTags = ['work', 'technology', 'places'];
+      let placeholderTags = [];
       this.tags = angular.copy(placeholderTags);
     };
 
@@ -29,7 +29,7 @@ class Posts {
 
   }
   submit(){
-      let tags=this.tags.toString();
+      let tags = this.tags.join(', ');
       let newPost ={
         love:0,
         talk:0,
@@ -40,7 +40,10 @@ class Posts {
         pinned:false,
       };
 
+      console.log(this.upload);
       postBase.push(newPost);
+      this.body="";
+      this.chibs();
   }
 
   pinup(post){
@@ -65,12 +68,18 @@ class Posts {
   }
 
   love(post){
-    post.love++;
+    if (post.loved === true){
+      post.love--;
+      post.loved = false;
+    } else {
+      post.love++;
+      post.loved = true;
+    }
   }
-
   talk(post){
     post.talk++;
   }
+
 }
 
 const name = 'posts';

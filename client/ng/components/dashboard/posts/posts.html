@@ -11,6 +11,7 @@
                       placeholder="Tags (5 max)"
                       secondary-placeholder="your tag here"
                       md-max-chips="5"
+                      md-min-length="2"
                       flex>
               <md-chip-template>
                 <strong>{{$chip}}</strong>
@@ -51,7 +52,7 @@
             <md-tooltip>Attach file</md-tooltip>
             <md-icon>attach_file</md-icon>
           </label>
-          <input id="file-upload" type="file" ng-model="$ctrl.file.upload"/>
+          <input id="file-upload" type="file" ng-model="$ctrl.upload"/>
         </div>
         <div flex>
           <md-button id="new-post-submit"
@@ -90,7 +91,7 @@
     </div>
     <div class="post-controls" layout="row">
       <div>
-        <md-button ng-class="{'md-accent': true}" ng-click="$ctrl.love(post)">
+        <md-button class="md-accent " ng-class=" !post.loved ? 'md-hue-1': 'false'" ng-click="$ctrl.love(post)">
           <md-tooltip>Thank you!</md-tooltip>
           <md-icon>favorite</md-icon>
           <span>{{post.love}}</span>
@@ -109,7 +110,7 @@
       </div>
      </div>
      <div>
-       <small>#{{post.tags}}</small>
+       <small>tags: {{post.tags}}</small>
      </div>
   </div>
 </div>
