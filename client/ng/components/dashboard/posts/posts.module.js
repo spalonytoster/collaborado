@@ -13,5 +13,5 @@ export default angular.module(name, [
   angularMeteor,
   angularMaterial,
   angularAria,
-  angularAnimate,
+  angularAnimate
 ]);
