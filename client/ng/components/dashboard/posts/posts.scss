@@ -14,9 +14,22 @@
   #new-post-submit {
     float: right;
   }
+  
+  .post-pinup{
+    float: right;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .custom-file-upload{
+    cursor: pointer;
+  }
 
   .post {
     margin-top: 25px;
+    margin-bottom: 25px;
 
     .post-author-avatar > img {
       width: 50px;
@@ -42,6 +55,9 @@
     .post-body {
       padding-top: 0px;
       padding-bottom: 0px;
+    }
+    small{
+      color:gray;
     }
   }
 }
