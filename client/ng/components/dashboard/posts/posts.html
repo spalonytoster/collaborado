@@ -59,8 +59,8 @@
                      class="md-raised md-primary"
                      ng-click="$ctrl.submit()"
                      ng-model="$ctrl.button"
-                     ng-disabled="$ctrl.checkText()"
-                     >Submit</md-button>
+                     ng-disabled="$ctrl.checkText()">Submit
+          </md-button>
         </div>
       </div>
     </form>
@@ -68,7 +68,7 @@
 
 
 
-<div ng-repeat="post in $ctrl.post">
+<div ng-repeat="post in $ctrl.posts">
   <div class="post" layout="column" layout-padding md-whiteframe="4">
     <div class="post-header" layout="row" flex>
       <span class="post-author-avatar"><img src="/images/avatar.png" alt="" /></span>
@@ -91,12 +91,12 @@
     </div>
     <div class="post-controls" layout="row">
       <div>
-        <md-button class="md-accent " ng-class=" !post.loved ? 'md-hue-1': 'false'" ng-click="$ctrl.love(post)">
+        <md-button ng-class="post.loved ? 'md-accent': 'false'" ng-click="$ctrl.love(post)">
           <md-tooltip>Thank you!</md-tooltip>
           <md-icon>favorite</md-icon>
           <span>{{post.love}}</span>
         </md-button>
-        <md-button ng-click="$ctrl.talk(post)">
+        <md-button>
           <md-tooltip>Talk about this</md-tooltip>
           <md-icon>forum</md-icon>
           <span>{{post.talk}}</span>
