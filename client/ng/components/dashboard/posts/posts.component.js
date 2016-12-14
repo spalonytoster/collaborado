@@ -5,7 +5,7 @@ import template from './posts.html';
 import { postBase } from './posts.js';
 
 class Posts {
-  constructor($scope) {
+  constructor() {
     'ngInject';
     this.body = "";
     this.tags = "";
@@ -47,15 +47,15 @@ class Posts {
   }
 
   pinup(post){
-    for(i=0;i<postBase.length;i++) {
-      if (postBase[i].$$hashKey === post.$$hashKey &&  post.pinned===false){
+    for(i = 0; i < postBase.length; i++) {
+      if (postBase[i]._id === post._id &&  post.pinned === false){
         post.pinned=true;
-        if (i!==0){
+        if (i! == 0){
           postBase.splice (i, 1);
           postBase.unshift(post);
         }
         break;
-      } else if(postBase[i].$$hashKey === post.$$hashKey &&  post.pinned===true){
+      } else if(postBase[i]._id === post._id && post.pinned === true) {
           post.pinned=false;
           if ((i+1) !== postBase.length){
             postBase.splice (i, 1);
