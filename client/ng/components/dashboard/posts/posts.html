@@ -3,7 +3,7 @@
     <form name="chipForm">
       <div id="new-post-tags" layout="row" layout-margin layout-align="none center">
           <md-icon>label</md-icon>
-          <form name="ChibsForm">
+          <form name="ChipsForm">
             <md-chips ng-model="$ctrl.tags"
                       md-removable="true"
                       name="chip"
@@ -11,7 +11,6 @@
                       placeholder="Tags (5 max)"
                       secondary-placeholder="your tag here"
                       md-max-chips="5"
-                      md-min-length="2"
                       flex>
               <md-chip-template>
                 <strong>{{$chip}}</strong>
@@ -33,9 +32,9 @@
       <div id="file-list" ng-show="true">
         <md-list>
           <md-subheader class="md-no-sticky">Uploaded files</md-subheader>
-          <md-list-item class="secondary-button-padding md-no-proxy">
-            <p>some_picture.png</p>
-            <md-button class="md-icon-button">
+          <md-list-item class="secondary-button-padding md-no-proxy" ng-repeat="upload in $ctrl.uploads">
+            <p>{{upload.name}}</p>
+            <md-button class="md-icon-button" ng-click="$ctrl.deleteFile(upload)">
               <md-icon>clear</md-icon>
             </md-button>
           </md-list-item>
@@ -47,12 +46,12 @@
             <md-tooltip>Insert photo</md-tooltip>
             <md-icon>insert_photo</md-icon>
           </label>
-          <input id="photo-upload" type="file" accept="image/*" ng-model="$ctrl.photo.upload"/>
+          <input id="photo-upload" type="file" accept="image/*"  ng-file-model="$ctrl.upload"/>
           <label for="file-upload" class="custom-file-upload">
             <md-tooltip>Attach file</md-tooltip>
             <md-icon>attach_file</md-icon>
           </label>
-          <input id="file-upload" type="file" ng-model="$ctrl.upload"/>
+          <input id="file-upload" type="file" ng-file-model="$ctrl.upload"/>
         </div>
         <div flex>
           <md-button id="new-post-submit"

@@ -10,24 +10,31 @@ class Posts {
     this.body = "";
     this.tags = "";
     this.post = postBase;
+    this.uploads = [];
 
-    this.chibs = () => {
+    this.chips = () => {
       let placeholderTags = [];
       this.tags = angular.copy(placeholderTags);
     };
 
-    this.chibs();
+    this.chips();
 
-    this.checkText = () =>{
+    this.checkText = () => {
+      if (this.upload!==undefined && this.uploads.includes(this.upload)===false){
+        this.uploads.push(this.upload);
+      }
+
       if (this.body.length > 0) {
         return false;
-        }
-        else {
+        } else {
          return true;
        }
      };
 
+
+
   }
+
   submit(){
       let tags = this.tags.join(', ');
       let newPost ={
@@ -35,15 +42,16 @@ class Posts {
         talk:0,
         tags:tags,
         text:this.body,
-        files:"",
+        files:this.uploads,
         time:"Just now",
         pinned:false,
       };
 
-      console.log(this.upload);
       postBase.push(newPost);
       this.body="";
-      this.chibs();
+      this.chips();
+
+      console.log(postBase);
   }
 
   pinup(post){
@@ -78,6 +86,14 @@ class Posts {
   }
   talk(post){
     post.talk++;
+  }
+
+  deleteFile(upload){
+    this.uploads.forEach((item,i) =>{
+      if (upload === item){
+          this.uploads.splice(i,1);
+      }
+    });
   }
 
 }
