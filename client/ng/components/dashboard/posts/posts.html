@@ -14,7 +14,7 @@
                       md-min-length="2"
                       flex>
               <md-chip-template>
-                <strong>{{$chip}}</strong>
+                <strong>{{ $chip }}</strong>
             </md-chip-template>
           </md-chips>
         </form>
@@ -33,9 +33,10 @@
       <div id="file-list" ng-show="true">
         <md-list>
           <md-subheader class="md-no-sticky">Uploaded files</md-subheader>
-          <md-list-item class="secondary-button-padding md-no-proxy">
-            <p>some_picture.png</p>
-            <md-button class="md-icon-button">
+          <md-list-item class="secondary-button-padding md-no-proxy" ng-repeat="file in $ctrl.attachments">
+            <p>{{ file.name }}</p>
+            <md-button class="md-icon-button" ng-click="$ctrl.removeFile(file)">
+              <md-tooltip>Remove</md-tooltip>
               <md-icon>clear</md-icon>
             </md-button>
           </md-list-item>
@@ -43,23 +44,19 @@
       </div>
       <div id="new-post-controls" layout="row" layout-margin>
         <div id="new-post-controls-buttons">
-          <label for="photo-upload" class="custom-file-upload">
-            <md-tooltip>Insert photo</md-tooltip>
-            <md-icon>insert_photo</md-icon>
-          </label>
-          <input id="photo-upload" type="file" accept="image/*" ng-model="$ctrl.photo.upload"/>
           <label for="file-upload" class="custom-file-upload">
             <md-tooltip>Attach file</md-tooltip>
             <md-icon>attach_file</md-icon>
           </label>
-          <input id="file-upload" type="file" ng-model="$ctrl.upload"/>
+          <input id="file-upload" type="file" ng-file-model="$ctrl.uploadedFile" />
         </div>
         <div flex>
           <md-button id="new-post-submit"
                      class="md-raised md-primary"
                      ng-click="$ctrl.submit()"
                      ng-model="$ctrl.button"
-                     ng-disabled="$ctrl.checkText()">Submit
+                     ng-disabled="$ctrl.checkText()">
+             Submit
           </md-button>
         </div>
       </div>

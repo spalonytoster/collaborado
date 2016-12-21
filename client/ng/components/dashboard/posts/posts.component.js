@@ -5,12 +5,18 @@ import template from './posts.html';
 import { postBase } from './posts.js';
 
 class Posts {
-  constructor() {
+  constructor($scope) {
     'ngInject';
 
     this.$onInit = () => {
       this.init();
     };
+
+    $scope.$watch((scope) => {
+      return this.uploadedFile;
+    }, (file) => {
+      this.handleUploadFile(file);
+    });
   }
 
   init() {
@@ -18,6 +24,7 @@ class Posts {
     this.tags = "";
     this.posts = postBase;
     this.tags = [];
+    this.attachments = [];
   }
 
   checkText() {
@@ -38,11 +45,15 @@ class Posts {
       files: "",
       time: "Just now",
       pinned: false,
+      attachments: this.files
     };
+
+    console.log(this.uploadedFile);
 
     postBase.push(newPost);
     this.body = "";
     this.tags = [];
+    this.attachments = [];
   }
 
   pinup(post) {
@@ -63,7 +74,6 @@ class Posts {
         break;
       }
     }
-
   }
 
   love(post) {
@@ -74,6 +84,19 @@ class Posts {
       post.love++;
       post.loved = true;
     }
+  }
+
+  handleUploadFile(file) {
+    if (!file) return;
+    console.log(file);
+    this.attachments.push(file);
+    delete this.uploadedFile;
+  }
+
+  removeFile(removedFile) {
+     this.attachments = _.without(this.attachments,
+       _.findWhere(this.attachments, { name: removedFile.name })
+     );
   }
 }
 
