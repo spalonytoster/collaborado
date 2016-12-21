@@ -35,9 +35,9 @@ As simple as that!
 - [ ] Posty
   - [ ] Nowy post
     - [x] Struktura HTML (Karol + Maciej) (8h)
-    - [ ] Obsługa tagów (2h) (Karol)
-    - [ ] Dodawanie plików (4h) (Karol)
-    - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
+    - [x] Obsługa tagów (2h) (Karol)
+    - [x] Dodawanie plików (4h) (Karol)
+    - [x] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
     - [ ] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Struktura HTML (Karol + Maciej) (8h)
