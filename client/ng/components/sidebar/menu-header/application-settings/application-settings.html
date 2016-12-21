@@ -1,0 +1,24 @@
+<md-content class="application-settings-panel" role="dialog" layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Settings</h2>
+    </div>
+  </md-toolbar>
+
+  <form name="settingsForm" ng-submit="$ctrl.submit(channelForm.$valid)">
+    <div class="panel-content" layout="column" layout-padding>
+      <div layout="column">
+        <h1>hello world</h1>
+      </div>
+    </div>
+
+    <div class="panel-controls" layout="row" layout-align="center center">
+      <md-button class="md-primary" ng-click="$ctrl.close()">
+        Cancel
+      </md-button>
+      <md-button type="submit" class="md-primary md-raised">
+        Submit
+      </md-button>
+    </div>
+  </form>
+</md-content>
