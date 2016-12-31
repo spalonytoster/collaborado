@@ -13,6 +13,14 @@ class ApplicationSettings {
     this.$onInit = () => {
       this.userId = 1;
 
+      this.availableLanguages = [{
+        _id: "1",
+        name: "English"
+      }, {
+        _id: "2",
+        name: "Polski"
+      }];
+
       this.helpers({
         settings() {
           return UserSettings.findOne({ userId: this.userId });
@@ -25,8 +33,8 @@ class ApplicationSettings {
   }
 
   submit() {
-    UserSettings.update({ _id: this.settings._id }, this.settings);
     console.log(this.settings);
+    UserSettings.update({ _id: this.settings._id }, this.settings);
   }
 
   close() {

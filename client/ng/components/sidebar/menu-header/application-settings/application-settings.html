@@ -48,6 +48,22 @@
              </md-select>
             </div>
           </div>
+
+          <span class="md-title section-title">Language</span>
+          <div class="form-switch" layout="row">
+            <div flex>
+              <p>Choose language</p>
+            </div>
+            <div flex>
+              <md-select class="float-right" ng-model="general.languageId"
+                         aria-label="Choose theme"
+                         ng-change="$ctrl.submit()">
+                <md-option ng-repeat="language in $ctrl.availableLanguages" ng-value="language._id">
+                  {{ language.name }}
+                </md-option>
+             </md-select>
+            </div>
+          </div>
         </div>
       </div>
     </md-tab>
