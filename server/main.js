@@ -5,11 +5,13 @@ import { Meteor } from 'meteor/meteor';
 import { Groups } from '../imports/api/groups';
 import { UserSettings } from '../imports/api/user-settings';
 import { Posts } from '../imports/api/posts';
+import { Themes } from '../imports/api/themes';
 
 // data
 import groups from './data/groups.json';
 import userSettings from './data/user-settings.json';
 import posts from './data/posts.json';
+import themes from './data/themes.json';
 
 function seedCollection(collection, data) {
   collection.remove({});
@@ -23,4 +25,5 @@ Meteor.startup(() => {
   seedCollection(Groups, groups);
   seedCollection(UserSettings, userSettings);
   seedCollection(Posts, posts);
+  seedCollection(Themes, themes);
 });
