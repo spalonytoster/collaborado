@@ -11,7 +11,7 @@ class ApplicationSettings {
     $reactive(this).attach($scope);
 
     this.$onInit = () => {
-      this.userId = 1;
+      this.userId = "1";
 
       this.availableLanguages = [{
         _id: "1",
@@ -23,7 +23,7 @@ class ApplicationSettings {
 
       this.helpers({
         settings() {
-          return UserSettings.findOne({ userId: this.userId });
+          return UserSettings.find({ userId: this.userId }).fetch()[0];
         },
         availableThemes() {
           return Themes.find({ active: true });

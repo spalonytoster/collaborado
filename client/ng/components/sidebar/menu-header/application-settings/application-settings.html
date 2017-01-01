@@ -6,7 +6,7 @@
   </md-toolbar>
 
   <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab label="general" ng-init="general=$ctrl.settings.general">
+    <md-tab label="general">
       <div class="md-padding panel-content more-padding" layout="column" layout-padding>
         <div layout="column">
           <span class="md-title section-title">Notifications</span>
@@ -15,7 +15,7 @@
               <p>Enable sound</p>
             </div>
             <div flex>
-              <md-switch class="float-right" ng-model="general.notifications.sound"
+              <md-switch class="float-right" ng-model="$ctrl.settings.general.notifications.sound"
                          aria-label="Enable sound"
                          ng-change="$ctrl.submit()">
              </md-switch>
@@ -26,7 +26,7 @@
               <p>Enable notifications</p>
             </div>
             <div flex>
-              <md-switch class="float-right" ng-model="general.notifications.toast"
+              <md-switch class="float-right" ng-model="$ctrl.settings.general.notifications.toast"
                          aria-label="Enable notifications"
                          ng-change="$ctrl.submit()">
              </md-switch>
@@ -39,7 +39,7 @@
               <p>Choose theme</p>
             </div>
             <div flex>
-              <md-select class="float-right" ng-model="general.themeId"
+              <md-select class="float-right" ng-model="$ctrl.settings.general.themeId"
                          aria-label="Choose theme"
                          ng-change="$ctrl.submit()">
                 <md-option ng-repeat="theme in $ctrl.availableThemes" ng-value="theme._id">
@@ -55,7 +55,7 @@
               <p>Choose language</p>
             </div>
             <div flex>
-              <md-select class="float-right" ng-model="general.languageId"
+              <md-select class="float-right" ng-model="$ctrl.settings.general.languageId"
                          aria-label="Choose theme"
                          ng-change="$ctrl.submit()">
                 <md-option ng-repeat="language in $ctrl.availableLanguages" ng-value="language._id">
