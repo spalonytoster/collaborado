@@ -35,8 +35,23 @@ class ApplicationSettings {
     };
   }
 
+  close() {
+    let panelRef = this.panelRef;
+    if (!panelRef) return;
+    panelRef.close().then(() => {
+      panelRef.destroy();
+    });
+  }
+
+  submit() {
+    console.log(this.settings);
+    UserSettings.update({ _id: this.settings._id }, this.settings);
+  }
+
   submitBio(form) {
-    if (!form.valid) return false;
+    if (!form.$valid) return false;
+    let bio = this.settings.account.bio;
+    UserSettings.update({ _id: this.userId }, { $set: { "account.bio": bio }});
     this.isBioEditable = false;
   }
 
@@ -56,19 +71,6 @@ class ApplicationSettings {
     this._timeout(() => {
       this.settings.account.bio = this.oldBio;
       delete this.oldBio;
-    });
-  }
-
-  submit() {
-    console.log(this.settings);
-    UserSettings.update({ _id: this.settings._id }, this.settings);
-  }
-
-  close() {
-    let panelRef = this.panelRef;
-    if (!panelRef) return;
-    panelRef.close().then(() => {
-      panelRef.destroy();
     });
   }
 }
