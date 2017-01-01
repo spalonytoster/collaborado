@@ -16,10 +16,6 @@
     }
   }
 
-  .panel-controls {
-    margin-bottom: 10px;
-  }
-
   .section-title {
     color: rgba(0, 0, 0, 0.541176);
     padding: 10px 0px;
@@ -32,6 +28,14 @@
   }
 
   .more-padding {
-    padding: 10px 5%;
+    padding: 20px 5% 10px;
+  }
+
+  .panel-controls {
+    padding-bottom: 16px;
+  }
+
+  .section-controls button {
+    padding: 0;
   }
 }

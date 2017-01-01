@@ -5,13 +5,16 @@ import { UserSettings } from '/imports/api/user-settings';
 import { Themes } from '/imports/api/themes';
 
 class ApplicationSettings {
-  constructor($scope, $reactive) {
+  constructor($scope, $reactive, $timeout) {
     'ngInject';
+
+    this._timeout = $timeout;
 
     $reactive(this).attach($scope);
 
     this.$onInit = () => {
       this.userId = "1";
+      this.isBioEditable = false;
 
       this.availableLanguages = [{
         _id: "1",
@@ -30,6 +33,30 @@ class ApplicationSettings {
         }
       });
     };
+  }
+
+  submitBio(form) {
+    if (!form.valid) return false;
+    this.isBioEditable = false;
+  }
+
+  editBio() {
+    this.isBioEditable = true;
+    this.oldBio = this.settings.account.bio;
+  }
+
+  cancelBio(form) {
+    this.isBioEditable = false;
+
+    // http://stackoverflow.com/a/36695363/4150933
+    this.settings.account.bio = null;
+    form.$setPristine();
+    form.$setValidity();
+    form.$setUntouched();
+    this._timeout(() => {
+      this.settings.account.bio = this.oldBio;
+      delete this.oldBio;
+    });
   }
 
   submit() {
