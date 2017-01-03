@@ -20,10 +20,9 @@ As simple as that!
 - [ ] Dashboard (Maciej)
   - [x] Struktura HTML (8h)
   - [ ] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
-  - [ ] Połącznie z komponentem Sidebar celem odbierania danych profilu użytkownika + ustawień aplikacji (3h)
   - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
 
-- [ ] Sidebar (Maciej)
+- [x] Sidebar (Maciej)
   - [x] Struktura HTML (16h)
   - [x] Przepisanie modułu https://github.com/sovanna/angular-material-sidenav na komponenty NG 1.5 (4h)
   - [x] Ustawienia profilu/aplikacji (popup) (3h)
