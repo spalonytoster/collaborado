@@ -16,7 +16,40 @@
     }
   }
 
-  .panel-controls {
+  .section-title {
+    color: rgba(0, 0, 0, 0.541176);
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.117647);
     margin-bottom: 10px;
+  }
+
+  .float-right {
+    float: right;
+  }
+
+  .more-padding {
+    padding: 20px 5% 10px;
+  }
+
+  .panel-controls {
+    padding-bottom: 16px;
+  }
+
+  .section-controls button {
+    padding: 0;
+  }
+
+  .profile-info {
+    .avatar {
+      max-width: 150px;
+      max-height: 150px;
+      border-radius: 50%;
+    }
+
+    #edit-avatar-button {
+      position: absolute;
+      top: 24px;
+      right: 35%;
+    }
   }
 }

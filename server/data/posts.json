@@ -1,7 +1,7 @@
 [{
   "_id": "1",
-  "group": "1",
-  "channel": "1",
+  "groupId": "1",
+  "channelId": "1",
   "time": "4 hours ago",
   "love": "30",
   "talk": "26",
@@ -11,8 +11,8 @@
   "text": "Witaj wedrowcze. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
 }, {
   "_id": "2",
-  "group": "1",
-  "channel": "1",
+  "groupId": "1",
+  "channelId": "1",
   "time": "6 hours ago",
   "love": "50",
   "talk": "15",
@@ -22,8 +22,8 @@
   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ole ole"
 }, {
   "_id": "3",
-  "group": "1",
-  "channel": "1",
+  "groupId": "1",
+  "channelId": "1",
   "time": "30 minutes ago",
   "love": "10",
   "talk": "15",

@@ -2,14 +2,9 @@
 import template from './application-settings.html';
 import module from './application-settings.module';
 import { UserSettings } from '/imports/api/user-settings';
+import { Themes } from '/imports/api/themes';
 
 class ApplicationSettings {
-  constructor() {
-    'ngInject';
-
-    this.$onInit = () => {};
-  }
-
   close() {
     let panelRef = this.panelRef;
     if (!panelRef) return;
