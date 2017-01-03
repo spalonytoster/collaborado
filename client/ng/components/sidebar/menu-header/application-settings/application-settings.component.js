@@ -5,12 +5,13 @@ import { UserSettings } from '/imports/api/user-settings';
 import { Themes } from '/imports/api/themes';
 
 class ApplicationSettings {
+  constructor($mdDialog) {
+    'ngInject';
+    this._mdDialog = $mdDialog;
+  }
+  
   close() {
-    let panelRef = this.panelRef;
-    if (!panelRef) return;
-    panelRef.close().then(() => {
-      panelRef.destroy();
-    });
+    this._mdDialog.cancel();
   }
 }
 

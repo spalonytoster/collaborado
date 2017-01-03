@@ -3,37 +3,28 @@ import module from './menu-header.module';
 import template from './menu-header.html';
 
 class MenuHeader {
-  constructor($mdPanel) {
-    this._mdPanel = $mdPanel;
+  constructor($mdDialog) {
+    'ngInject';
+    this._mdDialog = $mdDialog;
   }
 
-  openSettings() {
-    let targetComponent = 'application-settings';
-
-    let position = this._mdPanel.newPanelPosition()
-      .absolute()
-      .center();
+  openSettings(event) {
 
     let config = {
-      attachTo: angular.element(document.body),
-      disableParentScroll: true,
-      controller: function(mdPanelRef) {
-        this.panelRef = mdPanelRef;
-      },
-      controllerAs: '$ctrl',
+      parent: angular.element(document.body),
+      targetEvent: event,
       template: `
-        <${targetComponent} panel-ref="$ctrl.panelRef"></${targetComponent}>
+        <application-settings></application-settings>
       `,
       hasBackdrop: true,
-      panelClass: `${targetComponent}-panel`,
-      position: position,
+      // position: position,
       trapFocus: true,
       clickOutsideToClose: false,
       escapeToClose: true,
       focusOnOpen: true
     };
 
-    this._mdPanel.open(config);
+    this._mdDialog.show(config);
   }
 }
 
