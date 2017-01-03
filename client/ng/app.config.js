@@ -10,11 +10,24 @@ function config($mdIconProvider, $mdThemingProvider,
     .primaryPalette('blue', {
       default: '700'
     });
+    // .accentPalette('blue', {
+    //   'default': '200' // use shade 200 for default, and keep all other shades the same
+    // });
+
+  $mdThemingProvider
+    .theme('dark')
+    .primaryPalette('grey',{
+      'default': '900'})
+       .accentPalette('grey',{
+      'default': '700'})
+       // .backgroundPalette('grey',{'default': '900'})
+    .dark();
+
+  // $mdThemingProvider.setDefaultTheme('default');
+  $mdThemingProvider.alwaysWatchTheme(true);
 
   $locationProvider.html5Mode(true);
-
   $urlRouterProvider.otherwise('/');
-
 }
 
 app.config(config);

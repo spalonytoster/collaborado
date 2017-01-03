@@ -7,7 +7,7 @@
         "sound": true,
         "toast": true
       },
-      "themeId": "1",
+      "theme": "default",
       "languageId": "1"
     },
     "account": {

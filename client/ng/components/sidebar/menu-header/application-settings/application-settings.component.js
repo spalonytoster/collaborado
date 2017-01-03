@@ -26,7 +26,7 @@ class ApplicationSettings {
 
       this.helpers({
         settings() {
-          return UserSettings.find({ userId: this.userId }).fetch()[0];
+          return UserSettings.findOne({ userId: this.userId });
         },
         availableThemes() {
           return Themes.find({ active: true });
@@ -44,7 +44,6 @@ class ApplicationSettings {
   }
 
   submit() {
-    console.log(this.settings);
     UserSettings.update({ _id: this.settings._id }, this.settings);
   }
 

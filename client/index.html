@@ -7,6 +7,6 @@
   <link rel="stylesheet" href="./stylesheets/main.css">
 </head>
 
-<body ng-app="app" ng-cloak>
+<body ng-app="app" ng-cloak md-theme="{{ $ctrl.settings.general.theme }}" ng-controller="AppCtrl as $ctrl" md-theme-watch>
   <div class="content" ui-view></div>
 </body>

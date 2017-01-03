@@ -38,4 +38,18 @@
   .section-controls button {
     padding: 0;
   }
+
+  .profile-info {
+    .avatar {
+      max-width: 150px;
+      max-height: 150px;
+      border-radius: 50%;
+    }
+
+    #edit-avatar-button {
+      position: absolute;
+      top: 24px;
+      right: 35%;
+    }
+  }
 }
