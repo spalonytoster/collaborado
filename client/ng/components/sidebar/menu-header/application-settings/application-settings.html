@@ -74,13 +74,15 @@
 
         <div class="profile-info" layout="column" layout-align="center center">
           <span id="edit-avatar-button">
-            <md-button class="md-icon-button">
+            <label for="avatar" class="custom-file-upload" style="cursor: pointer;">
               <md-tooltip>Change avatar</md-tooltip>
               <md-icon>create</md-icon>
-            </md-button>
+            </label>
+            <input id="avatar" style="display: none;" type="file"
+                   ng-file-model="$ctrl.uploadedAvatar" />
           </span>
           <span>
-            <img class="avatar" src="/images/avatar.png" alt="" />
+            <img class="avatar" src="{{ $ctrl.getAvatar() }}" />
           </span>
           <span>
             <h1 class="md-display-2">Maciej Posłuszny</h1>

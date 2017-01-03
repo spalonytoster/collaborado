@@ -32,7 +32,18 @@ class ApplicationSettings {
           return Themes.find({ active: true });
         }
       });
+      this.uploadedAvatar = this.settings.account.avatar;
+      console.log(this.uploadedAvatar);
     };
+
+    $scope.$watch((scope) => {
+      return this.uploadedAvatar;
+    }, (file, oldFile) => {
+      if (file && file !== oldFile) {
+        this.submitAvatar();
+        console.log(file);
+      }
+    });
   }
 
   close() {
@@ -50,7 +61,7 @@ class ApplicationSettings {
   submitBio(form) {
     if (!form.$valid) return false;
     let bio = this.settings.account.bio;
-    UserSettings.update({ _id: this.userId }, { $set: { "account.bio": bio }});
+    UserSettings.update({ _id: this.settings._id }, { $set: { "account.bio": bio }});
     this.isBioEditable = false;
   }
 
@@ -71,6 +82,21 @@ class ApplicationSettings {
       this.settings.account.bio = this.oldBio;
       delete this.oldBio;
     });
+  }
+
+  getAvatar() {
+    if (this.uploadedAvatar) {
+      return this.uploadedAvatar.data;
+    }
+    else {
+      return '/images/avatar.png';
+    }
+  }
+
+  submitAvatar() {
+    UserSettings.update({ _id: this.settings._id }, {
+       $set: { 'account.avatar': this.uploadedAvatar
+     }});
   }
 }
 
