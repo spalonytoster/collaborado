@@ -74,6 +74,7 @@ class MenuToggle {
       attachTo: angular.element(document.body),
       disableParentScroll: true,
       controller: function(mdPanelRef) {
+        'ngInject';
         this.panelRef = mdPanelRef;
       },
       controllerAs: '$ctrl',
