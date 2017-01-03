@@ -7,128 +7,15 @@
 
   <md-tabs md-dynamic-height md-border-bottom>
     <md-tab label="general">
-      <!-- general tab -->
-      <md-content class="md-padding panel-content more-padding" layout="column">
-        <span class="md-title section-title">Notifications</span>
-        <div layout="row">
-          <div flex>
-            <p>Enable sound</p>
-          </div>
-          <div flex>
-            <md-switch class="float-right" ng-model="$ctrl.settings.general.notifications.sound"
-                       aria-label="Enable sound"
-                       ng-change="$ctrl.submit()">
-           </md-switch>
-          </div>
-        </div>
-        <div layout="row">
-          <div flex>
-            <p>Enable notifications</p>
-          </div>
-          <div flex>
-            <md-switch class="float-right" ng-model="$ctrl.settings.general.notifications.toast"
-                       aria-label="Enable notifications"
-                       ng-change="$ctrl.submit()">
-           </md-switch>
-          </div>
-        </div>
-
-        <span class="md-title section-title">Appearance</span>
-        <div layout="row">
-          <div flex>
-            <p>Choose theme</p>
-          </div>
-          <div flex>
-            <md-select class="float-right" ng-model="$ctrl.settings.general.theme"
-                       aria-label="Choose theme"
-                       ng-change="$ctrl.submit()">
-              <md-option ng-repeat="theme in $ctrl.availableThemes" ng-value="theme.id">
-                {{ theme.name }}
-              </md-option>
-           </md-select>
-          </div>
-        </div>
-
-        <span class="md-title section-title">Language</span>
-        <div layout="row">
-          <div flex>
-            <p>Choose language</p>
-          </div>
-          <div flex>
-            <md-select class="float-right" ng-model="$ctrl.settings.general.languageId"
-                       aria-label="Choose theme"
-                       ng-change="$ctrl.submit()">
-              <md-option ng-repeat="language in $ctrl.availableLanguages" ng-value="language._id">
-                {{ language.name }}
-              </md-option>
-           </md-select>
-          </div>
-        </div>
-      <md-content>
-      <!-- general tab end -->
+      <tab-general></tab-general>
     </md-tab>
 
     <md-tab label="account">
-      <!-- account tab -->
       <md-content class="md-padding panel-content more-padding" layout="column">
-
-        <div class="profile-info" layout="column" layout-align="center center">
-          <span id="edit-avatar-button">
-            <label for="avatar" class="custom-file-upload" style="cursor: pointer;">
-              <md-tooltip>Change avatar</md-tooltip>
-              <md-icon>create</md-icon>
-            </label>
-            <input id="avatar" style="display: none;" type="file"
-                   ng-file-model="$ctrl.uploadedAvatar" />
-          </span>
-          <span>
-            <img class="avatar" src="{{ $ctrl.getAvatar() }}" />
-          </span>
-          <span>
-            <h1 class="md-display-2">Maciej Posłuszny</h1>
-          </span>
-          <md-button class="md-accent">Logout</md-button>
-        </div>
-
-        <form name="bioForm" ng-submit="$ctrl.submitBio(bioForm)">
-          <div class="section-title" layout="row" layout-align="space-between center">
-            <span class="md-title">Bio</span>
-            <div class="section-controls">
-              <md-button class="md-icon-button section-button"
-                         ng-hide="$ctrl.isBioEditable"
-                         ng-click="$ctrl.editBio()">
-                <md-tooltip>Edit</md-tooltip>
-                <md-icon>create</md-icon>
-              </md-button>
-              <md-button class="md-icon-button section-button"
-                         ng-show="$ctrl.isBioEditable"
-                         ng-click="$ctrl.cancelBio(bioForm)">
-                <md-tooltip>Cancel</md-tooltip>
-                <md-icon>clear</md-icon>
-              </md-button>
-              <md-button class="md-icon-button section-button"
-                         type="submit"
-                         ng-show="$ctrl.isBioEditable">
-                <md-tooltip>Save</md-tooltip>
-                <md-icon>done</md-icon>
-              </md-button>
-            </div>
-          </div>
-          <div layout="row">
-            <md-input-container flex class="md-block" md-no-float>
-              <textarea ng-model="$ctrl.settings.account.bio"
-                        md-maxlength="300"
-                        rows="4"
-                        md-select-on-focus
-                        placeholder="Say something about yourself"
-                        ng-disabled="!$ctrl.isBioEditable">
-              </textarea>
-            </md-input-container>
-          </div>
-        </form>
+        <avatar-upload></avatar-upload>
+        <profile-bio></profile-bio>
       </md-content>
     </md-tab>
-    <!-- account tab end -->
   </md-tabs>
 
   <md-content class="panel-controls" layout="row" layout-align="center center">

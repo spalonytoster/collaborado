@@ -1,0 +1,36 @@
+<form name="bioForm" ng-submit="$ctrl.submitBio(bioForm)">
+  <div class="section-title" layout="row" layout-align="space-between center">
+    <span class="md-title">Bio</span>
+    <div class="section-controls">
+      <md-button class="md-icon-button section-button"
+                 ng-hide="$ctrl.isBioEditable"
+                 ng-click="$ctrl.editBio()">
+        <md-tooltip>Edit</md-tooltip>
+        <md-icon>create</md-icon>
+      </md-button>
+      <md-button class="md-icon-button section-button"
+                 ng-show="$ctrl.isBioEditable"
+                 ng-click="$ctrl.cancelBio(bioForm)">
+        <md-tooltip>Cancel</md-tooltip>
+        <md-icon>clear</md-icon>
+      </md-button>
+      <md-button class="md-icon-button section-button"
+                 type="submit"
+                 ng-show="$ctrl.isBioEditable">
+        <md-tooltip>Save</md-tooltip>
+        <md-icon>done</md-icon>
+      </md-button>
+    </div>
+  </div>
+  <div layout="row">
+    <md-input-container flex class="md-block" md-no-float>
+      <textarea ng-model="$ctrl.settings.account.bio"
+                md-maxlength="300"
+                rows="4"
+                md-select-on-focus
+                placeholder="Say something about yourself"
+                ng-disabled="!$ctrl.isBioEditable">
+      </textarea>
+    </md-input-container>
+  </div>
+</form>
