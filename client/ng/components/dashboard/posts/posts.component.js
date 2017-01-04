@@ -4,14 +4,33 @@ import module from './posts.module';
 import template from './posts.html';
 import { postBase } from './posts.js';
 
+function change(){
+  console.log("jestem");
+}
+
 class Posts {
   constructor() {
     'ngInject';
 
     this.$onInit = () => {
       this.init();
+      this.fileservice();
     };
+
+
+}
+
+
+  fileservice(){
+    document.getElementById("photo-upload").onchange = () => {
+      this.uploads.push(this.upload);
+    };
+    document.getElementById("file-upload").onchange = () => {
+      this.uploads.push(this.upload);
+    };
+
   }
+
 
 
   init() {
@@ -19,6 +38,7 @@ class Posts {
     this.tags = "";
     this.posts = postBase;
     this.tags = [];
+    this.uploads = [];
   }
 
   checkText() {
@@ -44,6 +64,7 @@ class Posts {
     postBase.push(newPost);
     this.body = "";
     this.tags = [];
+      console.log(this.upload);
   }
 
   pinup(post) {
@@ -67,6 +88,7 @@ class Posts {
 
   }
 
+
   love(post) {
     if (post.loved === true) {
       post.love--;
@@ -76,6 +98,11 @@ class Posts {
       post.loved = true;
     }
   }
+
+  change(){
+    console.log("jestem");
+  }
+
 
 }
 
