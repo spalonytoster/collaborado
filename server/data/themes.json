@@ -1,0 +1,9 @@
+[{
+  "id": "default",
+  "name": "Default",
+  "active": true
+}, {
+  "id": "dark",
+  "name": "Dark",
+  "active": true
+}]

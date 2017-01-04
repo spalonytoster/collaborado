@@ -1,17 +1,15 @@
 // jshint esversion: 6
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularAnimate from 'angular-animate';
 import angularAria from 'angular-aria';
 import angularMaterial from 'angular-material';
-import { name as ApplicationSettings } from './application-settings/application-settings.module';
+import ngFileModel from 'ng-file-model';
 
-const name = 'menuHeader';
+const name = 'avatarUpload';
 
 export default angular.module(name, [
   angularMeteor,
-  angularAnimate,
   angularAria,
   angularMaterial,
-  ApplicationSettings
+  'ng-file-model'
 ]);

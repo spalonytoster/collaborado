@@ -2,33 +2,33 @@
 
 import module from './posts.module';
 import template from './posts.html';
-import { postBase } from './posts.js';
+import { Posts as PostsApi } from '/imports/api/posts';
 
 function change(){
   console.log("jestem");
 }
 
 class Posts {
-  constructor() {
+  constructor($scope, $reactive) {
     'ngInject';
+
+    $reactive(this).attach($scope);
 
     this.$onInit = () => {
       this.init();
-      this.fileservice();
+
+      this.helpers({
+        posts() {
+          return PostsApi.find();
+        }
+      });
     };
 
-
-}
-
-
-  fileservice(){
-    document.getElementById("photo-upload").onchange = () => {
-      this.uploads.push(this.upload);
-    };
-    document.getElementById("file-upload").onchange = () => {
-      this.uploads.push(this.upload);
-    };
-
+    $scope.$watch((scope) => {
+      return this.uploadedFile;
+    }, (file) => {
+      this.handleUploadFile(file);
+    });
   }
 
 
@@ -36,9 +36,11 @@ class Posts {
   init() {
     this.body = "";
     this.tags = "";
-    this.posts = postBase;
     this.tags = [];
+
     this.uploads = [];
+    this.attachments = [];
+
   }
 
   checkText() {
@@ -59,33 +61,36 @@ class Posts {
       files: "",
       time: "Just now",
       pinned: false,
+      attachments: this.files
     };
 
-    postBase.push(newPost);
+    console.log(this.uploadedFile);
+
     this.body = "";
     this.tags = [];
-      console.log(this.upload);
+    this.attachments = [];
+    return PostsApi.insert(newPost);
   }
 
   pinup(post) {
-    for (i = 0; i < postBase.length; i++) {
-      if (postBase[i]._id === post._id && post.pinned === false) {
+    let posts = this.posts;
+    for (i = 0; i < posts.length; i++) {
+      if (posts[i]._id === post._id && post.pinned === false) {
         post.pinned = true;
         if (i !== 0) {
-          postBase.splice(i, 1);
-          postBase.unshift(post);
+          posts.splice(i, 1);
+          posts.unshift(post);
         }
         break;
-      } else if (postBase[i]._id === post._id && post.pinned === true) {
+      } else if (posts[i]._id === post._id && post.pinned === true) {
         post.pinned = false;
-        if ((i + 1) !== postBase.length) {
-          postBase.splice(i, 1);
-          postBase.push(post);
+        if ((i + 1) !== posts.length) {
+          posts.splice(i, 1);
+          posts.push(post);
         }
         break;
       }
     }
-
   }
 
 
@@ -99,10 +104,19 @@ class Posts {
     }
   }
 
-  change(){
-    console.log("jestem");
+
+  handleUploadFile(file) {
+    if (!file) return;
+    console.log(file);
+    this.attachments.push(file);
+    delete this.uploadedFile;
   }
 
+  removeFile(removedFile) {
+     this.attachments = _.without(this.attachments,
+       _.findWhere(this.attachments, { name: removedFile.name })
+     );
+  }
 
 }
 

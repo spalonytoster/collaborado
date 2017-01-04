@@ -20,13 +20,12 @@ As simple as that!
 - [ ] Dashboard (Maciej)
   - [x] Struktura HTML (8h)
   - [ ] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
-  - [ ] Połącznie z komponentem Sidebar celem odbierania danych profilu użytkownika + ustawień aplikacji (3h)
   - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
 
-- [ ] Sidebar (Maciej)
+- [x] Sidebar (Maciej)
   - [x] Struktura HTML (16h)
   - [x] Przepisanie modułu https://github.com/sovanna/angular-material-sidenav na komponenty NG 1.5 (4h)
-  - [ ] Ustawienia profilu/aplikacji (popup) (3h)
+  - [x] Ustawienia profilu/aplikacji (popup) (3h)
   - [x] Dodawanie grup (popup) (2h)
   - [x] Dodawanie channeli (tylko admin grupy) (2h)
   - [x] Dynamiczny routing dla grup i channeli (4h)
@@ -35,9 +34,9 @@ As simple as that!
 - [ ] Posty
   - [ ] Nowy post
     - [x] Struktura HTML (Karol + Maciej) (8h)
-    - [ ] Obsługa tagów (2h) (Karol)
-    - [ ] Dodawanie plików (4h) (Karol)
-    - [ ] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
+    - [x] Obsługa tagów (2h) (Karol)
+    - [x] Dodawanie plików (4h) (Karol)
+    - [x] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
     - [ ] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Struktura HTML (Karol + Maciej) (8h)
