@@ -4,13 +4,22 @@ import module from './posts.module';
 import template from './posts.html';
 import { Posts as PostsApi } from '/imports/api/posts';
 
-function change(){
-  console.log("jestem");
-}
 
 class Posts {
-  constructor($scope, $reactive) {
+  constructor($scope, $reactive, $mdDialog) {
     'ngInject';
+
+    this.showAlert = () => {
+      $mdDialog.show(
+        $mdDialog.alert()
+
+       .clickOutsideToClose(true)
+       .title("Files to big !")
+       .textContent('Due to our server limits files are restricted to 50Mb.')
+       .ariaLabel('Alert Dialog Demo')
+       .ok('Got it!')
+     );
+   };
 
     $reactive(this).attach($scope);
 
@@ -19,7 +28,10 @@ class Posts {
 
       this.helpers({
         posts() {
+          console.log(PostsApi._collection);
           return PostsApi.find();
+
+
         }
       });
     };
@@ -38,7 +50,6 @@ class Posts {
     this.tags = "";
     this.tags = [];
 
-    this.uploads = [];
     this.attachments = [];
 
   }
@@ -53,23 +64,26 @@ class Posts {
 
   submit() {
     let tags = this.tags.join(', ');
+    let attach = angular.toJson(this.attachments);
+    let att = angular.fromJson(attach);
+    console.log(att);
     let newPost = {
       love: 0,
       talk: 0,
       tags: tags,
       text: this.body,
-      files: "",
       time: "Just now",
       pinned: false,
-      attachments: this.files
+      attachments: att
     };
 
-    console.log(this.uploadedFile);
 
     this.body = "";
     this.tags = [];
     this.attachments = [];
+    console.log(newPost);
     return PostsApi.insert(newPost);
+
   }
 
   pinup(post) {
@@ -105,11 +119,31 @@ class Posts {
   }
 
 
+
+
+
   handleUploadFile(file) {
     if (!file) return;
-    console.log(file);
-    this.attachments.push(file);
+    var sum=file.size;
+
+    this.attachments.forEach((element,index) => {
+      sum=sum+element.size;
+    });
+
+    if(sum <= 50*1024*1024 ){
+        console.log(this.attachments);
+        console.log(file);
+      if(this.attachments.findIndex(x => x.name === file.name) === -1){
+        // let newdata = file.data.split(",");
+        // newdata=newdata.unshift("file://");
+        // file.data=newdata.join();
+        this.attachments.push(file);
+      }
+    } else {
+       this.showAlert();
+    }
     delete this.uploadedFile;
+    document.getElementById("file-upload").value = "";
   }
 
   removeFile(removedFile) {
