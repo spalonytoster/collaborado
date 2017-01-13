@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Groups } from '../imports/api/groups';
 import { UserSettings } from '../imports/api/user-settings';
 import { Posts } from '../imports/api/posts';
+import { Post_files } from '../imports/api/post_files';
 import { Themes } from '../imports/api/themes';
 
 // data

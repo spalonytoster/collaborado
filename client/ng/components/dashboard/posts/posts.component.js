@@ -3,6 +3,7 @@
 import module from './posts.module';
 import template from './posts.html';
 import { Posts as PostsApi } from '/imports/api/posts';
+import { Post_files as Post_filesApi } from '/imports/api/post_files';
 
 
 class Posts {
@@ -28,10 +29,7 @@ class Posts {
 
       this.helpers({
         posts() {
-          console.log(PostsApi._collection);
           return PostsApi.find();
-
-
         }
       });
     };
@@ -64,9 +62,41 @@ class Posts {
 
   submit() {
     let tags = this.tags.join(', ');
+    let att =[];
     let attach = angular.toJson(this.attachments);
-    let att = angular.fromJson(attach);
-    console.log(att);
+    this.attachments = angular.fromJson(attach);
+
+    this.attachments.forEach((index,i) => {
+
+      let createPostFile = (callback) => {
+        let newFile = {
+          lastModified: index.lastModified,
+          lastModifiedDate: index.lastModifiedDate,
+          name: index.name,
+          size: index.size,
+          data: index.data
+        };
+        callback(newFile);
+      };
+
+
+      let insertPostFile = (uploadfile) => {
+        let insert_id=Post_filesApi.insert(uploadfile);
+        preparePost(insert_id);
+      };
+
+      let preparePost = (insertid) => {
+        let post_file = {
+          id: insertid,
+          name: index.name
+        };
+        att.push(post_file);
+      };
+
+      createPostFile(insertPostFile);
+
+    });
+
     let newPost = {
       love: 0,
       talk: 0,
@@ -77,13 +107,17 @@ class Posts {
       attachments: att
     };
 
-
     this.body = "";
     this.tags = [];
+    this.filedata ="";
     this.attachments = [];
-    console.log(newPost);
-    return PostsApi.insert(newPost);
 
+    PostsApi.insert(newPost);
+  }
+
+  getpostfile(attachmentid){
+      let getfile = Post_filesApi.findOne({_id:attachmentid});
+      this.filedata = getfile.data;
   }
 
   pinup(post) {
@@ -119,9 +153,6 @@ class Posts {
   }
 
 
-
-
-
   handleUploadFile(file) {
     if (!file) return;
     var sum=file.size;
@@ -131,12 +162,7 @@ class Posts {
     });
 
     if(sum <= 50*1024*1024 ){
-        console.log(this.attachments);
-        console.log(file);
       if(this.attachments.findIndex(x => x.name === file.name) === -1){
-        // let newdata = file.data.split(",");
-        // newdata=newdata.unshift("file://");
-        // file.data=newdata.join();
         this.attachments.push(file);
       }
     } else {

@@ -25,7 +25,7 @@ function config($mdIconProvider, $mdThemingProvider,
 
   // $mdThemingProvider.setDefaultTheme('default');
   $mdThemingProvider.alwaysWatchTheme(true);
-  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file):/);
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(data):/);
 
 
   $locationProvider.html5Mode(true);
