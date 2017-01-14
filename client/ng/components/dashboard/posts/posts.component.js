@@ -47,8 +47,10 @@ class Posts {
     this.body = "";
     this.tags = "";
     this.tags = [];
+    this.posttags="";
 
     this.attachments = [];
+    console.log(PostsApi._collection);
 
   }
 
@@ -61,7 +63,7 @@ class Posts {
   }
 
   submit() {
-    let tags = this.tags.join(', ');
+    let tags = this.tags;
     let att = [];
     let attach = angular.toJson(this.attachments);
     this.attachments = angular.fromJson(attach);
@@ -139,6 +141,14 @@ class Posts {
         break;
       }
     }
+  }
+
+  isTagged(tags){
+    if (tags[0]===undefined){
+      return false;
+    }
+    this.posttags="tags: "+tags.join();
+    return true;
   }
 
 

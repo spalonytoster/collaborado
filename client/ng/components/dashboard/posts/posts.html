@@ -111,7 +111,8 @@
       </div>
      </div>
      <div>
-       <small>tags: {{post.tags}}</small>
+         <div ng-show="$ctrl.isTagged(post.tags)" >
+         <small> {{$ctrl.posttags}} </small>
      </div>
   </div>
 </div>

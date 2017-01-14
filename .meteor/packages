@@ -21,4 +21,4 @@ autopublish             # Publish all data to the clients (for prototyping)
 urigo:static-templates
 pbastowski:angular-babel
 fourseven:scss
-insecure
+accounts-password
