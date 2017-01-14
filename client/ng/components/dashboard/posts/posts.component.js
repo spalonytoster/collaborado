@@ -62,11 +62,11 @@ class Posts {
 
   submit() {
     let tags = this.tags.join(', ');
-    let att =[];
+    let att = [];
     let attach = angular.toJson(this.attachments);
     this.attachments = angular.fromJson(attach);
 
-    this.attachments.forEach((index,i) => {
+    this.attachments.forEach((index) => {
 
       let createPostFile = (callback) => {
         let newFile = {
@@ -81,7 +81,7 @@ class Posts {
 
 
       let insertPostFile = (uploadfile) => {
-        let insert_id=Post_filesApi.insert(uploadfile);
+        let insert_id = Post_filesApi.insert(uploadfile);
         preparePost(insert_id);
       };
 
@@ -115,8 +115,8 @@ class Posts {
     PostsApi.insert(newPost);
   }
 
-  getpostfile(attachmentid){
-      let getfile = Post_filesApi.findOne({_id:attachmentid});
+  getPostFile(attachmentid){
+      let getfile = Post_filesApi.findOne({ _id: attachmentid });
       this.filedata = getfile.data;
   }
 
@@ -177,7 +177,6 @@ class Posts {
        _.findWhere(this.attachments, { name: removedFile.name })
      );
   }
-
 }
 
 const name = 'posts';
