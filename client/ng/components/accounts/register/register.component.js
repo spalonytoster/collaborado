@@ -3,41 +3,49 @@
 import register from './register.module';
 import template from './register.html';
 import { account } from '../accounts.js';
+import { Accounts } from 'meteor/accounts-base';
 
 class RegisterForm {
-  constructor($state) {
-    'ngInject';
+  constructor($scope, $reactive, $state) {
+   'ngInject';
+
+    $reactive(this).attach($scope);
+
     this.user = {};
 
     this.goToLogin = () => {
-    $state.go("login");
+      $state.go("login");
     };
   }
 
     submit(valid) {
       let message;
-      console.log(this.user.terms);
 
       if (valid){
         if (this.user.password === this.user.password2) {
           let newAccount = {
             email: this.user.email,
-            pass: this.user.password,
+            password: this.user.password,
             personal: this.user.name +" "+this.user.surname
           };
-          account.push(newAccount);
-          console.log(account);
-          this.goToLogin();
+
+          Accounts.createUser(newAccount, this.$bindToContext((err) => {
+            if (err) {
+              this.message = err.message;
+            } else {
+              this.goToLogin();
+            }
+          })
+        );
+
+
         } else {
-          message = "Password not match";
+          this.message = "Password not match";
         }
       } else {
-        message = "Please enter valid data and accept terms!";
+        this.message = "Please enter valid data and accept terms!";
       }
-
-    this.message = message;
     }
-
 }
 
 const name = 'register';

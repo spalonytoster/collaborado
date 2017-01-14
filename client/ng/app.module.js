@@ -10,5 +10,6 @@ const name = 'app';
 export default angular.module(name, [
   angularMeteor,
   uiRouter,
-  Components
+  Components,
+  'accounts.ui'
 ]);

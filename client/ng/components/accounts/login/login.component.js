@@ -5,13 +5,26 @@ import template from './login.html';
 import { account } from '../accounts.js';
 
 class LoginForm {
-  constructor($state,$scope) {
+  constructor($scope, $reactive, $state) {
     'ngInject';
-    this.user = {};
+
+    this.$state = $state;
+
+    $reactive(this).attach($scope);
+
+    this.$onInit = () => {
+      this.init();
+    };
+
 
     this.goToDashboard = () => {
       $state.go("dashboard");
     };
+  }
+
+
+  init(){
+    this.user = {};
   }
 
     submit(valid) {
@@ -21,21 +34,36 @@ class LoginForm {
         let user = this.user;
         let route = this;
 
-        account.forEach((item, i) => {
-          if ((user.email === item.email) && (user.password === item.pass)) {
-            console.log("Logged as " + user.email);
+        Meteor.loginWithPassword(user.email, user.password, this.$bindToContext((err) => {
+          if (err) {
+            this.message = err.message;
+          } else {
             route.goToDashboard();
-          } else if ((i+1) === account.length) {
-            message = "Wrong user or password!";
           }
-        });
-
+        })
+      );
     } else {
-      message = "Please enter valid data!";
+      this.message ="Please enter valid data";
     }
-    this.message = message;
   }
 }
+
+
+//         account.forEach((item, i) => {
+//           if ((user.email === item.email) && (user.password === item.pass)) {
+//             console.log("Logged as " + user.email);
+//
+//           } else if ((i+1) === account.length) {
+//             message = "Wrong user or password!";
+//           }
+//         });
+//
+//     } else {
+//       message = "Please enter valid data!";
+//     }
+//     this.message = message;
+//   }
+// }
 
 const name = 'login';
 
