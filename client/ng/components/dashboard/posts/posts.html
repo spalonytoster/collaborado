@@ -87,7 +87,7 @@
     </div>
     <div>
       <div ng-repeat="attachment in post.attachments">
-        <a download={{attachment.name}}  ng-href="{{$ctrl.filedata}}" ng-click="$ctrl.getpostfile(attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{attachment.name}} </small></p></a>
+        <a download={{attachment.name}}  ng-href="{{$ctrl.filedata}}" ng-click="$ctrl.getPostFile(attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{attachment.name}} </small></p></a>
       </div>
     </div>
     <div class="post-controls" layout="row">
