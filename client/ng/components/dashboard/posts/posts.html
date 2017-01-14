@@ -48,7 +48,7 @@
             <md-tooltip>Attach file</md-tooltip>
             <md-icon>attach_file</md-icon>
           </label>
-          <input id="file-upload" type="file" ng-file-model="$ctrl.uploadedFile" />
+          <input id="file-upload" type="file" ng-file-model="$ctrl.uploadedFile" ng-click="showAlert($event)"/>
         </div>
         <div flex>
           <md-button id="new-post-submit"
@@ -62,7 +62,6 @@
       </div>
     </form>
   </div>
-
 
 
 <div ng-repeat="post in $ctrl.posts">
@@ -85,6 +84,11 @@
     </div>
     <div class="post-body">
       <p>{{post.text}}</p>
+    </div>
+    <div>
+      <div ng-repeat="attachment in post.attachments">
+        <a download={{attachment.name}}  ng-href="{{$ctrl.filedata}}" ng-click="$ctrl.getpostfile(attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{attachment.name}} </small></p></a>
+      </div>
     </div>
     <div class="post-controls" layout="row">
       <div>

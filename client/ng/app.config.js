@@ -2,7 +2,7 @@
 import app from './app.module';
 
 function config($mdIconProvider, $mdThemingProvider,
-                $locationProvider, $urlRouterProvider) {
+                $locationProvider, $urlRouterProvider, $compileProvider) {
   'ngInject';
 
   $mdThemingProvider
@@ -25,6 +25,8 @@ function config($mdIconProvider, $mdThemingProvider,
 
   // $mdThemingProvider.setDefaultTheme('default');
   $mdThemingProvider.alwaysWatchTheme(true);
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(data):/);
+
 
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
