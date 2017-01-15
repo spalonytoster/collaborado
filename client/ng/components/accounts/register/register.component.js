@@ -1,8 +1,6 @@
 // jshint esversion: 6
-
 import register from './register.module';
 import template from './register.html';
-import { account } from '../accounts.js';
 import { Accounts } from 'meteor/accounts-base';
 
 class RegisterForm {
@@ -26,7 +24,10 @@ class RegisterForm {
           let newAccount = {
             email: this.user.email,
             password: this.user.password,
-            personal: this.user.name +" "+this.user.surname
+            profile: {
+              name: this.user.name,
+              surname: this.user.surname
+            }
           };
 
           Accounts.createUser(newAccount, this.$bindToContext((err) => {

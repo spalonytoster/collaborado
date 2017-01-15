@@ -1,8 +1,6 @@
 // jshint esversion: 6
-
 import Login from './login.module';
 import template from './login.html';
-import { account } from '../accounts.js';
 
 class LoginForm {
   constructor($scope, $reactive, $state) {
@@ -48,25 +46,7 @@ class LoginForm {
   }
 }
 
-
-//         account.forEach((item, i) => {
-//           if ((user.email === item.email) && (user.password === item.pass)) {
-//             console.log("Logged as " + user.email);
-//
-//           } else if ((i+1) === account.length) {
-//             message = "Wrong user or password!";
-//           }
-//         });
-//
-//     } else {
-//       message = "Please enter valid data!";
-//     }
-//     this.message = message;
-//   }
-// }
-
 const name = 'login';
-
 
 Login.component(name, {
         template,
