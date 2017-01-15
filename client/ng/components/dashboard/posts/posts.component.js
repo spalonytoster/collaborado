@@ -50,8 +50,6 @@ class Posts {
     this.posttags="";
 
     this.attachments = [];
-    console.log(PostsApi._collection);
-
   }
 
   checkText() {

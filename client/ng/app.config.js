@@ -27,7 +27,6 @@ function config($mdIconProvider, $mdThemingProvider,
   $mdThemingProvider.alwaysWatchTheme(true);
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(data):/);
 
-
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
 }
