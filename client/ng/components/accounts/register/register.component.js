@@ -25,6 +25,7 @@ class RegisterForm {
             email: this.user.email,
             password: this.user.password,
             profile: {
+              login: this.user.login,
               name: this.user.name,
               surname: this.user.surname
             }
