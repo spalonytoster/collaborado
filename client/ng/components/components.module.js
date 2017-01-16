@@ -8,6 +8,7 @@ import { name as Dashboard } from './dashboard/dashboard.module';
 import { name as Sidebar } from './sidebar/sidebar.module';
 import { name as Login } from './accounts/login/login.module';
 import { name as Register } from './accounts/register/register.module';
+import { name as NewPost } from './dashboard/posts/newpost/newpost.module';
 import { name as Posts } from './dashboard/posts/posts.module';
 import { name as Recovery } from './accounts/recovery/recovery.module';
 import { name as LiveChat } from './live-chat/live-chat.module';
@@ -25,5 +26,6 @@ export default angular.module(name, [
   Recovery,
   Posts,
   LiveChat,
-  Auth
+  Auth,
+  NewPost
 ]);
