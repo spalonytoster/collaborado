@@ -53,7 +53,7 @@ class Posts {
   }
 
   checkText() {
-    if (this.body.length > 0) {
+    if ((this.body.length > 0) && (this.body.length <150)) {
       return false;
     } else {
       return true;

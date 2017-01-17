@@ -1,0 +1,47 @@
+<div layout="column" flex class="login-content">
+	<div class="align-height" layout="row" layout-align="center center" layout-fill>
+  <md-whiteframe class="md-whiteframe-z2" layout="column" flex="25" flex-sm="80" layout-padding>
+
+    <md-toolbar class="md-primary md-tall" layout="column" layout-align="end" layout-fill>
+      <div layout="row" class="md-toolbar-tools md-toolbar-tools-bottom">
+        <h3 class="md-display-1">Password Recovery</h3>
+      </div>
+    </md-toolbar>
+
+    <div layout="column" layout-fill layout-margin layout-padding>
+
+      <div layout="row" layout-fill layout-margin>
+        <p class="md-body-2">Enter your email so we can send you a reset link</p>
+      </div>
+
+      <form name="resetForm" layout="column" layout-fill layout-padding layout-margin>
+        <md-input-container>
+          <label> Email </label>
+          <input type="email"
+                 ng-model="$ctrl.credentials.email"
+                 aria-label="email"
+                 required="required"/>
+        </md-input-container>
+        <div layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary"
+                     ng-click="$ctrl.reset()" aria-label="reset"
+                     ng-disabled="$ctrl.resetForm.$isValid"
+                     >Send Email
+          </md-button>
+        </div>
+      </form>
+
+      <md-toolbar ng-show="$ctrl.message" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+        <p class="md-body-1">{{ $ctrl.message }}</p>
+      </md-toolbar>
+
+      <md-divider></md-divider>
+      <div layout="row" layout-align="center">
+        <a class="md-button" ui-sref="login" >Sign in</a>
+      </div>
+
+    </div>
+
+  </md-whiteframe>
+</div>
+</div>
