@@ -9,19 +9,6 @@ import { Post_files as Post_filesApi } from '/imports/api/post_files';
 class Posts {
   constructor($scope, $reactive, $mdDialog) {
     'ngInject';
-    this._mdDialog = $mdDialog;
-
-    this.showAlert = () => {
-      $mdDialog.show(
-        $mdDialog.alert()
-
-       .clickOutsideToClose(true)
-       .title("Files too big!")
-       .textContent('Due to our server limits files are restricted to 50Mb.')
-       .ariaLabel('Alert Dialog Demo')
-       .ok('Got it!')
-     );
-   };
 
     $reactive(this).attach($scope);
 
@@ -34,15 +21,7 @@ class Posts {
         }
       });
     };
-
-    $scope.$watch((scope) => {
-      return this.uploadedFile;
-    }, (file) => {
-      this.handleUploadFile(file);
-    });
-  }
-
-
+   }
 
   init() {
     this.body = "";
@@ -51,69 +30,6 @@ class Posts {
     this.posttags="";
 
     this.attachments = [];
-  }
-
-  checkText() {
-    if ((this.body.length > 0) && (this.body.length <150)) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  submit() {
-    let tags = this.tags;
-    let att = [];
-    let attach = angular.toJson(this.attachments);
-    this.attachments = angular.fromJson(attach);
-
-    this.attachments.forEach((index) => {
-
-      let createPostFile = (callback) => {
-        let newFile = {
-          lastModified: index.lastModified,
-          lastModifiedDate: index.lastModifiedDate,
-          name: index.name,
-          size: index.size,
-          data: index.data
-        };
-        callback(newFile);
-      };
-
-
-      let insertPostFile = (uploadfile) => {
-        let insert_id = Post_filesApi.insert(uploadfile);
-        preparePost(insert_id);
-      };
-
-      let preparePost = (insertid) => {
-        let post_file = {
-          id: insertid,
-          name: index.name
-        };
-        att.push(post_file);
-      };
-
-      createPostFile(insertPostFile);
-
-    });
-
-    let newPost = {
-      love: 0,
-      talk: 0,
-      tags: tags,
-      text: this.body,
-      time: "Just now",
-      pinned: false,
-      attachments: att
-    };
-
-    this.body = "";
-    this.tags = [];
-    this.filedata ="";
-    this.attachments = [];
-
-    PostsApi.insert(newPost);
   }
 
   getPostFile(attachmentid){
@@ -142,24 +58,6 @@ class Posts {
     }
   }
 
-  chat(event) {
-    let chats = {
-      parent: angular.element(document.body),
-      targetEvent: event,
-      template: `
-        <live-chat></live-chat>
-      `,
-      hasBackdrop: true,
-      // position: position,
-      trapFocus: true,
-      clickOutsideToClose: false,
-      escapeToClose: true,
-      focusOnOpen: true
-    };
-
-    this._mdDialog.show(chats);
-  }
-
   isTagged(tags){
     if (tags[0]===undefined){
       return false;
@@ -167,7 +65,6 @@ class Posts {
     this.posttags="tags: "+tags.join();
     return true;
   }
-
 
   love(post) {
     if (post.loved === true) {
@@ -179,31 +76,6 @@ class Posts {
     }
   }
 
-
-  handleUploadFile(file) {
-    if (!file) return;
-    var sum=file.size;
-
-    this.attachments.forEach((element,index) => {
-      sum=sum+element.size;
-    });
-
-    if(sum <= 50*1024*1024 ){
-      if(this.attachments.findIndex(x => x.name === file.name) === -1){
-        this.attachments.push(file);
-      }
-    } else {
-       this.showAlert();
-    }
-    delete this.uploadedFile;
-    document.getElementById("file-upload").value = "";
-  }
-
-  removeFile(removedFile) {
-     this.attachments = _.without(this.attachments,
-       _.findWhere(this.attachments, { name: removedFile.name })
-     );
-  }
 }
 
 const name = 'posts';
