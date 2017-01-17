@@ -32,7 +32,7 @@ class LiveChat {
       ];
 
        this.newMessage = {};
-     }
+     };
   }
 
   sendMessage() {

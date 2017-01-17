@@ -1,0 +1,51 @@
+  <div class="post" layout="column" layout-padding md-whiteframe="4">
+    <div class="post-header" layout="row" flex>
+      <span class="post-author-avatar"><img src="/images/avatar.png" alt="" /></span>
+      <div class="post-author-data" layout="column" flex layout-align="">
+        <div layout="row" flex>
+          <div flex>
+            <span class="post-display-name">Maciej Posłuszny</span>
+          </div>
+          <div flex class="post-time">
+            <span>{{post.time}}</span>
+          </div>
+        </div>
+        <div flex>
+          <span class="post-username">@maciej.posluszny</span>
+        </div>
+      </div>
+    </div>
+    <div class="post-body">
+      <p>{{post.text}}</p>
+    </div>
+    <div>
+      <div ng-repeat="attachment in post.attachments">
+        <a download={{attachment.name}}  ng-href="{{$ctrl.filedata}}" ng-click="$ctrl.getPostFile(attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{attachment.name}} </small></p></a>
+      </div>
+    </div>
+    <div class="post-controls" layout="row">
+      <div>
+        <md-button ng-class="post.loved ? 'md-accent': 'false'" ng-click="$ctrl.love(post)">
+          <md-tooltip>Thank you!</md-tooltip>
+          <md-icon>favorite</md-icon>
+          <span>{{post.love}}</span>
+        </md-button>
+        <md-button>
+          <md-tooltip>Talk about this</md-tooltip>
+          <md-icon>forum</md-icon>
+          <span>{{post.talk}}</span>
+        </md-button>
+      </div>
+      <div flex>
+        <md-button class="post-pinup" ng-class=" post.pinned ? 'md-warn':'true'" ng-click="$ctrl.pinup(post)" >
+          <md-tooltip>Pin / Unpin</md-tooltip>
+          <md-icon>announcement</md-icon>
+        </md-button>
+      </div>
+     </div>
+     <div>
+         <div ng-show="$ctrl.isTagged(post.tags)" >
+         <small> {{$ctrl.posttags}} </small>
+     </div>
+    </div>
+  </div>

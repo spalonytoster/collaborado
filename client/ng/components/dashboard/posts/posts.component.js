@@ -21,7 +21,7 @@ class Posts {
         }
       });
     };
-  }
+   }
 
   init() {
     this.body = "";
