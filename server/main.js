@@ -15,7 +15,7 @@ import posts from './data/posts.json';
 import themes from './data/themes.json';
 
 function seedCollection(collection, data) {
-  collection.remove({});
+  if (collection.find().count() > 0) { return false; }
   _.each(data, (element) => {
     collection.insert(element);
   });
