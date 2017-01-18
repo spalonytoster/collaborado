@@ -6,6 +6,7 @@ import angularMaterial from 'angular-material';
 import angularAria from 'angular-aria';
 import angularAnimate from 'angular-animate';
 import ngFileModel from 'ng-file-model';
+import { name as LiveChat } from '../../../live-chat/live-chat.module';
 
 const name = 'post';
 
@@ -14,5 +15,6 @@ export default angular.module(name, [
   angularMaterial,
   angularAria,
   angularAnimate,
-  'ng-file-model'
+  'ng-file-model',
+  LiveChat
 ]);

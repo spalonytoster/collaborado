@@ -7,6 +7,7 @@ class Post {
   constructor($scope, $reactive, $mdDialog) {
     'ngInject';
 
+    this._mdDialog = $mdDialog;
     $reactive(this).attach($scope);
 
     this.showAlert = () => {
@@ -50,6 +51,24 @@ class Post {
       post.love++;
       post.loved = true;
     }
+  }
+
+  chat(event) {
+    let chats = {
+      parent: angular.element(document.body),
+      targetEvent: event,
+      template: `
+        <live-chat></live-chat>
+      `,
+      hasBackdrop: true,
+      // position: position,
+      trapFocus: true,
+      clickOutsideToClose: false,
+      escapeToClose: true,
+      focusOnOpen: true
+    };
+
+    this._mdDialog.show(chats);
   }
 }
 

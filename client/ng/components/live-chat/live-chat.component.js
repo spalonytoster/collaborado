@@ -7,7 +7,7 @@ class LiveChat {
   constructor($mdDialog) {
     'ngInject';
     this._mdDialog = $mdDialog;
-     this.$onInit = () => {
+    this.$onInit = () => {
       this.messages = [
         {
           author: 'Paweł Wilamowski',
@@ -32,8 +32,8 @@ class LiveChat {
         }
       ];
 
-       this.newMessage = {};
-     };
+      this.newMessage = {};
+    };
   }
 
   sendMessage() {
