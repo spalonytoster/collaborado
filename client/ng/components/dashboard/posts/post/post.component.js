@@ -6,6 +6,8 @@ import template from './post.html';
 const name = 'post';
 
 module.component(name, {
-  template
-
+  template,
+  bindings: {
+    post: "<"
+  }
 });
