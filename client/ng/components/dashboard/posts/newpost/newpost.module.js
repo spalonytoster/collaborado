@@ -6,17 +6,13 @@ import angularMaterial from 'angular-material';
 import angularAria from 'angular-aria';
 import angularAnimate from 'angular-animate';
 import ngFileModel from 'ng-file-model';
-import { name as Post } from './post/post.module';
-import { name as NewPost } from './newpost/newpost.module';
 
-const name = 'posts';
+const name = 'newpost';
 
 export default angular.module(name, [
   angularMeteor,
   angularMaterial,
   angularAria,
   angularAnimate,
-  'ng-file-model',
-  Post,
-  NewPost
+  'ng-file-model'
 ]);
