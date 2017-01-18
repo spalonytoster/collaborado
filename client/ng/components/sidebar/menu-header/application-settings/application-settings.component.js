@@ -9,7 +9,7 @@ class ApplicationSettings {
     'ngInject';
     this._mdDialog = $mdDialog;
   }
-  
+
   close() {
     this._mdDialog.cancel();
   }
