@@ -2,8 +2,8 @@
   <div class="user-profile" layout="row" layout-padding>
     <span class="user-avatar"><img src="/images/avatar.png" alt=""/></span>
     <div layout="column">
-      <span>{{ $ctrl.user.displayName}}</span>
-      <span>@{{ $ctrl.user.login }}</span>
+      <span>{{ $ctrl.displayName}}</span>
+      <span>{{ $ctrl.email }}</span>
     </div>
     <div style="padding: 0px;">
       <md-button class="md-icon-button" ng-click="$ctrl.openSettings()">
