@@ -1,11 +1,15 @@
 // jshint esversion: 6
-
 import Dashboard from './dashboard.module';
 import template from './dashboard.html';
+import { Meteor } from 'meteor/meteor';
 
 class Collaborado {
-  constructor($scope, $mdSidenav) {
+  constructor($scope, $mdSidenav, $state) {
     'ngInject';
+
+    if (_.isNull(Meteor.userId())) {
+      $state.go('login');
+    }
 
     this.toggleSidebar = () => {
       $mdSidenav('left').toggle();
