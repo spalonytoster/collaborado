@@ -10,7 +10,7 @@ class Posts {
     $reactive(this).attach($scope);
 
     this.$onInit = () => {
-      // inaczej ni timeoutem nie dało rady...
+      // inaczej niz timeoutem nie dało rady...
       $timeout(() => {
         this.helpers({
           posts() {
