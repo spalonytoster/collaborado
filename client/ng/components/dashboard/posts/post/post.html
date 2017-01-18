@@ -1,7 +1,7 @@
   <div class="post" layout="column" layout-padding md-whiteframe="4">
     <div class="post-header" layout="row" flex>
       <span class="post-author-avatar"><img src="/images/avatar.png" alt="" /></span>
-      <div class="post-author-data" layout="column" flex layout-align="">
+      <div class="post-author-data" layout="column" flex>
         <div layout="row" flex>
           <div flex>
             <span class="post-display-name">Maciej Posłuszny</span>
@@ -19,13 +19,13 @@
       <p>{{ $ctrl.post.text }}</p>
     </div>
     <div>
-      <div ng-repeat="attachment in post.attachments">
-        <a download="{{ $ctrl.attachment.name }}"  ng-href="{{ $ctrl.filedata }}" ng-click="$ctrl.getPostFile($ctrl.attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{ $ctrl.attachment.name }} </small></p></a>
+      <div ng-repeat="attachment in $ctrl.post.attachments">
+        <a download="{{ attachment.name }}" ng-href="{{ $ctrl.filedata }}" ng-click="$ctrl.getPostFile(attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{ attachment.name }} </small></p></a>
       </div>
     </div>
     <div class="post-controls" layout="row">
       <div>
-        <md-button ng-class="post.loved ? 'md-accent': 'false'" ng-click="$ctrl.love(post)">
+        <md-button ng-class="$ctrl.post.loved ? 'md-accent': 'false'" ng-click="$ctrl.love($ctrl.post)">
           <md-tooltip>Thank you!</md-tooltip>
           <md-icon>favorite</md-icon>
           <span>{{ $ctrl.post.love }}</span>
@@ -37,15 +37,15 @@
         </md-button>
       </div>
       <div flex>
-        <md-button class="post-pinup" ng-class=" post.pinned ? 'md-warn':'true'" ng-click="$ctrl.pinup(post)" >
+        <md-button class="post-pinup" ng-class=" $ctrl.post.pinned ? 'md-warn':'true'" ng-click="$ctrl.pinup($ctrl.post)" >
           <md-tooltip>Pin / Unpin</md-tooltip>
           <md-icon>announcement</md-icon>
         </md-button>
       </div>
      </div>
      <div>
-         <div ng-show="$ctrl.isTagged(post.tags)" >
-         <small> {{$ctrl.posttags}} </small>
+         <div ng-show="$ctrl.isTagged($ctrl.post.tags)" >
+         <small> {{ $ctrl.posttags }} </small>
      </div>
     </div>
   </div>

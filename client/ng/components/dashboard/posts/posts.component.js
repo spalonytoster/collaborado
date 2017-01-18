@@ -3,8 +3,6 @@
 import module from './posts.module';
 import template from './posts.html';
 import { Posts as PostsApi } from '/imports/api/posts';
-import { Post_files as Post_filesApi } from '/imports/api/post_files';
-
 
 class Posts {
   constructor($scope, $reactive, $mdDialog) {
@@ -13,44 +11,17 @@ class Posts {
     $reactive(this).attach($scope);
 
     this.$onInit = () => {
-      this.init();
-
       this.helpers({
         posts() {
           return PostsApi.find();
         }
       });
     };
-
-    this.showAlert = () => {
-      $mdDialog.show(
-        $mdDialog.alert()
-
-        .clickOutsideToClose(true)
-        .title("Files too big!")
-        .textContent('Due to our server limits files are restricted to 50Mb.')
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-      );
-    };
-   }
-   
-  init() {
-    this.body = "";
-    this.tags = "";
-    this.tags = [];
-    this.posttags="";
-
-    this.attachments = [];
   }
 
-  getPostFile(attachmentid){
-      let getfile = Post_filesApi.findOne({ _id: attachmentid });
-      this.filedata = getfile.data;
-  }
-
-  pinup(post) {
+  pinup($event) {
     let posts = this.posts;
+    let post = _.findWhere(posts, { _id: $event.postId });
     for (i = 0; i < posts.length; i++) {
       if (posts[i]._id === post._id && post.pinned === false) {
         post.pinned = true;
@@ -69,25 +40,6 @@ class Posts {
       }
     }
   }
-
-  isTagged(tags) {
-    if (tags[0]===undefined){
-      return false;
-    }
-    this.posttags="tags: "+tags.join();
-    return true;
-  }
-
-  love(post) {
-    if (post.loved === true) {
-      post.love--;
-      post.loved = false;
-    } else {
-      post.love++;
-      post.loved = true;
-    }
-  }
-
 }
 
 const name = 'posts';

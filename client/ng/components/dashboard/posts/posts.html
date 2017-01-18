@@ -3,7 +3,7 @@
   <newpost></newpost>
 
   <div ng-repeat="post in $ctrl.posts">
-    <post post="post"></post>
+    <post post="post" on-pinup="$ctrl.pinup($event)"></post>
   </div>
 
 </div>
