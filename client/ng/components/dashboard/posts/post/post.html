@@ -7,7 +7,7 @@
             <span class="post-display-name">Maciej Posłuszny</span>
           </div>
           <div flex class="post-time">
-            <span>{{post.time}}</span>
+            <span>{{ $ctrl.post.time }}</span>
           </div>
         </div>
         <div flex>
@@ -16,11 +16,11 @@
       </div>
     </div>
     <div class="post-body">
-      <p>{{post.text}}</p>
+      <p>{{ $ctrl.post.text }}</p>
     </div>
     <div>
       <div ng-repeat="attachment in post.attachments">
-        <a download={{attachment.name}}  ng-href="{{$ctrl.filedata}}" ng-click="$ctrl.getPostFile(attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{attachment.name}} </small></p></a>
+        <a download="{{ $ctrl.attachment.name }}"  ng-href="{{ $ctrl.filedata }}" ng-click="$ctrl.getPostFile($ctrl.attachment.id)" target="_blank"><p><small><md-icon>file_download</md-icon> {{ $ctrl.attachment.name }} </small></p></a>
       </div>
     </div>
     <div class="post-controls" layout="row">
@@ -28,12 +28,12 @@
         <md-button ng-class="post.loved ? 'md-accent': 'false'" ng-click="$ctrl.love(post)">
           <md-tooltip>Thank you!</md-tooltip>
           <md-icon>favorite</md-icon>
-          <span>{{post.love}}</span>
+          <span>{{ $ctrl.post.love }}</span>
         </md-button>
         <md-button>
           <md-tooltip>Talk about this</md-tooltip>
           <md-icon>forum</md-icon>
-          <span>{{post.talk}}</span>
+          <span>{{ $ctrl.post.talk }}</span>
         </md-button>
       </div>
       <div flex>
