@@ -33,7 +33,12 @@ class AvatarUpload {
     };
   }
 
-  getAvatar() {
+  displayName() {
+    let profile = Meteor.user().profile;
+    return `${profile.name} ${profile.surname}`;
+  }
+
+  avatar() {
     if (this.uploadedAvatar) {
       return this.uploadedAvatar.data;
     }
