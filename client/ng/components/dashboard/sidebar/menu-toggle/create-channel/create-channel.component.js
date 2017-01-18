@@ -31,7 +31,11 @@ class CreateChannel {
       name: this.channel.name
     };
 
-    console.log(channel);
+    if(_.isObject(Groups.findOne({_id: this.groupId, 'channels.id': channel.id}))) {
+      console.log('channel already exists in this group!');
+      return false;
+    }
+
     Groups.update({ _id: this.groupId }, { $push: { channels: channel }});
     this.close();
   }

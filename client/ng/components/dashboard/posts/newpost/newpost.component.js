@@ -1,9 +1,9 @@
 // jshint esversion: 6
-
 import module from './newpost.module';
 import template from './newpost.html';
 import { Posts as PostsApi } from '/imports/api/posts';
 import { Post_files as Post_filesApi } from '/imports/api/post_files';
+import { Meteor } from 'meteor/meteor';
 
 
 class NewPost {
@@ -77,7 +77,6 @@ class NewPost {
         callback(newFile);
       };
 
-
       let insertPostFile = (uploadfile) => {
         let insert_id = Post_filesApi.insert(uploadfile);
         preparePost(insert_id);
@@ -95,6 +94,11 @@ class NewPost {
     });
 
     let newPost = {
+      groupId: this.groupId,
+      channelId: this.channelId,
+      author: {
+        _id: Meteor.userId()
+      },
       love: 0,
       talk: 0,
       tags: tags,
@@ -142,5 +146,9 @@ const name = 'newpost';
 
 module.component(name, {
   template,
-  controller: NewPost
+  controller: NewPost,
+  bindings: {
+    groupId: '<',
+    channelId: '<'
+  }
 });

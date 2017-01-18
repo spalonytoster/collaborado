@@ -4,14 +4,14 @@
       <div class="post-author-data" layout="column" flex>
         <div layout="row" flex>
           <div flex>
-            <span class="post-display-name">Maciej Posłuszny</span>
+            <span class="post-display-name">{{ $ctrl.author.profile.name }} {{ $ctrl.author.profile.surname }}</span>
           </div>
           <div flex class="post-time">
             <span>{{ $ctrl.post.time }}</span>
           </div>
         </div>
         <div flex>
-          <span class="post-username">@maciej.posluszny</span>
+          <span class="post-username">@{{ $ctrl.author.profile.login }}</span>
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 <div layout="row" class="container">
-  <sidebar></sidebar>
+  <sidebar on-group-change="$ctrl.groupChanged($event)"
+           on-channel-change="$ctrl.channelChanged($event)">
+  </sidebar>
 
   <div flex layout="column">
     <md-toolbar layout="row" class="md-toolbar-tools" md-whiteframe="2">
@@ -14,7 +16,7 @@
     </md-toolbar>
 
     <md-content flex id="content">
-      <posts></posts>
+      <posts group-id="$ctrl.selectedGroupId" channel-id="$ctrl.selectedChannelId"></posts>
     </md-content>
   </div>
 </div>

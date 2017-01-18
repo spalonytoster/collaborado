@@ -2,6 +2,7 @@
 import module from './post.module';
 import template from './post.html';
 import { Post_files as Post_filesApi } from '/imports/api/post_files';
+import { Meteor } from 'meteor/meteor';
 
 class Post {
   constructor($scope, $reactive, $mdDialog) {
@@ -19,6 +20,13 @@ class Post {
         .ok('Got it!')
       );
     };
+
+    this.helpers({
+      author() {
+        if (!this.post) return undefined;
+        return Meteor.users.findOne({_id: this.post.author._id});
+      }
+    });
    }
 
   getPostFile(attachmentid){

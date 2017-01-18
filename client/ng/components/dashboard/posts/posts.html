@@ -1,6 +1,6 @@
 <div layout="column" layout-align="center none" class="posts">
 
-  <newpost></newpost>
+  <newpost group-id="$ctrl.groupId" channel-id="$ctrl.channelId"></newpost>
 
   <div ng-repeat="post in $ctrl.posts">
     <post post="post" on-pinup="$ctrl.pinup($event)"></post>
