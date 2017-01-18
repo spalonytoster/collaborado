@@ -19,7 +19,7 @@ As simple as that!
 
 - [ ] Dashboard (Maciej)
   - [x] Struktura HTML (8h)
-  - [ ] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
+  - [x] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
   - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
 
 - [x] Sidebar (Maciej)
@@ -32,12 +32,12 @@ As simple as that!
   - [x] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
 
 - [ ] Posty
-  - [ ] Nowy post
+  - [x] Nowy post
     - [x] Struktura HTML (Karol + Maciej) (8h)
     - [x] Obsługa tagów (2h) (Karol)
     - [x] Dodawanie plików (4h) (Karol)
     - [x] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
-    - [ ] Walidacje (2h) (Karol)
+    - [x] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Struktura HTML (Karol + Maciej) (8h)
     - [ ] Możliwość usuwania oraz edycji (4h) (Paweł)
@@ -47,10 +47,10 @@ As simple as that!
     - [ ] Wprowadzenie reguł filtrowania (po tagach, treści postu, zakresie dat) (3h)
 
 - [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (Paweł)
-  - [ ] Struktura HTML (8h)
-  - [ ] Wysyłanie wiadomości za pomocą enter (1h)
+  - [x] Struktura HTML (8h)
+  - [x] Wysyłanie wiadomości za pomocą enter (1h)
 
-- [ ] Logowanie/rejestracja (Karol)
+- [x] Logowanie/rejestracja (Karol)
   - [x] Utworzenie formatki logowania (4h)
   - [x] Utworzenie formatki rejestracji (4h)
   - [x] Routing (/login, /register, przejście do /dashboard) (1h)
