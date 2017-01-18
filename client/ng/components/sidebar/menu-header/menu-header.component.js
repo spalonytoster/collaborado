@@ -2,6 +2,7 @@
 import module from './menu-header.module';
 import template from './menu-header.html';
 import { Meteor } from 'meteor/meteor';
+import { UserSettings } from '/imports/api/user-settings';
 
 class MenuHeader {
   constructor($mdDialog, $scope, $reactive) {
@@ -11,20 +12,23 @@ class MenuHeader {
     $reactive(this).attach($scope);
 
     this.helpers({
-      isLoggedIn() {
-        return _.isString(Meteor.userId());
-      },
-      currentUser() {
-        return Meteor.user();
-      },
       email() {
-        if (_.isUndefined(Meteor.user())) { return undefined; }
+        if (!_.isObject(Meteor.user())) { return null; }
         return _.first(Meteor.user().emails).address;
       },
       displayName() {
-        if (_.isUndefined(Meteor.user())) { return undefined; }
+        if (!_.isObject(Meteor.user())) { return null; }
         let profile = Meteor.user().profile;
         return `${profile.name} ${profile.surname}`;
+      },
+      avatar() {
+        let settings = UserSettings.findOne({ userId: Meteor.userId() });
+        if (!_.isObject(settings)) { return undefined; }
+        return settings.account.avatar.data;
+      },
+      login() {
+        if (!_.isObject(Meteor.user())) { return null; }
+        return Meteor.user().profile.login;
       }
     });
   }

@@ -1,9 +1,10 @@
 <header class="menu-header" style="background-color: rgb(30,136,229);">
   <div class="user-profile" layout="row" layout-padding>
-    <span class="user-avatar"><img src="/images/avatar.png" alt=""/></span>
+    <span class="user-avatar"><img src="{{ $ctrl.avatar }}" alt=""/></span>
     <div layout="column">
       <span>{{ $ctrl.displayName}}</span>
       <span>{{ $ctrl.email }}</span>
+      <span>@{{ $ctrl.login }}</span>
     </div>
     <div style="padding: 0px;">
       <md-button class="md-icon-button" ng-click="$ctrl.openSettings()">
