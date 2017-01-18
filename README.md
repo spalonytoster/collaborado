@@ -17,10 +17,10 @@ As simple as that!
 ### 1. Prototyp (do 9 grudnia)
 (cel: skończony front i podstawowa logika w angularze)
 
-- [ ] Dashboard (Maciej)
+- [x] Dashboard (Maciej)
   - [x] Struktura HTML (8h)
   - [x] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
-  - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
+  - [x] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
 
 - [x] Sidebar (Maciej)
   - [x] Struktura HTML (16h)
