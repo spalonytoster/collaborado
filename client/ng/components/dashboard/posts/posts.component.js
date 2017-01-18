@@ -21,8 +21,20 @@ class Posts {
         }
       });
     };
-   }
 
+    this.showAlert = () => {
+      $mdDialog.show(
+        $mdDialog.alert()
+
+        .clickOutsideToClose(true)
+        .title("Files too big!")
+        .textContent('Due to our server limits files are restricted to 50Mb.')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+      );
+    };
+   }
+   
   init() {
     this.body = "";
     this.tags = "";
@@ -58,7 +70,7 @@ class Posts {
     }
   }
 
-  isTagged(tags){
+  isTagged(tags) {
     if (tags[0]===undefined){
       return false;
     }
