@@ -104,6 +104,12 @@
         </md-button>
       </div>
       <div flex>
+        <md-button class="post-chat" ng-click="$ctrl.chat()" >
+          <md-tooltip>Chat about this</md-tooltip>
+          <md-icon>chat</md-icon>
+        </md-button>
+      </div>
+      <div flex>
         <md-button class="post-pinup" ng-class=" post.pinned ? 'md-warn':'true'" ng-click="$ctrl.pinup(post)" >
           <md-tooltip>Pin / Unpin</md-tooltip>
           <md-icon>announcement</md-icon>

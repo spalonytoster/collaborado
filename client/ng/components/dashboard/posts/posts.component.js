@@ -9,6 +9,7 @@ import { Post_files as Post_filesApi } from '/imports/api/post_files';
 class Posts {
   constructor($scope, $reactive, $mdDialog) {
     'ngInject';
+    this._mdDialog = $mdDialog;
 
     this.showAlert = () => {
       $mdDialog.show(
@@ -139,6 +140,24 @@ class Posts {
         break;
       }
     }
+  }
+
+  chat(event) {
+    let chats = {
+      parent: angular.element(document.body),
+      targetEvent: event,
+      template: `
+        <live-chat></live-chat>
+      `,
+      hasBackdrop: true,
+      // position: position,
+      trapFocus: true,
+      clickOutsideToClose: false,
+      escapeToClose: true,
+      focusOnOpen: true
+    };
+
+    this._mdDialog.show(chats);
   }
 
   isTagged(tags){

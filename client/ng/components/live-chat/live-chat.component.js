@@ -4,8 +4,9 @@ import module from './live-chat.module';
 import template from './live-chat.html';
 
 class LiveChat {
-  constructor() {
+  constructor($mdDialog) {
     'ngInject';
+    this._mdDialog = $mdDialog;
      this.$onInit = () => {
       this.messages = [
         {
