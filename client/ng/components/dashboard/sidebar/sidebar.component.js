@@ -37,6 +37,11 @@ class Sidebar {
     if (this.groups.length === 0) return;
     if ($stateParams.groupId) {
       this.selectedGroup = _.find(this.groups, (group) => group.id === $stateParams.groupId);
+      this.onGroupChange({
+        $event: {
+          groupId: this.selectedGroup.id
+        }
+      });
     }
     else {
       this.selectedGroup = _.first(this.groups);
@@ -50,12 +55,25 @@ class Sidebar {
 
     let selectedChannel = _.find(this.channels, (channel) => channel.id === $stateParams.channelId);
     this.selectedChannel = selectedChannel;
+    if (_.isObject(this.selectedChannel)) {
+      this.onChannelChange({
+        $event: {
+          channelId: this.selectedChannel.id
+        }
+      });
+    }
   }
 
   selectGroup(event) {
     this.selectedGroup = event.selected;
     delete this.selectedChannel;
     this.channels = _.find(this.groups, (group) => group.id === this.selectedGroup.id);
+
+    this.onGroupChange({
+      $event: {
+        groupId: this.selectedGroup.id
+      }
+    });
 
     // setting timeout for animation to finish
     setTimeout(() => {
@@ -65,6 +83,11 @@ class Sidebar {
 
   selectChannel(event) {
     this.selectedChannel = event.selected;
+    this.onChannelChange({
+      $event: {
+        channelId: this.selectedChannel.id
+      }
+    });
 
     // setting timeout for animation to finish
     setTimeout(() => {
@@ -83,5 +106,9 @@ const name = 'sidebar';
 
 module.component(name, {
   template,
-  controller: Sidebar
+  controller: Sidebar,
+  bindings: {
+    onGroupChange: '&',
+    onChannelChange: '&'
+  }
 });

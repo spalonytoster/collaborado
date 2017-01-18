@@ -1,21 +1,28 @@
 // jshint esversion: 6
-
 import module from './posts.module';
 import template from './posts.html';
 import { Posts as PostsApi } from '/imports/api/posts';
 
 class Posts {
-  constructor($scope, $reactive, $mdDialog) {
+  constructor($scope, $reactive, $mdDialog, $timeout) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
     this.$onInit = () => {
-      this.helpers({
-        posts() {
-          return PostsApi.find({});
-        }
-      });
+      // inaczej ni timeoutem nie dało rady...
+      $timeout(() => {
+        this.helpers({
+          posts() {
+            if (this.groupId || this.channelId) {
+              if (this.channelId) {
+                return PostsApi.find({groupId: this.groupId, channelId: this.channelId});
+              }
+              return PostsApi.find({groupId: this.groupId});
+            }
+          }
+        });
+      }, 1000);
     };
   }
 
@@ -46,5 +53,9 @@ const name = 'posts';
 
 module.component(name, {
   template,
-  controller: Posts
+  controller: Posts,
+  bindings: {
+    groupId: '<',
+    channelId: '<'
+  }
 });

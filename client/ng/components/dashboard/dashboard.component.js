@@ -15,6 +15,14 @@ class Collaborado {
       $mdSidenav('left').toggle();
     };
   }
+
+  groupChanged($event) {
+    this.selectedGroupId = $event.groupId;
+  }
+
+  channelChanged($event) {
+    this.selectedChannelId = $event.channelId;
+  }
 }
 
 const name = 'dashboard';
