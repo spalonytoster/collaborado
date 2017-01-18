@@ -3,25 +3,11 @@ import module from './sidebar.module';
 import template from './sidebar.html';
 import { Groups } from '/imports/api/groups';
 import { Tracker } from 'meteor/tracker';
+import { Meteor } from 'meteor/meteor';
 
 class Sidebar {
   constructor($scope, $reactive, $state, $stateParams, $timeout) {
     'ngInject';
-
-    // $reactive(this).attach($scope);
-
-    this.$onInit = () => {
-      // mock data
-      this.user = {
-        login: "spalonytoster",
-        name: "Maciej",
-        surname: "Posłuszny",
-        get displayName() {
-          return `${this.name} ${this.surname}`;
-        }
-      };
-      // end
-    };
 
     Tracker.autorun(() => {
       this.groups = Groups.find({}).fetch();
@@ -87,11 +73,9 @@ class Sidebar {
   }
 
   checkUserChannelCreationPermission() {
-    // TODO: na sztywno pobierany jest login usera zdefiniowanego dla prototypu
-    // trzeba zamienic na user._id po podpieciu backendu
     if (!this.selectedGroup) return false;
     let selectedGroup = _.find(this.groups, (group) => group.id === this.selectedGroup.id);
-    return _.contains(selectedGroup.administrators, this.user.login);
+    return _.contains(selectedGroup.administrators, Meteor.userId());
   }
 }
 
