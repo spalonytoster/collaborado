@@ -5,6 +5,7 @@ import module from './create-group.module';
 import groupTypes from './group-types.json';
 import { Groups } from '/imports/api/groups';
 import Group from '/imports/models/group';
+import { Meteor } from 'meteor/meteor';
 
 class CreateGroup {
   constructor() {
@@ -36,13 +37,12 @@ class CreateGroup {
         icon: this.group.type.icon,
         name: this.group.type.name
       },
-      administrators: ['spalonytoster'],
+      administrators: [Meteor.userId()],
       description: this.group.description,
       channels: [],
       moderators: []
     };
 
-    console.log(group);
     Groups.insert(group);
     this.close();
   }
