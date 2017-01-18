@@ -13,7 +13,7 @@ class Posts {
     this.$onInit = () => {
       this.helpers({
         posts() {
-          return PostsApi.find();
+          return PostsApi.find({});
         }
       });
     };

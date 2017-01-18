@@ -1,0 +1,25 @@
+<md-sidenav md-is-locked-open="$mdMedia('gt-sm')"
+            md-component-id="left"
+            class="md-sidenav-left container sidebar"
+            md-whiteframe="2">
+
+  <menu-header></menu-header>
+
+  <md-content class="menu" flex role="navigation" style="background-color: rgb(25, 118, 210);">
+    <menu-toggle name="groups"
+                 children="$ctrl.groups"
+                 selected="$ctrl.selectedGroup"
+                 on-selected="$ctrl.selectGroup($event)"
+                 creation-enabled="true"
+                 create-component="create-group">
+    </menu-toggle>
+    <menu-toggle name="channels"
+                 children="$ctrl.channels"
+                 selected="$ctrl.selectedChannel"
+                 on-selected="$ctrl.selectChannel($event)"
+                 creation-enabled="$ctrl.checkUserChannelCreationPermission()"
+                 create-component="create-channel"
+                 group-id="$ctrl.selectedGroup._id">
+    </menu-toggle>
+  </md-content>
+</md-sidenav>
