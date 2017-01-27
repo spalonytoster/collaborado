@@ -57,14 +57,14 @@ As simple as that!
   - [x] Walidacje (2h)
 
 ### 2. Wersja alpha (do 19 stycznia)
-(cel: zamiana frontendowych zaślepek na działający backend)
+(cel: zamiana frontendowych zaślepek na działający backend - dotyczy wszystkich funkcjonalności z prototypu)
 
-- [ ] Dashboard
-- [ ] Sidebar
-- [ ] Posty
+- [x] Dashboard
+- [x] Sidebar
+- [x] Posty
   - [ ] Timestampy (integracja z Moment.js) (2h)
 - [ ] Live-chat
   - [ ] Timestampy (integracja z Moment.js) (2h)
-- [ ] Logowanie/rejestracja
-  - [ ] Sposób bezpiecznej autentykacji (przykład na stronie angular meteor)
-  - [ ] Możliwość logowania za pomocą loginu oraz email
+- [x] Logowanie/rejestracja
+  - [x] Sposób bezpiecznej autentykacji (przykład na stronie angular meteor)
+  - [x] Możliwość logowania za pomocą loginu oraz email
