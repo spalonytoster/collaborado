@@ -3,6 +3,7 @@ import module from './post.module';
 import template from './post.html';
 import { Post_files as Post_filesApi } from '/imports/api/post_files';
 import { Meteor } from 'meteor/meteor';
+import { UserSettings } from '/imports/api/user-settings';
 
 class Post {
   constructor($scope, $reactive, $mdDialog) {
@@ -25,6 +26,11 @@ class Post {
       author() {
         if (!this.post) return undefined;
         return Meteor.users.findOne({_id: this.post.author._id});
+      },
+      avatar() {
+        let settings = UserSettings.findOne({ userId: Meteor.userId() });
+        if (!_.isObject(settings)) { return undefined; }
+        return settings.account.avatar.data;
       }
     });
    }
