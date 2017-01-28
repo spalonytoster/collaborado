@@ -17,10 +17,10 @@ As simple as that!
 ### 1. Prototyp (do 9 grudnia)
 (cel: skończony front i podstawowa logika w angularze)
 
-- [ ] Dashboard (Maciej)
+- [x] Dashboard (Maciej)
   - [x] Struktura HTML (8h)
-  - [ ] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
-  - [ ] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
+  - [x] Połączenie z komponentem logowania celem odbierania danych użytkownika (1h)
+  - [x] Wyświetlanie postów ze wszystkich channeli w grupie (komunikacja Sidebar <-> Posts poprzez Dashboard) (2h)
 
 - [x] Sidebar (Maciej)
   - [x] Struktura HTML (16h)
@@ -32,12 +32,12 @@ As simple as that!
   - [x] Mechanizm wybierania grup i channeli (kliknięcie w grupę resetuje channel) (1h)
 
 - [ ] Posty
-  - [ ] Nowy post
+  - [x] Nowy post
     - [x] Struktura HTML (Karol + Maciej) (8h)
     - [x] Obsługa tagów (2h) (Karol)
     - [x] Dodawanie plików (4h) (Karol)
     - [x] Flaga przypięty post (przypięte posty wyświetlane są jako pierwsze) (4h) (Karol)
-    - [ ] Walidacje (2h) (Karol)
+    - [x] Walidacje (2h) (Karol)
   - [ ] Post
     - [x] Struktura HTML (Karol + Maciej) (8h)
     - [ ] Możliwość usuwania oraz edycji (4h) (Paweł)
@@ -47,24 +47,24 @@ As simple as that!
     - [ ] Wprowadzenie reguł filtrowania (po tagach, treści postu, zakresie dat) (3h)
 
 - [ ] Live-chat (frontend tutaj jest prosty, natomiast backend już nie będzie taki trywialny) (Paweł)
-  - [ ] Struktura HTML (8h)
-  - [ ] Wysyłanie wiadomości za pomocą enter (1h)
+  - [x] Struktura HTML (8h)
+  - [x] Wysyłanie wiadomości za pomocą enter (1h)
 
-- [ ] Logowanie/rejestracja (Karol)
+- [x] Logowanie/rejestracja (Karol)
   - [x] Utworzenie formatki logowania (4h)
   - [x] Utworzenie formatki rejestracji (4h)
   - [x] Routing (/login, /register, przejście do /dashboard) (1h)
   - [x] Walidacje (2h)
 
 ### 2. Wersja alpha (do 19 stycznia)
-(cel: zamiana frontendowych zaślepek na działający backend)
+(cel: zamiana frontendowych zaślepek na działający backend - dotyczy wszystkich funkcjonalności z prototypu)
 
-- [ ] Dashboard
-- [ ] Sidebar
-- [ ] Posty
+- [x] Dashboard
+- [x] Sidebar
+- [x] Posty
   - [ ] Timestampy (integracja z Moment.js) (2h)
 - [ ] Live-chat
   - [ ] Timestampy (integracja z Moment.js) (2h)
-- [ ] Logowanie/rejestracja
-  - [ ] Sposób bezpiecznej autentykacji (przykład na stronie angular meteor)
-  - [ ] Możliwość logowania za pomocą loginu oraz email
+- [x] Logowanie/rejestracja
+  - [x] Sposób bezpiecznej autentykacji (przykład na stronie angular meteor)
+  - [x] Możliwość logowania za pomocą loginu oraz email
